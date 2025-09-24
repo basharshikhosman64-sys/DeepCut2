@@ -1,0 +1,336 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "city": "City",
+    "partner": "Partner",
+    "vehicle": "Vehicle",
+    "company": "Company",
+    "contact": "Contact Us"
+  },
+
+  "HomePage": {
+    "Hero": {
+      "title": "Move freely with Beam",
+      "description": "Change the future starting with yourself by using Beam now.",
+      "buttons": {
+        "viewGarage": "View Beam Garage",
+        "downloadApp": "Download App"
+      }
+    },
+    "Feature": {
+      "tag": "Our Features",
+      "title": "Group Travel",
+      "description": "Enjoy exciting trips with friends and family using the Group Travel feature, where you can ride together using a single account. This feature is available in select cities.",
+      "button": "Learn more"
+    },
+    "Help": {
+      "title": "Still have questions?",
+      "description": "If you want to learn more about Beam or are interested in partnering with us, we are happy to assist you. Contact us now and let's create something great together.",
+      "button": "Contact us"
+    }
+  },
+
+  "Mission": {
+    "tag": "Mission",
+    "text1": "We have a mission to turn small journeys into better journeys, and",
+    "text2": "make the city walk",
+    "text3": "better for everyone."
+  },
+
+  "Priority": {
+    "tag": "Our Priority",
+    "title": "Sustainability",
+    "description": "Beam is the only operator in the Asia-Pacific with Climate Neutral Certification. And because we’re committed to going further, we’re determined to achieve Carbon Negative by 2025.",
+    "button": "Learn more",
+    "tabs": {
+      "sustainability": "Sustainability",
+      "safety": "Safety",
+      "community": "Community"
+    }
+  },
+
+  "Vehicle": {
+    "tag": "Vehicles",
+    "title": "Vehicles",
+    "description": "Our electric scooters and bikes, designed for sharing, provide a comfortable and reliable riding experience tailored to your daily needs."
+  },
+
+  "News": {
+    "tag": "News",
+    "title": "Latest News",
+    "description": "Stay updated with the latest news and exciting updates about our city, community, and programs.",
+    "button": "Show More",
+    "news": [
+      {
+        "category": "APAC",
+        "description": "Beam accelerates growth with a 36% surge in gross revenue, achieving adjusted EBITDA profitability.",
+        "date": "07 October 2024"
+      },
+      {
+        "category": "APAC",
+        "description": "Beam initiates pedestrian shield technology integration.",
+        "date": "26 September 2024"
+      },
+      {
+        "category": "APAC",
+        "description": "Beam launches summer safety campaign",
+        "date": "12 September 2024"
+      }
+    ]
+  },
+
+  "Partnership": {
+    "tag": "Strategic Partnership",
+    "title": "Reimagining your city.",
+    "description": "We want to partner with you to drive something new today.",
+    "partnerships": [
+      {
+        "title": "Collaborating, with cities",
+        "subtitle": "We are fully committed to partnering with governments at all levels to make city life work better for everyone.",
+        "imageAlt": "Partnership Image 1",
+        "iconAlt": "Building Office Icon"
+      },
+      {
+        "title": "Partnering, with us",
+        "subtitle": "Wherever we operate, we strive to grow our operations through collaboration with local communities.",
+        "imageAlt": "Partnership Image 2",
+        "iconAlt": "User Group Icon"
+      },
+      {
+        "title": "Beam safety academy",
+        "subtitle": "We work hard to ensure every Beam user is mindful of the riding environment and uses shared city spaces responsibly.",
+        "imageAlt": "Partnership Image 3",
+        "iconAlt": "Shield Check Icon"
+      }
+    ],
+    "buttons": {
+      "prev": "Previous",
+      "next": "Next"
+    }
+  },
+
+  "GarageLocation": {
+    "tag": "Beam garage location",
+    "countries": [
+      {
+        "country": "Turkey",
+        "cities": ["Ankara", "Antalya", "Mugla"]
+      },
+      {
+        "country": "Indonesia",
+        "cities": [
+          "Bali",
+          "Bekasi",
+          "Bogor",
+          "Cikarang",
+          "Depok",
+          "Tanggerang",
+          "Tanggerang Selatan"
+        ]
+      },
+      {
+        "country": "Malaysia",
+        "cities": [
+          "Johor",
+          "Kedah",
+          "Kuala Lumpur",
+          "Kuala Trengganu",
+          "Kuantan",
+          "Selangor",
+          "Melaka",
+          "Negeri Sembilan",
+          "Perak",
+          "Pahang",
+          "Penang",
+          "Sabah",
+          "Sarawak"
+        ]
+      },
+      {
+        "country": "South Korea",
+        "cities": [
+          "Ansan",
+          "Asan",
+          "Buc-Bupyeong",
+          "Busan",
+          "Changwon",
+          "Cheonan",
+          "Cheongju",
+          "Chuncheon",
+          "Daegu",
+          "Daejeon",
+          "Incheon",
+          "Seoul"
+        ]
+      },
+      {
+        "country": "Japan",
+        "cities": ["Naha", "Osaka", "Minami Uonuma"]
+      },
+      {
+        "country": "Thailand",
+        "cities": [
+          "Bangkok",
+          "Chiangmai",
+          "Chonburi",
+          "Pathum Thani",
+          "Depok",
+          "Phuket"
+        ]
+      },
+      {
+        "country": "Australia",
+        "cities": [
+          "Adelaide",
+          "Albury",
+          "Bendigo",
+          "Broome",
+          "Burnburry",
+          "Cairns",
+          "Darwin",
+          "Esperance",
+          "Foster-Tuncurry",
+          "Geraldton",
+          "Harvey Bay",
+          "Hobart",
+          "Ipswich",
+          "Kogarah",
+          "Launceston"
+        ]
+      },
+      {
+        "country": "New Zealand",
+        "cities": [
+          "Napier",
+          "Porirua",
+          "Queenstown",
+          "Taupō",
+          "Tauranga",
+          "Whangārei"
+        ]
+      }
+    ]
+  },
+
+  "VehicleSafety": {
+    "tag": "Vehicle safety",
+    "title1": "Safety",
+    "desc1": "For us, safety is not just about vehicles but also about riders, pedestrians, and the communities we pass through. Our technology ensures maximum safety for everyone.",
+    "title2": "Carbon footprint",
+    "desc2": "In Asia Pacific, Beam is the only Climate Neutral Certified electric mobility operator. We continuously work to reduce our carbon footprint for a greener future.",
+    "title3": "Boosting local businesses",
+    "desc3": "Our #BeamBooster platform leverages technology and location data to connect users with local businesses, helping to increase their revenue.",
+    "title4": "Job opportunities",
+    "desc4": "Our Beam Marshals program creates job opportunities in local communities, providing additional income and supporting the regional economy.",
+    "title5": "Data for urban planning",
+    "desc5": "We believe that data is key to better city planning. Our data helps governments design more efficient infrastructure."
+  },
+
+  "Footer": {
+    "BeamMobility": "Beam Mobility",
+    "Copyright": "Copyright 2024 ©",
+    "CopyrightCompany": "Beam Mobility Holdings Pte. Ltd.",
+    "Links": {
+      "Kota": "Cities",
+      "Mitra": "Partners",
+      "Pengendara": "Riders",
+      "Perusahaan": "Company",
+      "KotaYangBeroperasi": "Operating cities",
+      "BermitraDenganKami": "Partner with us",
+      "PerjalananGrup": "Group rides",
+      "BeamBooster": "#BeamBooster",
+      "PesanKendaraanBeam": "Book a Beam vehicle",
+      "BerkendaraDenganKami": "Ride with us",
+      "UnduhAplikasi": "Download the app",
+      "Karir": "Careers",
+      "KendaraanKami": "Our vehicles",
+      "PrioritasKami": "Our priorities",
+      "Berita": "News"
+    }
+  },
+
+  "CityPage": {
+    "Hero": {
+      "title": "City",
+      "description": "Beam is a global leader in micromobility, operating electric bikes, scooters, and mopeds in over 60 cities across Asia Pacific.",
+      "downloadButton": "Download App"
+    },
+    "Help": {
+      "title": "Want Beam in your city?",
+      "description": "Are you a local or city government official who wants to learn more about how shared micromobility systems can be implemented in your city?",
+      "bringBeamButton": "Bring Beam to Your City"
+    }
+  },
+
+  "DownloadPage": {
+    "title": "Get Started with Beam",
+    "description": "Find, unlock, and ride Beam in a nearby city. Depart within minutes, easy and quick. Available on iOS and Android.",
+    "iosButton": "Download for iOS",
+    "androidButton": "Download for Android"
+  },
+
+  "PartnerPage": {
+    "hero": {
+      "title": "Partner",
+      "description": "If you care about a better future through sustainable transportation, let's talk. We want to hear your ideas and suggestions!"
+    },
+    "buttons": {
+      "downloadApp": "Download App",
+      "collaborateNow": "Collaborate Now"
+    },
+    "feature": {
+      "tag": "Partnership Program",
+      "title": "#BeamBooster",
+      "description": "Helping local businesses connect with Beam users to increase footfall, exposure, and revenue.",
+      "button": "Learn More"
+    },
+    "help": {
+      "title": "Let's collaborate!",
+      "description": "Partnering with us can mean many things—from simple collaborations to long-term strategic partnerships. We're open to discussions and finding the best solutions with you."
+    }
+  },
+
+  "Benefit": {
+    "tag": "Benefit",
+    "title": "Our Benefits",
+    "description": "At Beam, we are fully committed to collaborating with organizations of all types and sizes to make urban life better for everyone.",
+    "items": {
+      "businessSolutions": "Business Solutions",
+      "brandingAndAdvertising": "Branding and Advertising",
+      "higherEducationPartnership": "Partnership with Higher Education"
+    }
+  },
+
+  "Testimonial": {
+    "tag": "Testimonial from partners",
+    "quotes": [
+      {
+        "quote": "#BeamBooster is a smart initiative using Beam electric scooters to bring more people to our doors. We are thrilled to be involved.",
+        "author": "Helen Rutherford",
+        "position": "Commissioner"
+      },
+      {
+        "quote": "This program has helped increase daily visitors to our store. The Beam scooters are eye-catching, and we’ve seen a positive impact.",
+        "author": "Jane Smith",
+        "position": "Manager of ABC Store"
+      },
+      {
+        "quote": "We were highly impressed with the direct impact of #BeamBooster. This is a brilliant innovation supporting local businesses like ours.",
+        "author": "Michael Brown",
+        "position": "CEO of DEF Restaurant"
+      }
+    ]
+  },
+
+  "QrCode": {
+    "title": "You can also download the Beam app via the QR Code below.",
+    "android": {
+      "title": "Android",
+      "description": "Enjoy seamless travel with Beam. Find, unlock, and ride scooters in your city with our Android app."
+    },
+    "ios": {
+      "title": "iOS",
+      "description": "Enjoy seamless travel with Beam. Find, unlock, and ride scooters in your city with our iOS app."
+    }
+  }
+}
