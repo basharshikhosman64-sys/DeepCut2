@@ -2,8 +2,13 @@
 
 import Button from '@/components/Button'; // Using your custom Button
 import NewsCard from '@/components/NewsCard'; // Using your NewsCard
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { useState } from 'react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../../../components/UI/card';
 import image1 from '/public/assets/images/contact-1.jpg';
 import image2 from '/public/assets/images/contact-2.jpg';
 import image3 from '/public/assets/images/contact-3.jpg';
