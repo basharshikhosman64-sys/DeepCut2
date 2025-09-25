@@ -9,7 +9,6 @@ import News from '@/sections/News';
 import Partnership from '@/sections/Partnership';
 import Priority from '@/sections/Priority';
 import Vehicle from '@/sections/Vehicle';
-import Videos from '@/sections/Videos';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -98,7 +97,7 @@ export default function Home() {
           </>
         </Hero>
         <Mission />
-        <Videos />
+        {/* <Videos /> */}
         <Priority />
         <Vehicle />
         <Feature

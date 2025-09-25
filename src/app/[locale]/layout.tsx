@@ -8,8 +8,8 @@ import { notFound } from 'next/navigation';
 import '../../styles/global.css';
 
 export const metadata: Metadata = {
-  title: 'Beam',
-  description: 'Beam - Modern Design Website Landing Page',
+  title: 'DeepCut',
+  description: 'DeepCut - Modern Design Website Landing Page',
 };
 
 type Locale = 'en' | 'fr' | 'id';
