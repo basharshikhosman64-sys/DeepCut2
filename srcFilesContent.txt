@@ -1,0 +1,2524 @@
+
+# Directory: src\app
+
+# Directory: src\app\fonts
+
+===== File: src\app\layout.tsx =====
+import "../styles/global.css";
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+}
+
+export default async function RootLayout({ children }: RootLayoutProps) {
+  return children;
+}
+
+
+===== File: src\app\not-found.tsx =====
+import Button from "@/components/Button";
+import Link from "next/link";
+import React from "react";
+
+export default function NotFound() {
+  return (
+    <html className="flex items-center justify-center h-screen bg-background-whitebg">
+      <body className="flex flex-col items-center justify-center text-center p-4 md:p-6">
+        <h1 className="text-title font-extrabold text-text-blackPrimary mb-4">
+          404
+        </h1>
+        <p className="text-h4 text-text-blackSecondary mb-6">
+          Oops! The page you&apos;re looking for doesn&apos;t exist.
+        </p>
+        <Link href="/">
+          <Button variant="primary">Go Back to Home</Button>
+        </Link>
+      </body>
+    </html>
+  );
+}
+
+
+# Directory: src\app\[locale]
+
+# Directory: src\app\[locale]\city
+
+===== File: src\app\[locale]\city\page.tsx =====
+"use client";
+import { AccessibilityIcon } from "../../../../public/assets/icons/AccessibilityIcon";
+import { ArrowRightLongIcon } from "../../../../public/assets/icons/ArrowRightLongIcon";
+import Button from "@/components/Button";
+import GarageLocation from "@/sections/GarageLocation";
+import Help from "@/sections/Help";
+import Hero from "@/sections/Hero";
+import VehicleSafety from "@/sections/VehicleSafety";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
+
+export default function City() {
+  const tHero = useTranslations("CityPage.Hero");
+  const tHelp = useTranslations("CityPage.Help");
+  const pathname = usePathname();
+
+  const currentLocale = pathname.split("/")[1] || "id";
+
+  return (
+    <>
+      <Hero
+        title={tHero("title")}
+        description={tHero("description")}
+        backgroundClass="bg-hero-city-pattern"
+      >
+        <div className="flex flex-col md:flex-row gap-3 mt-11">
+          <Link href={`/${currentLocale}/download`}>
+            <Button
+              variant="primary"
+              icon={<ArrowRightLongIcon />}
+              iconPosition="right"
+            >
+              {tHero("downloadButton")}
+            </Button>
+          </Link>
+        </div>
+        <Button
+          variant="secondary"
+          icon={<AccessibilityIcon />}
+          className="px-[10px]"
+        ></Button>
+      </Hero>
+      <GarageLocation />
+      <VehicleSafety />
+      <Help
+        title={tHelp("title")}
+        description={tHelp("description")}
+        backgroundClass="bg-city-pattern"
+      >
+        <Button
+          variant="primary"
+          icon={<ArrowRightLongIcon />}
+          iconPosition="right"
+        >
+          {tHelp("bringBeamButton")}
+        </Button>
+      </Help>
+    </>
+  );
+}
+
+
+# Directory: src\app\[locale]\download
+
+===== File: src\app\[locale]\download\page.tsx =====
+import { AccessibilityIcon } from "../../../../public/assets/icons/AccessibilityIcon";
+import Button from "@/components/Button";
+import Hero from "@/sections/Hero";
+import QrCode from "@/sections/QrCode";
+import { useTranslations } from "next-intl";
+import React from "react";
+
+export default function Download() {
+  const t = useTranslations("DownloadPage");
+  return (
+    <>
+      <Hero
+        title={t("title")}
+        description={t("description")}
+        backgroundClass="bg-hero-download-pattern"
+      >
+        <>
+          <div className="flex flex-col md:flex-row gap-3 mt-11">
+            <Button variant="primary">{t("iosButton")}</Button>
+            <Button variant="primary">{t("androidButton")}</Button>
+          </div>
+          <Button
+            variant="secondary"
+            icon={<AccessibilityIcon />}
+            className="px-[10px]"
+          ></Button>
+        </>
+      </Hero>
+      <QrCode />
+    </>
+  );
+}
+
+
+===== File: src\app\[locale]\layout.tsx =====
+import { routing } from '@/i18n/routing';
+import Footer from '@/sections/Footer';
+import Navbar from '@/sections/Navbar';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import '../../styles/global.css';
+
+export const metadata: Metadata = {
+  title: 'Beam',
+  description: 'Beam - Modern Design Website Landing Page',
+};
+
+type Locale = 'en' | 'fr' | 'id';
+
+interface RootLayoutProps {
+  children: React.ReactNode;
+  params: Promise<{ locale: Locale }>; // ✅ make params async
+}
+
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
+  const { locale } = await params; // ✅ await before destructuring
+
+  if (!routing.locales.includes(locale)) {
+    notFound();
+  }
+
+  const messages = await getMessages();
+
+  return (
+    <html lang={locale}>
+      <body className='relative font-sans bg-background-whitebg antialiased'>
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+          {children}
+          <Footer />
+        </NextIntlClientProvider>
+      </body>
+    </html>
+  );
+}
+
+
+===== File: src\app\[locale]\page.tsx =====
+'use client';
+
+import Button from '@/components/Button';
+import Feature from '@/sections/Feature';
+import Help from '@/sections/Help';
+import Hero from '@/sections/Hero';
+import Mission from '@/sections/Mission';
+import News from '@/sections/News';
+import Partnership from '@/sections/Partnership';
+import Priority from '@/sections/Priority';
+import Vehicle from '@/sections/Vehicle';
+import Videos from '@/sections/Videos';
+import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { AccessibilityIcon } from '../../../public/assets/icons/AccessibilityIcon';
+import { ArrowRightLongIcon } from '../../../public/assets/icons/ArrowRightLongIcon';
+import { MapPinIcon } from '../../../public/assets/icons/MapPinIcon';
+import { PhoneWhiteIcon } from '../../../public/assets/icons/PhoneWhiteIcon';
+
+export default function Home() {
+  const [showOverlay, setShowOverlay] = useState(true); // overlay active at start
+  const tHero = useTranslations('HomePage.Hero');
+  const tFeature = useTranslations('HomePage.Feature');
+  const tHelp = useTranslations('HomePage.Help');
+  const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1] || 'id';
+
+  // Optional: only show once (persist in localStorage)
+  useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const savedChoice = localStorage.getItem('genderChoice');
+    // if (savedChoice) setShowOverlay(false);
+  }, []);
+
+  const handleChoice = (choice: string) => {
+    localStorage.setItem('genderChoice', choice);
+    setShowOverlay(false);
+    console.log('User selected:', choice);
+  };
+
+  return (
+    <>
+      {/* Overlay */}
+      {showOverlay && (
+        <div className='fixed inset-0 z-50 flex'>
+          <button
+            onClick={() => handleChoice('Male')}
+            className='flex-1 bg-blue-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
+          >
+            Male
+          </button>
+          <button
+            onClick={() => handleChoice('Female')}
+            className='flex-1 bg-pink-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
+          >
+            Female
+          </button>
+          <button
+            onClick={() => handleChoice('Prefer not to say')}
+            className='flex-1 bg-gray-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
+          >
+            Prefer not to say
+          </button>
+        </div>
+      )}
+
+      {/* Main content (blurred while overlay is active) */}
+      <div
+        className={showOverlay ? 'blur-md pointer-events-none select-none' : ''}
+      >
+        <Hero
+          title={tHero('title')}
+          description={tHero('description')}
+          backgroundClass='bg-hero-pattern'
+        >
+          <>
+            <div className='flex flex-col md:flex-row gap-3 mt-11'>
+              <Button variant='secondary' icon={<MapPinIcon />}>
+                {tHero('buttons.viewGarage')}
+              </Button>
+              <Link href={`/${currentLocale}/download`}>
+                <Button
+                  variant='primary'
+                  icon={<ArrowRightLongIcon />}
+                  iconPosition='right'
+                >
+                  {tHero('buttons.downloadApp')}
+                </Button>
+              </Link>
+            </div>
+            <Button
+              variant='secondary'
+              icon={<AccessibilityIcon />}
+              className='px-[10px]'
+            />
+          </>
+        </Hero>
+        <Mission />
+        <Videos />
+        <Priority />
+        <Vehicle />
+        <Feature
+          tag={tFeature('tag')}
+          title={tFeature('title')}
+          description={tFeature('description')}
+          button={tFeature('button')}
+        />
+        <News />
+        <Partnership />
+        <Help
+          title={tHelp('title')}
+          description={tHelp('description')}
+          backgroundClass='bg-help-pattern'
+        >
+          <Button
+            variant='primary'
+            icon={<PhoneWhiteIcon />}
+            iconPosition='right'
+          >
+            {tHelp('button')}
+          </Button>
+        </Help>
+      </div>
+    </>
+  );
+}
+
+
+# Directory: src\app\[locale]\partner
+
+===== File: src\app\[locale]\partner\page.tsx =====
+"use client";
+import { AccessibilityIcon } from "../../../../public/assets/icons/AccessibilityIcon";
+import { ArrowRightLongIcon } from "../../../../public/assets/icons/ArrowRightLongIcon";
+import { useTranslations } from "next-intl";
+import Button from "@/components/Button";
+import Benefits from "@/sections/Benefits";
+import Feature from "@/sections/Feature";
+import Help from "@/sections/Help";
+import Hero from "@/sections/Hero";
+import Testimonial from "@/sections/Testimonial";
+import Link from "next/link";
+import React from "react";
+import { usePathname } from "next/navigation";
+
+export default function Partner() {
+  const t = useTranslations("PartnerPage");
+  const pathname = usePathname();
+
+  const currentLocale = pathname.split("/")[1] || "id";
+  return (
+    <>
+      <Hero
+        title={t("hero.title")}
+        description={t("hero.description")}
+        backgroundClass="bg-hero-partner-pattern"
+      >
+        <div className="flex flex-col md:flex-row gap-3 mt-11">
+          <Link href={`/${currentLocale}/download`}>
+            <Button
+              variant="primary"
+              icon={<ArrowRightLongIcon />}
+              iconPosition="right"
+            >
+              {t("buttons.downloadApp")}
+            </Button>
+          </Link>
+        </div>
+        <Button
+          variant="secondary"
+          icon={<AccessibilityIcon />}
+          className="px-[10px]"
+        ></Button>
+      </Hero>
+      <Benefits />
+      <Feature
+        tag={t("feature.tag")}
+        title={t("feature.title")}
+        description={t("feature.description")}
+        button={t("feature.button")}
+      />
+      <Testimonial />
+      <Help
+        title={t("help.title")}
+        description={t("help.description")}
+        backgroundClass="bg-partner-pattern"
+      >
+        <Button
+          variant="primary"
+          icon={<ArrowRightLongIcon />}
+          iconPosition="right"
+        >
+          {t("buttons.collaborateNow")}
+        </Button>
+      </Help>
+    </>
+  );
+}
+
+
+# Directory: src\components
+
+===== File: src\components\Button.tsx =====
+'use client';
+import { cva } from 'class-variance-authority';
+import { useRouter } from 'next/navigation';
+import React, { ButtonHTMLAttributes, ReactNode } from 'react';
+
+// ✅ Minimal helper to merge class names
+function cn(...classes: (string | undefined | null | false)[]) {
+  return classes.filter(Boolean).join(' ');
+}
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center gap-2 font-medium rounded-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none select-none',
+  {
+    variants: {
+      variant: {
+        primary:
+          'bg-primary-500 text-white shadow-sm hover:bg-primary-600 active:scale-[0.98] focus-visible:ring-primary-500',
+        secondary:
+          'bg-secondary-100 text-gray-900 hover:bg-secondary-200 active:scale-[0.98] focus-visible:ring-secondary-500',
+        tertiary:
+          'bg-tertiary-700 text-white hover:bg-tertiary-800 active:scale-[0.98] focus-visible:ring-tertiary-500',
+        ghost:
+          'bg-transparent text-gray-700 hover:bg-gray-100 active:scale-[0.98] focus-visible:ring-gray-300',
+      },
+      size: {
+        sm: 'h-9 px-3 text-sm',
+        md: 'h-11 px-5 text-sm',
+        lg: 'h-12 px-6 text-base',
+      },
+      fullWidth: {
+        true: 'w-full',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'md',
+      fullWidth: false,
+    },
+  }
+);
+
+export default function Button(
+  props: {
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost';
+    size?: 'sm' | 'md' | 'lg';
+    fullWidth?: boolean;
+    icon?: ReactNode;
+    iconPosition?: 'left' | 'right';
+    navigateTo?: string;
+  } & ButtonHTMLAttributes<HTMLButtonElement>
+) {
+  const {
+    variant,
+    className,
+    size,
+    fullWidth,
+    icon,
+    children,
+    iconPosition = 'left',
+    navigateTo,
+    onClick,
+    ...otherProps
+  } = props;
+
+  const router = useRouter();
+
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (navigateTo) {
+      router.push(navigateTo);
+    }
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  return (
+    <button
+      className={cn(buttonVariants({ variant, size, fullWidth }), className)}
+      onClick={handleClick}
+      {...otherProps}
+    >
+      {icon && iconPosition === 'left' && <span className='mr-1'>{icon}</span>}
+      {children}
+      {icon && iconPosition === 'right' && <span className='ml-1'>{icon}</span>}
+    </button>
+  );
+}
+
+
+===== File: src\components\ChangeLanguage.tsx =====
+"use client";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname } from "next/navigation";
+import React, { useState, useTransition } from "react";
+import Image from "next/image";
+
+interface Country {
+  code: string;
+  flag: string;
+  value: string;
+}
+
+const countries: Country[] = [
+  { code: "ID", value: "id", flag: "/flags/id.svg" },
+  { code: "EN", value: "en", flag: "/flags/en.svg" },
+  { code: "FR", value: "fr", flag: "/flags/fr.svg" },
+];
+
+export default function ChangeLanguage() {
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const pathname = usePathname(); // Get the current pathname
+  const localActive = useLocale();
+
+  // Set the initial selected country based on the current locale
+  const [selectedCountry, setSelectedCountry] = useState<Country>(
+    countries.find((c) => c.value === localActive) || countries[0]
+  );
+
+  const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedValue = event.target.value;
+
+    startTransition(() => {
+      // Replace the locale part of the pathname with the selected language
+      const newPath = pathname.replace(/^\/[a-z]{2}/, `/${selectedValue}`);
+      router.replace(newPath); // Redirect to the updated path
+    });
+
+    const country = countries.find((c) => c.value === selectedValue);
+    if (country) {
+      setSelectedCountry(country);
+    }
+  };
+
+  return (
+    <div className="flex items-center gap-2 bg-text-blackSecondary lg:bg-others-stack px-4 rounded-lg">
+      <Image
+        src={selectedCountry.flag}
+        alt={`${selectedCountry.code} flag`}
+        width={16}
+        height={15}
+        className="w-4 h-[15px]"
+      />
+      <select
+        value={selectedCountry.value}
+        onChange={handleCountryChange}
+        disabled={isPending}
+        className="h-11 bg-text-blackSecondary lg:bg-others-stack text-text-whitePrimary focus:outline-none"
+      >
+        {countries.map((country) => (
+          <option
+            key={country.code}
+            value={country.value}
+            className="text-text-whitePrimary bg-text-blackSecondary lg:bg-others-stack"
+          >
+            {country.code}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+
+===== File: src\components\CityGrid.tsx =====
+interface CityGridProps {
+  cities: string[];
+}
+
+const CityGrid = ({ cities }: CityGridProps) => {
+  return (
+    <div className="grid grid-cols-2 lg:grid-cols-4 items-center mt-3 gap-y-2">
+      {cities.map((city, index) => (
+        <p
+          key={index}
+          className="text-text-blackSecondary text-body2 whitespace-nowrap"
+        >
+          {city}
+        </p>
+      ))}
+    </div>
+  );
+};
+
+export default CityGrid;
+
+
+===== File: src\components\CountryList.tsx =====
+import CityGrid from "./CityGrid";
+
+type Country = {
+  country: string;
+  cities: string[];
+};
+
+type CountryListProps = {
+  countries: Country[];
+};
+
+const CountryList = ({ countries }: CountryListProps) => {
+  return (
+    <div className="flex flex-col gap-16">
+      {countries.map((country, index) => (
+        <div key={index} className="flex flex-col">
+          <h4 className="text-h4 text-text-blackPrimary font-medium">
+            {country.country}
+          </h4>
+          <CityGrid cities={country.cities} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default CountryList;
+
+
+===== File: src\components\DashedBorderContainer.tsx =====
+import { ReactNode } from "react";
+import Image from "next/image";
+import bulletIcon from "../../public/assets/images/bullet-icon.svg";
+import { twMerge } from "tailwind-merge";
+
+interface DashedBorderContainerProps {
+  children: ReactNode;
+  showTop?: boolean;
+  showBottom?: boolean;
+  showLeft?: boolean;
+  showRight?: boolean;
+  className?: string;
+}
+
+export default function DashedBorderContainer({
+  children,
+  showTop = true,
+  showBottom = true,
+  showLeft = true,
+  showRight = true,
+  className,
+}: DashedBorderContainerProps) {
+  return (
+    <div
+      className={twMerge(
+        `relative ${
+          showTop ? "border-t border-others-santasGray border-dashed" : ""
+        } ${
+          showBottom ? "border-b border-others-santasGray border-dashed" : ""
+        }`
+      )}
+    >
+      <div
+        className={twMerge(
+          "relative container max-w-xs md:max-w-[44rem] lg:max-w-6xl py-16",
+          showLeft && "border-l border-others-santasGray border-dashed",
+          showRight && "border-r border-others-santasGray border-dashed",
+          className
+        )}
+      >
+        {/* Bullet Icons */}
+        {showTop && showLeft && (
+          <div className="absolute z-10 -top-1 -left-1">
+            <Image
+              src={bulletIcon}
+              alt="Bullet icon"
+              className="size-2"
+              draggable="false"
+            />
+          </div>
+        )}
+        {showTop && showRight && (
+          <div className="absolute z-10 -top-1 -right-1">
+            <Image
+              src={bulletIcon}
+              alt="Bullet icon"
+              className="size-2"
+              draggable="false"
+            />
+          </div>
+        )}
+        {showBottom && showLeft && (
+          <div className="absolute z-10 -bottom-1 -left-1">
+            <Image
+              src={bulletIcon}
+              alt="Bullet icon"
+              className="size-2"
+              draggable="false"
+            />
+          </div>
+        )}
+        {showBottom && showRight && (
+          <div className="absolute z-10 -bottom-1 -right-1">
+            <Image
+              src={bulletIcon}
+              alt="Bullet icon"
+              className="size-2"
+              draggable="false"
+            />
+          </div>
+        )}
+        {children}
+      </div>
+    </div>
+  );
+}
+
+
+===== File: src\components\NewsCard.tsx =====
+import Image, { StaticImageData } from "next/image";
+
+interface NewsCardProps {
+  imageSrc: string | StaticImageData;
+  imageAlt: string;
+  category: string;
+  description: string;
+  date: string;
+}
+
+export default function NewsCard({
+  imageSrc,
+  imageAlt,
+  category,
+  description,
+  date,
+}: NewsCardProps) {
+  return (
+    <div className="flex flex-col items-center">
+      <div>
+        <Image
+          src={imageSrc}
+          alt={imageAlt}
+          className="w-full object-cover rounded-2xl"
+          width={1000}
+          height={1000}
+        />
+      </div>
+      <div className="mt-3">
+        <h4 className="text-kategori font-medium text-text-purple2">
+          {category}
+        </h4>
+        <p className="mt-2 text-text-blackPrimary text-sm w-[90%]">
+          {description}
+        </p>
+        <div className="mt-1 flex gap-2 items-center">
+          <span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8 4V8H11M14 8C14 8.78793 13.8448 9.56815 13.5433 10.2961C13.2417 11.0241 12.7998 11.6855 12.2426 12.2426C11.6855 12.7998 11.0241 13.2417 10.2961 13.5433C9.56815 13.8448 8.78793 14 8 14C7.21207 14 6.43185 13.8448 5.7039 13.5433C4.97595 13.2417 4.31451 12.7998 3.75736 12.2426C3.20021 11.6855 2.75825 11.0241 2.45672 10.2961C2.15519 9.56815 2 8.78793 2 8C2 6.4087 2.63214 4.88258 3.75736 3.75736C4.88258 2.63214 6.4087 2 8 2C9.5913 2 11.1174 2.63214 12.2426 3.75736C13.3679 4.88258 14 6.4087 14 8Z"
+                stroke="#808080"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </span>
+          <span className="text-body3 text-text-blackSecondary">{date}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+===== File: src\components\PartnershipCard.tsx =====
+import Image, { StaticImageData } from "next/image";
+import React from "react";
+import Button from "./Button";
+
+interface PartnershipCardProps {
+  title: string;
+  subtitle: string;
+  imageSrc: string | StaticImageData;
+  imageAlt: string;
+  iconSrc: string;
+  buttonIcon: React.ReactNode;
+}
+
+export default function PartnershipCard({
+  title,
+  subtitle,
+  imageSrc,
+  imageAlt,
+  iconSrc,
+  buttonIcon,
+}: PartnershipCardProps) {
+  return (
+    <div className="relative overflow-hidden w-full md:max-w-[564px] bg-gradientTertiary hover:bg-gradientTertiaryHover transition-all duration-300 ease-in-out rounded-[1.75rem] flex flex-shrink-0">
+      <div className="flex flex-col w-full gap-6 p-5 md:p-10">
+        {/* Header Section */}
+        <div className="flex items-start gap-3">
+          <Image
+            src={iconSrc}
+            alt="Icon"
+            className="mt-2 w-6 h-6"
+            width={24}
+            height={24}
+          />
+          <div>
+            <h4 className="text-h5 md:text-h4 text-text-blackPrimary font-medium">
+              <span className="text-text-purple1">{title.split(",")[0]}</span>
+              {title.split(",")[1] && ` ${title.split(",")[1].trim()}`}
+            </h4>
+            <p className="text-body3 text-text-blackSecondary mt-2">
+              {subtitle}
+            </p>
+          </div>
+        </div>
+
+        {/* Content Section */}
+        <div className="relative flex items-end justify-between mt-6">
+          {/* Image */}
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            className="w-[150px] md:w-[350px] h-auto rounded-t-xl -mb-5 md:-mb-10"
+          />
+          {/* Button */}
+          <div>
+            <Button variant="tertiary">{buttonIcon}</Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+===== File: src\components\Tag.tsx =====
+import React, { HTMLAttributes } from "react";
+
+export default function Tag(props: HTMLAttributes<HTMLDivElement>) {
+  const { children } = props;
+  return (
+    <div className="inline-flex w-fit border bg-secondary-50 border-secondary-300 rounded-[10px] gap-2 text-text-purple1 px-2.5 py-2 items-center">
+      <span className="text-sm">{children}</span>
+    </div>
+  );
+}
+
+
+===== File: src\components\VehicleCard.tsx =====
+"use client";
+
+import React from "react";
+import Button from "./Button";
+import Image, { StaticImageData } from "next/image";
+import ArrowRightWhiteIcon from "../../public/assets/icons/ArrowRightWhiteIcon";
+
+interface VehicleCardProps {
+  imageSrc: string | StaticImageData;
+  title: string;
+}
+
+export default function VehicleCard({ imageSrc, title }: VehicleCardProps) {
+  return (
+    <div className="bg-gradientPrimary hover:bg-gradientPrimaryHover transition-all duration-300 ease-in-out rounded-3xl">
+      <div className="flex flex-col px-6 md:px-10 pb-6 md:pb-10 pt-6">
+        <div className="flex items-center justify-center">
+          <Image
+            src={imageSrc}
+            alt={`${title} image`}
+            className="w-[254px] h-auto"
+            width={254}
+            height={254}
+            priority
+          />
+        </div>
+        <div className="flex items-center justify-between mt-7">
+          <h4 className="text-h5 md:text-h4 font-medium text-text-blackPrimary">
+            {title}
+          </h4>
+          <Button
+            variant="tertiary"
+            icon={<ArrowRightWhiteIcon />}
+            aria-label={`View details of ${title}`}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+===== File: src\components\VehicleSafetyCard.tsx =====
+import React from "react";
+import Tag from "./Tag";
+import Image, { StaticImageData } from "next/image";
+
+type VehicleSafetyCardProps = {
+  tag: string;
+  title: string;
+  description: string;
+  imageSrc: StaticImageData;
+  imageAlt: string;
+  textPosition?: "left" | "right";
+  imagePosition?: "left" | "right";
+};
+
+export default function VehicleSafetyCard({
+  tag,
+  title,
+  description,
+  imageSrc,
+  imageAlt,
+  textPosition = "left",
+  imagePosition = "right",
+}: VehicleSafetyCardProps) {
+  const isTextLeft = textPosition === "left";
+  const isImageLeft = imagePosition === "left";
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
+      {/* Konten Teks */}
+      <div
+        className={`flex flex-col ${
+          isTextLeft ? "order-1 lg:order-1" : "order-1 lg:order-2"
+        }`}
+      >
+        <div>
+          <Tag>{tag}</Tag>
+        </div>
+        <div>
+          <h3 className="mt-8 text-h3 text-text-blackPrimary font-medium">
+            {title}
+          </h3>
+          <p className="mt-3 text-text-blackSecondary text-body1">
+            {description}
+          </p>
+        </div>
+      </div>
+
+      {/* Konten Gambar */}
+      <div
+        className={`flex justify-end ${
+          isImageLeft ? "mr-auto order-2 md:order-1" : "order-2 md:order-2"
+        }`}
+      >
+        <div className="flex items-center justify-center bg-gradientPrimary rounded-3xl w-full md:w-[33rem] md:h-[25rem] p-6 md:p-16">
+          <Image
+            src={imageSrc}
+            alt={imageAlt}
+            className="w-full md:w-[24rem] h-auto"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+# Directory: src\i18n
+
+===== File: src\i18n\request.ts =====
+import { getRequestConfig } from "next-intl/server";
+import { routing } from "./routing";
+
+// Tentukan tipe Locale
+type Locale = "en" | "fr" | "id"; // Sesuaikan dengan routing.locales
+
+export default getRequestConfig(async ({ requestLocale }) => {
+  // Menunggu hasil requestLocale yang bisa berupa string atau undefined
+  let locale: string | undefined = await requestLocale;
+
+  // Pastikan locale valid dan termasuk dalam routing.locales
+  if (locale && routing.locales.includes(locale as Locale)) {
+    // locale sudah valid, tidak perlu perubahan
+  } else {
+    // Jika locale tidak valid atau undefined, setel nilai default
+    locale = routing.defaultLocale;
+  }
+
+  return {
+    locale,
+    messages: (await import(`../../messages/${locale}.json`)).default,
+  };
+});
+
+
+===== File: src\i18n\routing.ts =====
+import { defineRouting } from "next-intl/routing";
+import { createNavigation } from "next-intl/navigation";
+
+export const routing = defineRouting({
+  // A list of all locales that are supported
+  locales: ["id", "en", "fr"],
+
+  // Used when no locale matches
+  defaultLocale: "id",
+});
+
+// Lightweight wrappers around Next.js' navigation APIs
+// that will consider the routing configuration
+export const { Link, redirect, usePathname, useRouter, getPathname } =
+  createNavigation(routing);
+
+
+===== File: src\middleware.ts =====
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
+
+export default createMiddleware(routing);
+
+export const config = {
+  // Match only internationalized pathnames
+  matcher: ["/", "/(id|en|fr)/:path*"],
+};
+
+
+# Directory: src\sections
+
+===== File: src\sections\Benefits.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import Image from "next/image";
+import React from "react";
+import CheckCircleIcon from "../../public/assets/icons/CheckCircleIcon";
+import vectorBenefit from "../../public/assets/images/vector-benefit.svg";
+import { useTranslations } from "next-intl";
+
+export default function Benefits() {
+  const t = useTranslations("Benefit");
+  return (
+    <section>
+      <DashedBorderContainer>
+        <div className="text-center max-w-[37rem] mx-auto">
+          <div>
+            <Tag>{t("tag")}</Tag>
+          </div>
+          <div>
+            <h3 className="mt-8 text-h3 text-text-blackPrimary font-medium">
+              {t("title")}
+            </h3>
+            <p className="text-body1 text-text-blackSecondary mt-3">
+              {t("description")}
+            </p>
+          </div>
+        </div>
+        <div className="relative mt-14 grid grid-cols-1 lg:grid-cols-3 items-center max-w-4xl mx-auto gap-y-2">
+          <div className="absolute -z-10">
+            <Image src={vectorBenefit} alt="Vector benefit" />
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="size-10">
+              <CheckCircleIcon />
+            </div>
+            <span className="text-h4 font-medium text-text-blackPrimary">
+              {t("items.businessSolutions")}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="size-10">
+              <CheckCircleIcon />
+            </div>
+            <span className="text-h4 font-medium text-text-blackPrimary">
+              {t("items.brandingAndAdvertising")}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="size-10">
+              <CheckCircleIcon />
+            </div>
+            <span className="text-h4 font-medium text-text-blackPrimary">
+              {t("items.higherEducationPartnership")}
+            </span>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Feature.tsx =====
+"use client";
+import Button from "@/components/Button";
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import Image from "next/image";
+import imageFeature1 from "../../public/assets/images/feature-image1.png";
+import imageFeature2 from "../../public/assets/images/feature-image1.png";
+import imageFeature3 from "../../public/assets/images/feature-image1.png";
+import { useState } from "react";
+import ArrowRightBlackIcon from "../../public/assets/icons/ArrowRightBlackIcon";
+import ArrowLeftBlackIcon from "../../public/assets/icons/ArrowLeftBlackIcon";
+import { ArrowRightLongIcon } from "../../public/assets/icons/ArrowRightLongIcon";
+
+type FeatureProps = {
+  tag: string;
+  title: string;
+  description: string;
+  button: string;
+};
+
+const images = [
+  { src: imageFeature1, alt: "Feature image 1" },
+  { src: imageFeature2, alt: "Feature image 2" },
+  { src: imageFeature3, alt: "Feature image 3" },
+];
+
+export default function Feature({
+  tag,
+  title,
+  description,
+  button,
+}: FeatureProps) {
+  // State untuk menyimpan indeks gambar yang sedang ditampilkan
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  // Fungsi untuk navigasi ke gambar berikutnya
+  const nextImage = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  // Fungsi untuk navigasi ke gambar sebelumnya
+  const prevImage = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+    );
+  };
+
+  return (
+    <section>
+      <DashedBorderContainer showTop={false}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 items-center">
+          <div className="flex flex-col">
+            <Tag>{tag}</Tag>
+            <h3 className="mt-8 text-text-blackPrimary text-h3 font-medium">
+              {title}
+            </h3>
+            <p className="mt-3 text-text-blackSecondary text-body1">
+              {description}
+            </p>
+            <div className="mt-6">
+              <Button
+                variant="tertiary"
+                icon={<ArrowRightLongIcon />}
+                iconPosition="right"
+              >
+                {button}
+              </Button>
+            </div>
+          </div>
+          <div className="flex justify-end">
+            <div className="w-[530px] flex flex-col gap-4">
+              <div className="w-full md:h-[348px] mx-auto bg-gradientPrimary rounded-3xl">
+                <div className="flex items-center justify-center p-10">
+                  <Image
+                    src={images[currentIndex].src}
+                    alt={images[currentIndex].alt}
+                    className="w-full md:w-[382px] object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span>{`${currentIndex + 1}/${images.length}`}</span>
+                <div className="flex items-center gap-3">
+                  <Button
+                    variant="secondary"
+                    icon={<ArrowLeftBlackIcon />}
+                    className="border border-tertiary-200"
+                    onClick={prevImage}
+                  />
+                  <Button
+                    variant="secondary"
+                    icon={<ArrowRightBlackIcon />}
+                    className="border border-tertiary-200"
+                    onClick={nextImage}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Footer.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Image from "next/image";
+import vectorFooterImage from "../../public/assets/images/vector-footer.webp";
+import logoPrimary from "../../public/assets/images/logo-primary.svg";
+import instagramIcon from "../../public/assets/images/instagram-icon.svg";
+import facebookIcon from "../../public/assets/images/facebook-icon.svg";
+import linkedinIcon from "../../public/assets/images/linkedin-icon.svg";
+import { useTranslations } from "next-intl";
+
+const footerLinks = [
+  {
+    key: "Kota",
+    links: ["KotaYangBeroperasi"],
+  },
+  {
+    key: "Mitra",
+    links: ["BermitraDenganKami"],
+  },
+  {
+    key: "Pengendara",
+    links: [
+      "PerjalananGrup",
+      "BeamBooster",
+      "PesanKendaraanBeam",
+      "BerkendaraDenganKami",
+    ],
+  },
+  {
+    key: "Perusahaan",
+    links: [
+      "UnduhAplikasi",
+      "Karir",
+      "KendaraanKami",
+      "PrioritasKami",
+      "Berita",
+    ],
+  },
+];
+
+export default function Footer() {
+  const t = useTranslations("Footer");
+
+  return (
+    <footer className="relative pb-5">
+      <DashedBorderContainer showBottom={false}>
+        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+          <div className="flex items-start gap-6 md:gap-10">
+            <div>
+              <Image src={logoPrimary} alt="Beam logo" className="size-12" />
+            </div>
+            <div>
+              <h2 className="w-full md:w-40 text-h4 md:text-h2 text-primary-500 font-semibold">
+                {t("BeamMobility")}
+              </h2>
+              <div className="mt-4 md:mt-8">
+                <p className="text-body4 text-text-blackSecondary">
+                  <span>{t("Copyright")}</span> <br />
+                  <span>{t("CopyrightCompany")}</span>
+                </p>
+              </div>
+              <div className="mt-5 flex items-center gap-3">
+                <div>
+                  <Image
+                    src={instagramIcon}
+                    alt="Instagram icon"
+                    className="size-4"
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={facebookIcon}
+                    alt="Facebook icon"
+                    className="size-4"
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={linkedinIcon}
+                    alt="Linkedin icon"
+                    className="size-4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex lg:justify-end">
+            <div className="grid grid-cols-2 md:grid-cols-[repeat(4,_140px)] items-start gap-7 xl:gap-10">
+              {footerLinks.map((section, index) => (
+                <div key={index}>
+                  <h3 className="font-medium text-text-blackPrimary">
+                    {t(`Links.${section.key}`)}
+                  </h3>
+                  <div className="flex flex-col gap-1 mt-3">
+                    {section.links.map((link, linkIndex) => (
+                      <a
+                        key={linkIndex}
+                        href="#"
+                        className="block text-body4 text-tertiary-700"
+                      >
+                        {t(`Links.${link}`)}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </DashedBorderContainer>
+      <div className="absolute bottom-0 left-0 -z-10">
+        <Image src={vectorFooterImage} alt="Vector image" draggable="false" />
+      </div>
+    </footer>
+  );
+}
+
+
+===== File: src\sections\GarageLocation.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import Image from "next/image";
+import React from "react";
+import globeImage from "../../public/assets/images/globe-image.png";
+import vectorLocationGarage from "../../public/assets/images/vector-location-garage.svg";
+import CountryList from "@/components/CountryList";
+import { useTranslations } from "next-intl";
+
+// const countriesData = [
+//   {
+//     country: "Turkey",
+//     cities: ["Ankara", "Antalya", "Mugla"],
+//   },
+//   {
+//     country: "Indonesia",
+//     cities: [
+//       "Bali",
+//       "Bekasi",
+//       "Bogor",
+//       "Cikarang",
+//       "Depok",
+//       "Tanggerang",
+//       "Tanggerang Selatan",
+//     ],
+//   },
+//   {
+//     country: "Malaysia",
+//     cities: [
+//       "Johor",
+//       "Kedah",
+//       "Kuala Lumpur",
+//       "Kuala Trengganu",
+//       "Kuantan",
+//       "Selangor",
+//       "Melaka",
+//       "Negeri Sembilan",
+//       "Perak",
+//       "Pahang",
+//       "Penang",
+//       "Sabah",
+//       "Sarawak",
+//     ],
+//   },
+//   {
+//     country: "Korea Selatan",
+//     cities: [
+//       "Ansan",
+//       "Asan",
+//       "Buc-Bupyeong",
+//       "Busan",
+//       "Changwon",
+//       "Cheonan",
+//       "Cheongju",
+//       "Chuncheon",
+//       "Daegu",
+//       "Daejeon",
+//       "Incheon",
+//       "Seoul",
+//     ],
+//   },
+//   {
+//     country: "Jepang",
+//     cities: ["Naha", "Osaka", "Minami Uonuma"],
+//   },
+//   {
+//     country: "Thailand",
+//     cities: [
+//       "Bangkok",
+//       "Chiangmai",
+//       "Chonburi",
+//       "Pathum Thani",
+//       "Depok",
+//       "Phuket",
+//     ],
+//   },
+//   {
+//     country: "Australia",
+//     cities: [
+//       "Adelaide",
+//       "Albury",
+//       "Bendigo",
+//       "Broome",
+//       "Burnburry",
+//       "Cairns",
+//       "Darwin",
+//       "Esperance",
+//       "Foster-Tuncurry",
+//       "Geraldton",
+//       "Harvey Bay",
+//       "Hobart",
+//       "Ipswich",
+//       "Kogarah",
+//       "Launceston",
+//     ],
+//   },
+//   {
+//     country: "Selandia Baru",
+//     cities: [
+//       "Napier",
+//       "Porirua",
+//       "Queenstown",
+//       "Taupō",
+//       "Tauranga",
+//       "Whangārei",
+//     ],
+//   },
+// ];
+
+export default function GarageLocation() {
+  const t = useTranslations("GarageLocation");
+
+  const countriesData = [
+    {
+      country: t("countries.0.country"),
+      cities: [
+        t("countries.0.cities.0"),
+        t("countries.0.cities.1"),
+        t("countries.0.cities.2"),
+      ],
+    },
+    {
+      country: t("countries.1.country"),
+      cities: [
+        t("countries.1.cities.0"),
+        t("countries.1.cities.1"),
+        t("countries.1.cities.2"),
+        t("countries.1.cities.3"),
+        t("countries.1.cities.4"),
+        t("countries.1.cities.5"),
+        t("countries.1.cities.6"),
+      ],
+    },
+    {
+      country: t("countries.2.country"),
+      cities: [
+        t("countries.2.cities.0"),
+        t("countries.2.cities.1"),
+        t("countries.2.cities.2"),
+        t("countries.2.cities.3"),
+        t("countries.2.cities.4"),
+        t("countries.2.cities.5"),
+        t("countries.2.cities.6"),
+        t("countries.2.cities.7"),
+        t("countries.2.cities.8"),
+        t("countries.2.cities.9"),
+        t("countries.2.cities.10"),
+        t("countries.2.cities.11"),
+        t("countries.2.cities.12"),
+      ],
+    },
+    {
+      country: t("countries.3.country"),
+      cities: [
+        t("countries.3.cities.0"),
+        t("countries.3.cities.1"),
+        t("countries.3.cities.2"),
+        t("countries.3.cities.3"),
+        t("countries.3.cities.4"),
+        t("countries.3.cities.5"),
+        t("countries.3.cities.6"),
+        t("countries.3.cities.7"),
+        t("countries.3.cities.8"),
+        t("countries.3.cities.9"),
+        t("countries.3.cities.10"),
+        t("countries.3.cities.11"),
+      ],
+    },
+    {
+      country: t("countries.4.country"),
+      cities: [
+        t("countries.4.cities.0"),
+        t("countries.4.cities.1"),
+        t("countries.4.cities.2"),
+      ],
+    },
+    {
+      country: t("countries.5.country"),
+      cities: [
+        t("countries.5.cities.0"),
+        t("countries.5.cities.1"),
+        t("countries.5.cities.2"),
+        t("countries.5.cities.3"),
+        t("countries.5.cities.4"),
+        t("countries.5.cities.5"),
+      ],
+    },
+    {
+      country: t("countries.6.country"),
+      cities: [
+        t("countries.6.cities.0"),
+        t("countries.6.cities.1"),
+        t("countries.6.cities.2"),
+        t("countries.6.cities.3"),
+        t("countries.6.cities.4"),
+        t("countries.6.cities.5"),
+        t("countries.6.cities.6"),
+        t("countries.6.cities.7"),
+        t("countries.6.cities.8"),
+        t("countries.6.cities.9"),
+        t("countries.6.cities.10"),
+        t("countries.6.cities.11"),
+        t("countries.6.cities.12"),
+      ],
+    },
+    {
+      country: t("countries.7.country"),
+      cities: [
+        t("countries.7.cities.0"),
+        t("countries.7.cities.1"),
+        t("countries.7.cities.2"),
+        t("countries.7.cities.3"),
+        t("countries.7.cities.4"),
+        t("countries.7.cities.5"),
+      ],
+    },
+  ];
+
+  return (
+    <section>
+      <div className="relative">
+        <Image
+          src={vectorLocationGarage}
+          alt="Vector location garage"
+          className="absolute -z-10 left-0 w-full top-52 md:top-72 xl:top-40 2xl:top-0"
+        />
+
+        <DashedBorderContainer>
+          <div>
+            <div className="flex justify-center">
+              <Tag>{t("tag")}</Tag>
+            </div>
+            <div className="w-full flex justify-center mt-6">
+              <Image
+                src={globeImage}
+                alt="Globe image location"
+                className="w-full md:max-w-2xl"
+              />
+            </div>
+          </div>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+            <CountryList countries={countriesData.slice(0, 4)} />
+            <CountryList countries={countriesData.slice(4)} />
+          </div>
+        </DashedBorderContainer>
+      </div>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Help.tsx =====
+import bulletIcon from "../../public/assets/images/bullet-icon.svg";
+import Image from "next/image";
+
+type HelpProps = {
+  title: string;
+  description: string;
+  backgroundClass: string;
+  children: React.ReactNode;
+};
+
+export default function Help({
+  title,
+  description,
+  backgroundClass,
+  children,
+}: HelpProps) {
+  return (
+    <section>
+      <div className="relative container max-w-xs md:max-w-[44rem] lg:max-w-6xl pt-10 border-x border-others-santasGray border-dashed">
+        <div className="absolute z-10 -top-[5px] -left-1">
+          <Image
+            src={bulletIcon}
+            alt="Bullet icon"
+            className="size-2"
+            draggable="false"
+          />
+        </div>
+
+        <div className="absolute z-10 -top-[5px] -right-1">
+          <Image
+            src={bulletIcon}
+            alt="Bullet icon"
+            className="size-2"
+            draggable="false"
+          />
+        </div>
+      </div>
+      <div
+        className={`relative z-20 container lg:px-16 w-full bg-cover bg-center ${backgroundClass} xl:rounded-[2rem]`}
+      >
+        <div className="flex flex-col justify-center w-full md:max-w-[720px] h-[496px]">
+          <h1 className="text-h2 md:text-h1 font-semibold text-text-whitePrimary">
+            {title}
+          </h1>
+          <p className="text-body1 text-text-whiteSecondary mt-3">
+            {description}
+          </p>
+          <div className="mt-8">{children}</div>
+        </div>
+      </div>
+      <div className="relative container max-w-xs md:max-w-[44rem] lg:max-w-6xl pt-10 border-x border-others-santasGray border-dashed"></div>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Hero.tsx =====
+type HeroProps = {
+  title: string;
+  description: string;
+  backgroundClass: string;
+  children: React.ReactNode;
+};
+
+export default function Hero({
+  title,
+  description,
+  backgroundClass,
+  children,
+}: HeroProps) {
+  return (
+    <section className="xl:px-7 xl:pt-7">
+      <div
+        className={`container lg:px-16 w-full h-[42.5rem] bg-cover bg-center xl:rounded-[2rem] ${backgroundClass}`}
+      >
+        <div className="flex flex-col items-start justify-center h-full mx-auto">
+          <h1 className="text-text-whitePrimary text-6xl md:text-title font-semibold mt-32 w-full md:w-[519px]">
+            {title}
+          </h1>
+          <p className="mt-3 text-body1 text-text-whiteSecondary w-full md:w-[519px]">
+            {description}
+          </p>
+          <div className="flex items-end justify-between w-full">
+            {children}
+          </div>
+        </div>
+      </div>
+      <div className="container max-w-xs md:max-w-[44rem] lg:max-w-6xl pb-10 border-x border-others-santasGray border-dashed"></div>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Mission.tsx =====
+import Image from "next/image";
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import vectorMisi from "../../public/assets/images/vector-misi.svg";
+import misiImage1 from "../../public/assets/images/misi-image1.png";
+import misiImage2 from "../../public/assets/images/misi-image2.png";
+import { useTranslations } from "next-intl";
+
+export default function Mission() {
+  const t = useTranslations("Mission");
+  return (
+    <section>
+      <DashedBorderContainer>
+        {/* Vector Background */}
+        <div className="absolute -z-10 top-0 left-0 hidden md:block">
+          <Image
+            src={vectorMisi}
+            alt="Vector misi"
+            className="w-full h-fit"
+            draggable="false"
+          />
+        </div>
+
+        {/* Tag */}
+        <div className="flex justify-center">
+          <Tag>{t("tag")}</Tag>
+        </div>
+
+        {/* Content */}
+        <div className="max-w-4xl mx-auto relative">
+          {/* Images */}
+          <div className="absolute z-10 top-11 -left-6 hidden lg:block">
+            <Image
+              src={misiImage1}
+              alt="Misi image 1"
+              className="w-20 h-12 rounded-md"
+            />
+          </div>
+          <div className="absolute z-10 top-4 -right-11 hidden lg:block">
+            <Image
+              src={misiImage2}
+              alt="Misi image 2"
+              className="w-20 h-12 rounded-md"
+            />
+          </div>
+
+          {/* Text */}
+          <div className="relative z-20">
+            <h3 className="text-h4 md:text-h3 text-center text-text-blackPrimary font-medium mt-8">
+              {t("text1")}{" "}
+              <span className="text-primary-500">{t("text2")}</span>{" "}
+              {t("text3")}
+            </h3>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Navbar.tsx =====
+"use client";
+
+import Image from "next/image";
+import logoPrimary from "../../public/assets/images/logo-primary.svg";
+import Button from "@/components/Button";
+import ChangeLanguage from "@/components/ChangeLanguage";
+import { PhoneWhiteIcon } from "../../public/assets/icons/PhoneWhiteIcon";
+import Link from "next/link";
+import MenuIcon from "../../public/assets/icons/MenuIcon";
+import { useEffect, useState } from "react";
+import CloseIcon from "../../public/assets/icons/CloseIcon";
+import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+
+const navLinks = [
+  { key: "city", path: "/city" },
+  { key: "partner", path: "/partner" },
+  { key: "vehicle", path: "#vehicle" },
+  { key: "company", path: "#company" },
+];
+
+export default function Navbar() {
+  const t = useTranslations("Navbar");
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Extract the current locale from the path (e.g., /en, /id)
+  const currentLocale = pathname.split("/")[1] || "id"; // Default to "en"
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 30); // Change state if scroll > 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    // <header className="absolute pt-4 md:pt-8 lg:pt-0 lg:top-14 left-0 w-full z-30 bg-transparent">
+    <header
+      className={`fixed left-0 w-full z-30 transition-colors duration-300 ${
+        isScrolled
+          ? "py-4 top-0 md:py-6 lg:top-0 bg-background-whitebg/25 backdrop-blur shadow-md"
+          : "bg-transparent pt-4 md:pt-6 lg:pt-0 lg:mt-14"
+      }`}
+    >
+      <div className="container mx-auto lg:px-16">
+        <div className="grid grid-cols-2 lg:grid-cols-3 items-center">
+          <Link href={`/${currentLocale}`}>
+            <Image
+              src={logoPrimary}
+              alt="Logo image"
+              className="w-[54px] h:auto"
+            />
+          </Link>
+          <div className="lg:flex items-center justify-center hidden">
+            <nav className="flex px-5 py-3 gap-6 rounded-xl bg-others-stack/50 backdrop-blur">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.key}
+                  href={`/${currentLocale}${link.path}`}
+                  className="px-2 text-secondary-50 font-medium text-sm"
+                >
+                  {t(link.key)}
+                </Link>
+              ))}
+            </nav>
+          </div>
+          <div className="flex justify-end gap-3">
+            <div className="md:flex gap-3 hidden">
+              <ChangeLanguage />
+              <Button
+                variant="primary"
+                icon={<PhoneWhiteIcon />}
+                iconPosition="right"
+              >
+                {t("contact")}
+              </Button>
+            </div>
+            <button
+              className="flex lg:hidden items-center justify-center p-2.5 bg-text-whitePrimary rounded-lg"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <MenuIcon />
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={`lg:hidden fixed top-0 left-0 w-full bg-background-whitebg h-dvh shadow-lg z-30 transition-transform duration-300 ease-in-out ${
+            isOpen ? "transform translate-x-0" : "transform -translate-x-full"
+          }`}
+        >
+          <div className="flex items-center justify-between p-4 md:p-8">
+            <Link href={`/${currentLocale}`}>
+              <Image
+                src={logoPrimary}
+                alt="Logo image"
+                className="w-[54px] h:auto"
+              />
+            </Link>
+            <button
+              className="flex items-center justify-center p-2.5 bg-text-whitePrimary rounded-lg border border-text-blackSecondary"
+              onClick={() => setIsOpen((prev) => !prev)}
+            >
+              <CloseIcon />
+            </button>
+          </div>
+          <nav className="flex flex-col items-start gap-4 p-4 md:p-8 mt-10">
+            {navLinks.map((link) => (
+              <Link
+                key={link.key}
+                href={`/${currentLocale}${link.path}`}
+                className="text-text-blackSecondary font-medium text-h3"
+              >
+                {t(link.key)}
+              </Link>
+            ))}
+          </nav>
+          <div className="border-t border-text-blackTertiary mx-4 md:mx-8 my-5"></div>
+          <div className="flex flex-col md:flex-row gap-3 p-4 md:p-8 border-gray-200">
+            <ChangeLanguage />
+            <Button
+              variant="primary"
+              icon={<PhoneWhiteIcon />}
+              iconPosition="right"
+            >
+              {t("contact")}
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+
+===== File: src\sections\News.tsx =====
+import Button from "@/components/Button";
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import newsImage1 from "../../public/assets/images/news-image1.png";
+import newsImage2 from "../../public/assets/images/news-image2.png";
+import newsImage3 from "../../public/assets/images/news-image3.png";
+import NewsCard from "@/components/NewsCard";
+import { ArrowRightLongIcon } from "../../public/assets/icons/ArrowRightLongIcon";
+import { useTranslations } from "next-intl";
+
+export default function News() {
+  const t = useTranslations("News");
+
+  const newsData = [
+    {
+      imageSrc: newsImage1,
+      imageAlt: "News image 1",
+      category: t("news.0.category"),
+      description: t("news.0.description"),
+      date: t("news.0.date"),
+    },
+    {
+      imageSrc: newsImage2,
+      imageAlt: "News image 2",
+      category: t("news.1.category"),
+      description: t("news.1.description"),
+      date: t("news.1.date"),
+    },
+    {
+      imageSrc: newsImage3,
+      imageAlt: "News image 3",
+      category: t("news.2.category"),
+      description: t("news.2.description"),
+      date: t("news.2.date"),
+    },
+  ];
+
+  return (
+    <section>
+      <DashedBorderContainer>
+        <div>
+          <div className="flex flex-col items-center max-w-2xl mx-auto">
+            <div>
+              <Tag>{t("tag")}</Tag>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 items-center">
+              <h3 className="text-h3 font-medium text-text-blackPrimary">
+                {t("title")}
+              </h3>
+              <p className="text-body1 text-text-blackSecondary text-center">
+                {t("description")}
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-7 mt-10">
+            {newsData.map((news, index) => (
+              <NewsCard
+                key={index}
+                imageSrc={news.imageSrc}
+                imageAlt={news.imageAlt}
+                category={news.category}
+                description={news.description}
+                date={news.date}
+              />
+            ))}
+          </div>
+          <div className="mt-11 flex justify-center">
+            <Button
+              variant="tertiary"
+              icon={<ArrowRightLongIcon />}
+              iconPosition="right"
+            >
+              {t("button")}
+            </Button>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Partnership.tsx =====
+"use client";
+
+import Button from "@/components/Button";
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import PartnershipCard from "@/components/PartnershipCard";
+import { useTranslations } from "next-intl";
+import { useRef } from "react";
+import ArrowLeftBlackIcon from "../../public/assets/icons/ArrowLeftBlackIcon";
+import ArrowRightBlackIcon from "../../public/assets/icons/ArrowRightBlackIcon";
+import ArrowRightWhiteIcon from "../../public/assets/icons/ArrowRightWhiteIcon";
+import buildingIcon from "../../public/assets/images/building-office-icon.svg";
+import userGroupIcon from "../../public/assets/images/user-grup-icon.svg";
+import shieldCheckIcon from "../../public/assets/images/shield-check.svg";
+import partnershipImage1 from "../../public/assets/images/partnership-image1.png";
+import partnershipImage2 from "../../public/assets/images/partnership-image2.png";
+import partnershipImage3 from "../../public/assets/images/partnership-image3.png";
+
+export default function Partnership() {
+  const t = useTranslations("Partnership");
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const scrollAmount = 300; // Jumlah scroll saat tombol ditekan
+
+  const handlePrev = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft -= scrollAmount;
+    }
+  };
+
+  const handleNext = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft += scrollAmount;
+    }
+  };
+
+  const partnershipData = [
+    {
+      title: t("partnerships.0.title"),
+      subtitle: t("partnerships.0.subtitle"),
+      imageSrc: partnershipImage1,
+      imageAlt: t("partnerships.0.imageAlt"),
+      iconSrc: buildingIcon,
+      buttonIcon: <ArrowRightWhiteIcon />,
+    },
+    {
+      title: t("partnerships.1.title"),
+      subtitle: t("partnerships.1.subtitle"),
+      imageSrc: partnershipImage2,
+      imageAlt: t("partnerships.1.imageAlt"),
+      iconSrc: userGroupIcon,
+      buttonIcon: <ArrowRightWhiteIcon />,
+    },
+    {
+      title: t("partnerships.2.title"),
+      subtitle: t("partnerships.2.subtitle"),
+      imageSrc: partnershipImage3,
+      imageAlt: t("partnerships.2.imageAlt"),
+      iconSrc: shieldCheckIcon,
+      buttonIcon: <ArrowRightWhiteIcon />,
+    },
+  ];
+
+  return (
+    <section>
+      <DashedBorderContainer showTop={false} className="overflow-hidden">
+        <div className="flex flex-col">
+          <div className="md:max-w-lg">
+            <div>
+              <Tag>{t("tag")}</Tag>
+            </div>
+            <div className="mt-8">
+              <h3 className="text-h3 font-medium text-text-blackPrimary">
+                {t("title")}
+              </h3>
+              <p className="mt-3 text-body1 text-text-blackSecondary">
+                {t("description")}
+              </p>
+            </div>
+          </div>
+          <div className="mt-9">
+            <div className="md:flex items-center justify-between hidden">
+              <div></div>
+              <div className="flex items-center gap-4 md:mr-9">
+                <Button
+                  variant="secondary"
+                  icon={<ArrowLeftBlackIcon />}
+                  onClick={handlePrev}
+                  aria-label={t("buttons.prev")}
+                />
+                <Button
+                  variant="secondary"
+                  icon={<ArrowRightBlackIcon />}
+                  onClick={handleNext}
+                  aria-label={t("buttons.next")}
+                />
+              </div>
+            </div>
+
+            <div
+              ref={scrollContainerRef}
+              className="mt-6 flex items-start gap-7 overflow-x-scroll scrollbar-hide smooth-scroll"
+            >
+              {partnershipData.map((data, index) => (
+                <PartnershipCard
+                  key={index}
+                  title={data.title}
+                  subtitle={data.subtitle}
+                  imageSrc={data.imageSrc}
+                  imageAlt={data.imageAlt}
+                  iconSrc={data.iconSrc}
+                  buttonIcon={data.buttonIcon}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Priority.tsx =====
+import Button from "@/components/Button";
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import imageProgram1 from "../../public/assets/images/priority-image1.png";
+import iconProgramBeam from "../../public/assets/images/program-beam-icon.svg";
+import { ArrowRightLongIcon } from "../../public/assets/icons/ArrowRightLongIcon";
+
+export default function Priority() {
+  const t = useTranslations("Priority");
+
+  return (
+    <section>
+      <DashedBorderContainer showTop={false}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 items-center">
+          <div className="flex flex-col">
+            <Tag>{t("tag")}</Tag>
+            <h3 className="mt-8 text-text-blackPrimary text-h3 font-medium">
+              {t("title")}
+            </h3>
+            <p className="mt-3 text-text-blackSecondary text-body1">
+              {t("description")}
+            </p>
+            <div className="mt-6">
+              <Button
+                variant="tertiary"
+                icon={<ArrowRightLongIcon />}
+                iconPosition="right"
+              >
+                {t("button")}
+              </Button>
+            </div>
+          </div>
+          <div className="flex justify-end">
+            <div className="flex flex-col w-full md:w-[530px] overflow-clip">
+              <div className="pt-7 px-7 bg-gradientPrimary rounded-t-3xl">
+                <div className="relative">
+                  <Image
+                    src={imageProgram1}
+                    alt={t("title")}
+                    className="rounded-t-2xl"
+                  />
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <Image src={iconProgramBeam} alt="Icon program beam" />
+                  </div>
+                </div>
+              </div>
+              <div className="bg-secondary-200 px-7 md:px-10 rounded-b-3xl overflow-x-scroll md:overflow-visible">
+                <div className="flex items-center justify-between py-2.5 text-secondary-700">
+                  <a
+                    href="#"
+                    className="px-4 py-1.5 rounded-lg bg-secondary-50 text-text-blackPrimary text-nav"
+                  >
+                    {t("tabs.sustainability")}
+                  </a>
+                  <a
+                    href="#"
+                    className="px-4 py-1.5 rounded-lg text-nav font-medium"
+                  >
+                    {t("tabs.safety")}
+                  </a>
+                  <a
+                    href="#"
+                    className="px-4 py-1.5 rounded-lg text-nav font-medium"
+                  >
+                    {t("tabs.community")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\QrCode.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Image from "next/image";
+import React from "react";
+import qrCodeAndroid from "../../public/assets/images/qr-code-android.svg";
+import qrCodeIos from "../../public/assets/images/qr-code-ios.svg";
+import AndroidIcon from "../../public/assets/icons/AndroidIcon";
+import IosIcon from "../../public/assets/icons/IosIcon";
+import { useTranslations } from "next-intl";
+
+export default function QrCode() {
+  const t = useTranslations("QrCode");
+  return (
+    <section>
+      <DashedBorderContainer showBottom={false}>
+        <div>
+          <h4 className="text-h4 font-medium text-text-blackSecondary max-w-lg mb-6">
+            {t("title")}
+          </h4>
+        </div>
+        <div className="container max-w-xs md:max-w-[44rem] lg:max-w-6xl border-y border-others-santasGray border-dashed"></div>
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-3 items-center mt-14">
+          <div className="p-3 flex flex-col md:flex-row md:items-center gap-5">
+            <Image src={qrCodeAndroid} alt="Qr code android" className="w-36" />
+
+            <div className="flex flex-col">
+              <div className="flex items-center gap-3">
+                <div className="p-2 flex items-center justify-center bg-gradientTertiary rounded-lg size-11">
+                  <AndroidIcon />
+                </div>
+                <span className="text-h5 text-text-blackPrimary font-medium">
+                  {t("android.title")}
+                </span>
+              </div>
+              <p className="mt-3 text-body2 text-text-blackSecondary">
+                {t("android.description")}
+              </p>
+            </div>
+          </div>
+
+          <div className="absolute h-72 mt-2 border-x border-others-santasGray border-dashed left-1/2 -translate-x-1/2 hidden lg:block"></div>
+
+          <div className="p-3 flex flex-col md:flex-row md:items-center gap-5">
+            <Image src={qrCodeIos} alt="Qr code iOS" className="w-36" />
+
+            <div className="flex flex-col">
+              <div className="flex items-center gap-3">
+                <div className="p-2 flex items-center justify-center bg-gradientTertiary rounded-lg size-11">
+                  <IosIcon />
+                </div>
+                <span className="text-h5 text-text-blackPrimary font-medium">
+                  {t("ios.title")}
+                </span>
+              </div>
+              <p className="mt-3 text-body2 text-text-blackSecondary">
+                {t("ios.description")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Testimonial.tsx =====
+"use client";
+import ArrowLeftBlackIcon from "../../public/assets/icons/ArrowLeftBlackIcon";
+import ArrowRightBlackIcon from "../../public/assets/icons/ArrowRightBlackIcon";
+import Button from "@/components/Button";
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import userTertimonial1 from "../../public/assets/images/user-testimonial1.svg";
+import userTertimonial2 from "../../public/assets/images/user-testimonial2.svg";
+import userTertimonial3 from "../../public/assets/images/user-testimonial3.svg";
+import partnerLogo1 from "../../public/assets/images/tertimonial-logo1.svg";
+import partnerLogo2 from "../../public/assets/images/tertimonial-logo2.svg";
+import partnerLogo3 from "../../public/assets/images/tertimonial-logo3.svg";
+import { useTranslations } from "next-intl";
+
+const testimonial = [
+  {
+    quote:
+      "#BeamBooster adalah inisiatif cerdas yang menggunakan skuter listrik Beam untuk mendatangkan lebih banyak orang di pintu kami. Kami sangat senang bisa terlibat.",
+    author: "Helen Rutherford",
+    position: "Komisaris",
+    userTestimonialImage: userTertimonial1,
+    partnerLogo: partnerLogo1,
+  },
+  {
+    quote:
+      "Program ini membantu meningkatkan pengunjung harian di toko kami. Skuter Beam sangat menarik perhatian, dan kami melihat dampak positifnya.",
+    author: "Jane Smith",
+    position: "Manajer Toko ABC",
+    userTestimonialImage: userTertimonial2,
+    partnerLogo: partnerLogo2,
+  },
+  {
+    quote:
+      "Kami sangat terkesan dengan dampak langsung dari #BeamBooster. Ini inovasi brilian yang mendukung bisnis lokal seperti kami.",
+    author: "Michael Brown",
+    position: "CEO Restoran DEF",
+    userTestimonialImage: userTertimonial3,
+    partnerLogo: partnerLogo3,
+  },
+];
+
+export default function Testimonial() {
+  const t = useTranslations("Testimonial");
+  // State untuk menyimpan indeks gambar yang sedang ditampilkan
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  // Fungsi untuk navigasi ke gambar berikutnya
+  const nextTestimonial = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonial.length);
+  };
+
+  // Fungsi untuk navigasi ke gambar sebelumnya
+  const prevTestimonial = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + testimonial.length) % testimonial.length
+    );
+  };
+
+  // Autoplay: Jalankan interval untuk secara otomatis memperbarui testimonial
+  useEffect(() => {
+    const interval = setInterval(nextTestimonial, 5000); // Beralih setiap 5 detik
+    return () => clearInterval(interval); // Bersihkan interval saat komponen di-unmount
+  }, []);
+
+  return (
+    <section>
+      <DashedBorderContainer showTop={false}>
+        <div>
+          <div>
+            <Tag>{t("tag")}</Tag>
+          </div>
+          <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 items-center gap-y-6">
+            <div className="w-full lg:w-[46rem]">
+              <span className="text-title font-semibold text-primary-400">
+                “
+              </span>
+              <p className="text-h4 text-text-blackPrimary font-medium -mt-6">
+                {t(`quotes.${currentIndex}.quote`)}
+              </p>
+            </div>
+
+            <div className="flex lg:justify-end">
+              <div className="flex flex-col">
+                <div>
+                  <Image
+                    src={testimonial[currentIndex].partnerLogo}
+                    alt="Partner logo"
+                  />
+                </div>
+                <div className="flex items-center gap-3 mt-6">
+                  <div>
+                    <Image
+                      src={testimonial[currentIndex].userTestimonialImage}
+                      alt="User testimonial image"
+                      className="size-11"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <h4 className="text-body3 text-text-blackPrimary ">
+                      {t(`quotes.${currentIndex}.author`)}
+                    </h4>
+                    <span className="text-body4 text-text-blackSecondary">
+                      {t(`quotes.${currentIndex}.position`)}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 flex items-center justify-between lg:justify-start gap-7">
+            <span>{`${currentIndex + 1}/${testimonial.length}`}</span>
+            <div className="flex items-center gap-3">
+              <Button
+                variant="secondary"
+                icon={<ArrowLeftBlackIcon />}
+                className="border border-tertiary-200"
+                onClick={prevTestimonial}
+              />
+              <Button
+                variant="secondary"
+                icon={<ArrowRightBlackIcon />}
+                className="border border-tertiary-200"
+                onClick={nextTestimonial}
+              />
+            </div>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Vehicle.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Tag from "@/components/Tag";
+import VehicleCard from "@/components/VehicleCard";
+import vehicleImage1 from "../../public/assets/images/vehicle-image1.png";
+import vehicleImage2 from "../../public/assets/images/vehicle-image2.png";
+import { useTranslations } from "next-intl";
+
+const vehicles = [
+  {
+    id: 1,
+    imageSrc: vehicleImage1,
+    title: "The Beam Saturn S",
+  },
+  {
+    id: 2,
+    imageSrc: vehicleImage2,
+    title: "Beam Rover",
+  },
+];
+
+export default function Vehicle() {
+  const t = useTranslations("Vehicle");
+
+  return (
+    <section>
+      <DashedBorderContainer showTop={false}>
+        <div>
+          <div className="flex flex-col items-center max-w-2xl mx-auto">
+            <div>
+              <Tag>{t("tag")}</Tag>
+            </div>
+            <div className="mt-8 flex flex-col gap-3 items-center">
+              <h3 className="text-h3 font-medium text-text-blackPrimary">
+                {t("title")}
+              </h3>
+              <p className="text-body1 text-text-blackSecondary text-center">
+                {t("description")}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-7">
+            {vehicles.map((vehicle) => (
+              <VehicleCard
+                key={vehicle.id}
+                imageSrc={vehicle.imageSrc}
+                title={vehicle.title}
+                // onButtonClick={() => handleButtonClick(vehicle.title)}
+              />
+            ))}
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\VehicleSafety.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import VehicleSafetyCard from "@/components/VehicleSafetyCard";
+import React from "react";
+import vehicleSafetyImage1 from "../../public/assets/images/vehicle-safety-card-image1.png";
+import vehicleSafetyImage2 from "../../public/assets/images/vehicle-safety-card-image2.png";
+import vehicleSafetyImage3 from "../../public/assets/images/vehicle-safety-card-image3.png";
+import vehicleSafetyImage4 from "../../public/assets/images/vehicle-safety-card-image4.png";
+import vehicleSafetyImage5 from "../../public/assets/images/vehicle-safety-card-image5.png";
+import { useTranslations } from "next-intl";
+
+export default function VehicleSafety() {
+  const t = useTranslations("VehicleSafety");
+  console.log(t);
+  return (
+    <section>
+      <DashedBorderContainer showTop={false}>
+        <div className="flex flex-col items-center gap-24">
+          <VehicleSafetyCard
+            tag={t("tag")}
+            title={t("title1")}
+            description={t("desc1")}
+            imageSrc={vehicleSafetyImage1}
+            imageAlt="Vehicle safety image 1"
+            textPosition="left"
+            imagePosition="right"
+          />
+          <VehicleSafetyCard
+            tag={t("tag")}
+            title={t("title2")}
+            description={t("desc2")}
+            imageSrc={vehicleSafetyImage2}
+            imageAlt="Vehicle safety image 2"
+            textPosition="right"
+            imagePosition="left"
+          />
+          <VehicleSafetyCard
+            tag={t("tag")}
+            title={t("title3")}
+            description={t("desc3")}
+            imageSrc={vehicleSafetyImage3}
+            imageAlt="Vehicle safety image 3"
+            textPosition="left"
+            imagePosition="right"
+          />
+          <VehicleSafetyCard
+            tag={t("tag")}
+            title={t("title4")}
+            description={t("desc4")}
+            imageSrc={vehicleSafetyImage4}
+            imageAlt="Vehicle safety image 4"
+            textPosition="right"
+            imagePosition="left"
+          />
+          <VehicleSafetyCard
+            tag={t("tag")}
+            title={t("title5")}
+            description={t("desc5")}
+            imageSrc={vehicleSafetyImage5}
+            imageAlt="Vehicle safety image 5"
+            textPosition="left"
+            imagePosition="right"
+          />
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+===== File: src\sections\Videos.tsx =====
+import DashedBorderContainer from "@/components/DashedBorderContainer";
+import Image from "next/image";
+import thumbnailVideo from "../../public/assets/images/video-image.png";
+import Button from "@/components/Button";
+
+const PlayICon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.25 5.65308C5.25 4.79708 6.167 4.25508 6.917 4.66708L18.457 11.0141C18.6336 11.1111 18.781 11.2538 18.8836 11.4273C18.9862 11.6007 19.0403 11.7986 19.0403 12.0001C19.0403 12.2016 18.9862 12.3994 18.8836 12.5729C18.781 12.7463 18.6336 12.889 18.457 12.9861L6.917 19.3331C6.74569 19.4273 6.55278 19.4752 6.35731 19.4721C6.16184 19.469 5.97054 19.4151 5.80227 19.3155C5.634 19.216 5.49457 19.0744 5.39773 18.9045C5.30089 18.7347 5.24997 18.5426 5.25 18.3471V5.65308Z"
+      stroke="#0F0F0F"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+export default function Videos() {
+  return (
+    <section>
+      <DashedBorderContainer showTop={false}>
+        <div className="relative">
+          <Image
+            src={thumbnailVideo}
+            alt="Thumbnail video"
+            className="w-full md:h-[536px] object-cover xl:rounded-[32px]"
+          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Button
+              variant="secondary"
+              icon={<PlayICon />}
+              className="px-[10px]"
+            ></Button>
+          </div>
+        </div>
+      </DashedBorderContainer>
+    </section>
+  );
+}
+
+
+# Directory: src\styles
+
+# Directory: src\types
+
+===== File: src\types\global.d.ts =====
+declare module '*.css';
+

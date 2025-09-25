@@ -1,31 +1,30 @@
-import type { Metadata } from "next";
-import "../../styles/global.css";
-import Footer from "@/sections/Footer";
-import Navbar from "@/sections/Navbar";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import { routing } from '@/i18n/routing';
+import Footer from '@/sections/Footer';
+import Navbar from '@/sections/Navbar';
+import type { Metadata } from 'next';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { notFound } from 'next/navigation';
+import '../../styles/global.css';
 
 export const metadata: Metadata = {
-  title: "Beam",
-  description: "Beam - Modern Design Website Landing Page",
+  title: 'Beam',
+  description: 'Beam - Modern Design Website Landing Page',
 };
 
-type Locale = "en" | "fr" | "id"; // Sesuaikan dengan routing.locales
+type Locale = 'en' | 'fr' | 'id';
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: Locale }; // Tipe params.locale lebih spesifik
+  params: Promise<{ locale: Locale }>; // ✅ make params async
 }
 
 export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const { locale } = params;
+  const { locale } = await params; // ✅ await before destructuring
 
-  // Pastikan locale ada dalam routing.locales
   if (!routing.locales.includes(locale)) {
     notFound();
   }
@@ -34,7 +33,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className="relative font-sans bg-background-whitebg antialiased">
+      <body className='relative font-sans bg-background-whitebg antialiased'>
         <NextIntlClientProvider messages={messages}>
           <Navbar />
           {children}
