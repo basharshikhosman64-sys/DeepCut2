@@ -4,7 +4,7 @@
 # Directory: src\app\fonts
 
 ===== File: src\app\layout.tsx =====
-import "../styles/global.css";
+import '../styles/global.css';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -40,6 +40,346 @@ export default function NotFound() {
 
 
 # Directory: src\app\[locale]
+
+# Directory: src\app\[locale]\blog
+
+===== File: src\app\[locale]\blog\page.tsx =====
+import { Link } from '@/i18n/routing';
+import Button from '../../../components//UI/botton';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../../../components/UI/card';
+
+const blogPosts = [
+  {
+    id: '1',
+    title: "The Complete Guide to Classic Men's Haircuts",
+    excerpt:
+      'Explore timeless hairstyles that never go out of fashion, from the pompadour to the side part.',
+    author: 'Marcus Johnson',
+    date: '2024-03-15',
+    readTime: '5 min read',
+    category: 'Styling Tips',
+    image: '/blog-1.jpg',
+  },
+  {
+    id: '2',
+    title: "Beard Care Essentials: A Beginner's Guide",
+    excerpt:
+      'Everything you need to know about maintaining a healthy, well-groomed beard at home.',
+    author: 'James Wilson',
+    date: '2024-03-10',
+    readTime: '4 min read',
+    category: 'Grooming',
+    image: '/blog-2.jpg',
+  },
+  {
+    id: '3',
+    title: 'The Art of the Hot Towel Shave',
+    excerpt:
+      'Discover the history and technique behind the traditional barbershop hot towel shave.',
+    author: 'David Rodriguez',
+    date: '2024-03-05',
+    readTime: '6 min read',
+    category: 'Traditional Techniques',
+    image: '/blog-3.jpg',
+  },
+  {
+    id: '4',
+    title: 'Modern Fading Techniques Explained',
+    excerpt:
+      'Learn about different fade types and how they can enhance your overall appearance.',
+    author: 'Marcus Johnson',
+    date: '2024-02-28',
+    readTime: '7 min read',
+    category: 'Styling Tips',
+    image: '/blog-4.jpg',
+  },
+  {
+    id: '5',
+    title: 'Choosing the Right Products for Your Hair Type',
+    excerpt:
+      'A comprehensive guide to selecting the best styling products for your specific hair needs.',
+    author: 'David Rodriguez',
+    date: '2024-02-20',
+    readTime: '5 min read',
+    category: 'Product Guide',
+    image: '/blog-5.jpg',
+  },
+  {
+    id: '6',
+    title: "Barbershop Etiquette: Do's and Don'ts",
+    excerpt:
+      'Make the most of your barbershop experience with these essential etiquette tips.',
+    author: 'James Wilson',
+    date: '2024-02-15',
+    readTime: '3 min read',
+    category: 'Tips',
+    image: '/blog-6.jpg',
+  },
+];
+
+const categories = [
+  'All',
+  'Styling Tips',
+  'Grooming',
+  'Traditional Techniques',
+  'Product Guide',
+  'Tips',
+];
+
+export default function BlogPage() {
+  return (
+    <div className='py-24 sm:py-32'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        <div className='mx-auto max-w-2xl text-center'>
+          <h1 className='text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl'>
+            Barbering Blog
+          </h1>
+          <p className='mt-6 text-lg leading-8 text-slate-600'>
+            Expert tips, techniques, and insights from our master barbers
+          </p>
+        </div>
+
+        {/* Categories filter */}
+        <div className='flex justify-center flex-wrap gap-2 mt-12'>
+          {categories.map(category => (
+            <button
+              key={category}
+              className='px-4 py-2 rounded-full text-sm font-medium bg-slate-100 text-slate-600 hover:bg-amber-100 hover:text-amber-600 transition-colors'
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Featured post */}
+        <div className='mt-16'>
+          <Card className='lg:flex lg:items-center lg:space-x-8 hover:shadow-lg transition-shadow'>
+            <div className='lg:w-1/2'>
+              <div className='aspect-video bg-slate-300 rounded-lg'></div>
+            </div>
+            <div className='lg:w-1/2 mt-6 lg:mt-0'>
+              <CardHeader>
+                <div className='flex items-center gap-2 mb-2'>
+                  <span className='px-2 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-medium'>
+                    Featured
+                  </span>
+                  <span className='text-sm text-slate-500'>
+                    {blogPosts[0].category}
+                  </span>
+                </div>
+                <CardTitle className='text-2xl'>{blogPosts[0].title}</CardTitle>
+                <p className='text-slate-600'>{blogPosts[0].excerpt}</p>
+              </CardHeader>
+              <CardContent>
+                <div className='flex items-center justify-between text-sm text-slate-500 mb-4'>
+                  <span>By {blogPosts[0].author}</span>
+                  <span>{blogPosts[0].readTime}</span>
+                </div>
+                <Link href={`/blog/${blogPosts[0].id}`}>
+                  <Button variant='outline'>Read More</Button>
+                </Link>
+              </CardContent>
+            </div>
+          </Card>
+        </div>
+
+        {/* Blog posts grid */}
+        <div className='mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+          {blogPosts.slice(1).map(post => (
+            <Card key={post.id} className='hover:shadow-lg transition-shadow'>
+              <div className='aspect-video bg-slate-300 rounded-t-lg'></div>
+              <CardHeader>
+                <div className='flex items-center justify-between text-sm text-slate-500 mb-2'>
+                  <span className='px-2 py-1 bg-slate-100 rounded-full text-xs'>
+                    {post.category}
+                  </span>
+                  <span>{post.readTime}</span>
+                </div>
+                <CardTitle className='text-lg hover:text-amber-600 transition-colors'>
+                  <Link href={`/blog/${post.id}`}>{post.title}</Link>
+                </CardTitle>
+                <p className='text-slate-600 text-sm'>{post.excerpt}</p>
+              </CardHeader>
+              <CardContent>
+                <div className='flex items-center justify-between text-sm text-slate-500'>
+                  <span>By {post.author}</span>
+                  <span>{new Date(post.date).toLocaleDateString()}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Newsletter signup */}
+        <div className='mt-20'>
+          <Card className='bg-slate-900 text-white'>
+            <CardContent className='text-center p-12'>
+              <h2 className='text-2xl font-bold mb-4'>Stay Updated</h2>
+              <p className='text-slate-300 mb-6'>
+                Get the latest barbering tips and trends delivered to your inbox
+              </p>
+              <div className='flex max-w-md mx-auto gap-4'>
+                <input
+                  type='email'
+                  placeholder='Enter your email'
+                  className='flex-1 px-4 py-2 rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-600'
+                />
+                <Button
+                  variant='primary'
+                  className='bg-amber-600 hover:bg-amber-700'
+                >
+                  Subscribe
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+# Directory: src\app\[locale]\booking
+
+===== File: src\app\[locale]\booking\page.tsx =====
+/* eslint-disable @typescript-eslint/no-unused-vars */
+'use client';
+
+import Button from '@/components/Button';
+import { formatPrice } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../../../components/UI/card';
+
+export default function BookingPage() {
+  const t = useTranslations('BookingPage');
+  const steps = t.raw('steps');
+  const services = t.raw('services');
+  const barbers = t.raw('barbers');
+  const timeSlots = t.raw('timeSlots');
+
+  const [step, setStep] = useState(1);
+  const [selectedService, setSelectedService] = useState('');
+  const [selectedBarber, setSelectedBarber] = useState('');
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
+  const [customerInfo, setCustomerInfo] = useState({
+    name: '',
+    email: '',
+    phone: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert(t('alerts.confirmation'));
+    setStep(1);
+    setSelectedService('');
+    setSelectedBarber('');
+    setSelectedDate('');
+    setSelectedTime('');
+    setCustomerInfo({ name: '', email: '', phone: '' });
+  };
+
+  const selectedServiceData = services.find(
+    (s: unknown) => s.id === selectedService
+  );
+  const selectedBarberData = barbers.find(
+    (b: unknown) => b.id === selectedBarber
+  );
+
+  return (
+    <div className='py-24 sm:py-32 min-h-screen bg-background-white'>
+      <div className='mx-auto max-w-4xl px-6 lg:px-8'>
+        <div className='text-center mb-12'>
+          <h1 className='text-4xl font-bold text-text-blackPrimary'>
+            {t('hero.title')}
+          </h1>
+          <p className='mt-4 text-lg text-text-blackSecondary'>
+            {t('hero.description')}
+          </p>
+        </div>
+
+        <Card className='shadow-lg'>
+          <CardHeader>
+            <div className='flex justify-between items-center'>
+              <CardTitle className='text-xl'>Step {step} of 4</CardTitle>
+              <div className='flex space-x-2'>
+                {[1, 2, 3, 4].map(i => (
+                  <div
+                    key={i}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      i <= step ? 'bg-primary-500' : 'bg-secondary-200'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className='p-8'>
+            {step === 1 && (
+              <div>
+                <h3 className='text-2xl font-semibold mb-8 text-text-blackPrimary'>
+                  {steps.service.title}
+                </h3>
+                <div className='grid gap-4'>
+                  {services.map((service: any) => (
+                    <div
+                      key={service.id}
+                      className={`p-6 border-2 rounded-xl cursor-pointer transition-all hover:shadow-md ${
+                        selectedService === service.id
+                          ? 'border-primary-500 bg-primary-50'
+                          : 'border-secondary-200 hover:border-primary-300'
+                      }`}
+                      onClick={() => setSelectedService(service.id)}
+                    >
+                      <div className='flex justify-between items-center'>
+                        <div>
+                          <h4 className='font-semibold text-lg text-text-blackPrimary'>
+                            {service.name}
+                          </h4>
+                          <p className='text-sm text-text-blackSecondary'>
+                            {service.duration} minutes
+                          </p>
+                        </div>
+                        <span className='font-bold text-primary-500 text-xl'>
+                          {formatPrice(service.price)}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className='mt-8'>
+                  <Button
+                    variant='primary'
+                    fullWidth
+                    disabled={!selectedService}
+                    onClick={() => setStep(2)}
+                  >
+                    {steps.service.nextButton}
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {/* Step 2, Step 3, Step 4 will follow same pattern, pulling all text from JSON */}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
+
 
 # Directory: src\app\[locale]\city
 
@@ -108,6 +448,220 @@ export default function City() {
 }
 
 
+# Directory: src\app\[locale]\contact
+
+===== File: src\app\[locale]\contact\page.tsx =====
+'use client';
+
+import Button from '@/components/Button';
+import NewsCard from '@/components/NewsCard';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../../../components/UI/card';
+import image1 from '/public/assets/images/contact-1.jpg';
+import image2 from '/public/assets/images/contact-2.jpg';
+import image3 from '/public/assets/images/contact-3.jpg';
+
+export default function ContactPage() {
+  const t = useTranslations('ContactPage');
+  const highlights = t.raw('Highlights'); // get array from JSON
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    alert("Message sent! We'll get back to you soon.");
+    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+  };
+
+  return (
+    <div className='py-24 sm:py-32'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        {/* Hero */}
+        <div className='mx-auto max-w-2xl text-center'>
+          <h1 className='text-4xl font-bold text-text-blackPrimary sm:text-5xl'>
+            {t('Hero.title')}
+          </h1>
+          <p className='mt-6 text-lg leading-8 text-text-blackSecondary'>
+            {t('Hero.description')}
+          </p>
+        </div>
+
+        {/* Highlights */}
+        <div className='mt-16 grid grid-cols-1 gap-8 md:grid-cols-3'>
+          {[image1, image2, image3].map((img, i) => (
+            <NewsCard
+              key={i}
+              imageSrc={img}
+              imageAlt={highlights[i].imageAlt}
+              category={highlights[i].category}
+              description={highlights[i].description}
+              date={highlights[i].date}
+            />
+          ))}
+        </div>
+
+        {/* Contact Form + Info */}
+        <div className='mt-16 grid gap-12 lg:grid-cols-2'>
+          {/* Form */}
+          <Card className='shadow-xl rounded-2xl border border-secondary-200'>
+            <CardHeader>
+              <CardTitle className='text-2xl'>{t('Form.title')}</CardTitle>
+              <p className='text-text-blackSecondary'>{t('Form.subtitle')}</p>
+            </CardHeader>
+            <CardContent className='p-8'>
+              <form onSubmit={handleSubmit} className='space-y-6'>
+                {/* Full Name + Phone */}
+                <div className='grid gap-4 sm:grid-cols-2'>
+                  <div>
+                    <label className='block text-sm mb-2'>
+                      {t('Form.fields.name')}
+                    </label>
+                    <input
+                      type='text'
+                      name='name'
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                    />
+                  </div>
+                  <div>
+                    <label className='block text-sm mb-2'>
+                      {t('Form.fields.phone')}
+                    </label>
+                    <input
+                      type='tel'
+                      name='phone'
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                    />
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div>
+                  <label className='block text-sm mb-2'>
+                    {t('Form.fields.email')}
+                  </label>
+                  <input
+                    type='email'
+                    name='email'
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                  />
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label className='block text-sm mb-2'>
+                    {t('Form.fields.subject')}
+                  </label>
+                  <select
+                    name='subject'
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                  >
+                    <option value=''>{t('Form.selectOptions.default')}</option>
+                    {Object.entries(t.raw('Form.selectOptions')).map(
+                      ([key, value]) =>
+                        key === 'default' ? null : (
+                          <option key={key} value={key}>
+                            {value}
+                          </option>
+                        )
+                    )}
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className='block text-sm mb-2'>
+                    {t('Form.fields.message')}
+                  </label>
+                  <textarea
+                    name='message'
+                    rows={4}
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                  />
+                </div>
+
+                <Button variant='primary' type='submit' className='w-full'>
+                  {t('Form.button')}
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+
+          {/* Info Section */}
+          <div className='space-y-8'>
+            <Card className='shadow-xl rounded-2xl border border-secondary-200'>
+              <CardHeader>
+                <CardTitle className='text-2xl'>
+                  {t('Info.visitTitle')}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className='space-y-8 p-8'>
+                {/* Address */}
+                <div>
+                  <h3 className='font-semibold'>{t('Info.address.title')}</h3>
+                  {t
+                    .raw('Info.address.lines')
+                    .map((line: string, i: number) => (
+                      <p key={i}>{line}</p>
+                    ))}
+                </div>
+                {/* Email */}
+                <div>
+                  <h3 className='font-semibold'>{t('Info.email.title')}</h3>
+                  {t.raw('Info.email.lines').map((line: string, i: number) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </div>
+                {/* Phone */}
+                <div>
+                  <h3 className='font-semibold'>{t('Info.phone.title')}</h3>
+                  {t.raw('Info.phone.lines').map((line: string, i: number) => (
+                    <p key={i}>{line}</p>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
 # Directory: src\app\[locale]\download
 
 ===== File: src\app\[locale]\download\page.tsx =====
@@ -153,14 +707,15 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { GenderProvider } from '../../context/GenderContext';
 import '../../styles/global.css';
 
 export const metadata: Metadata = {
-  title: 'Beam',
-  description: 'Beam - Modern Design Website Landing Page',
+  title: 'DeepCut',
+  description: 'DeepCut - Modern Design Website Landing Page',
 };
 
-type Locale = 'en' | 'fr' | 'id';
+type Locale = 'en' | 'fr' | 'id' | 'de' | 'ar' | 'russ';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -182,11 +737,13 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className='relative font-sans bg-background-whitebg antialiased'>
-        <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
+        <GenderProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Navbar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </GenderProvider>
       </body>
     </html>
   );
@@ -197,6 +754,7 @@ export default async function RootLayout({
 'use client';
 
 import Button from '@/components/Button';
+import { useGender } from '@/context/GenderContext';
 import Feature from '@/sections/Feature';
 import Help from '@/sections/Help';
 import Hero from '@/sections/Hero';
@@ -205,35 +763,28 @@ import News from '@/sections/News';
 import Partnership from '@/sections/Partnership';
 import Priority from '@/sections/Priority';
 import Vehicle from '@/sections/Vehicle';
-import Videos from '@/sections/Videos';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AccessibilityIcon } from '../../../public/assets/icons/AccessibilityIcon';
 import { ArrowRightLongIcon } from '../../../public/assets/icons/ArrowRightLongIcon';
 import { MapPinIcon } from '../../../public/assets/icons/MapPinIcon';
 import { PhoneWhiteIcon } from '../../../public/assets/icons/PhoneWhiteIcon';
 
 export default function Home() {
-  const [showOverlay, setShowOverlay] = useState(true); // overlay active at start
+  const { setGender } = useGender(); // context
+  const [showOverlay, setShowOverlay] = useState(true); // always true on load
+
   const tHero = useTranslations('HomePage.Hero');
   const tFeature = useTranslations('HomePage.Feature');
   const tHelp = useTranslations('HomePage.Help');
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1] || 'id';
 
-  // Optional: only show once (persist in localStorage)
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const savedChoice = localStorage.getItem('genderChoice');
-    // if (savedChoice) setShowOverlay(false);
-  }, []);
-
-  const handleChoice = (choice: string) => {
-    localStorage.setItem('genderChoice', choice);
-    setShowOverlay(false);
-    console.log('User selected:', choice);
+  const handleChoice = (choice: 'male' | 'female' | 'other') => {
+    setGender(choice); // only in memory
+    setShowOverlay(false); // close overlay
   };
 
   return (
@@ -242,19 +793,19 @@ export default function Home() {
       {showOverlay && (
         <div className='fixed inset-0 z-50 flex'>
           <button
-            onClick={() => handleChoice('Male')}
+            onClick={() => handleChoice('male')}
             className='flex-1 bg-blue-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
           >
             Male
           </button>
           <button
-            onClick={() => handleChoice('Female')}
+            onClick={() => handleChoice('female')}
             className='flex-1 bg-pink-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
           >
             Female
           </button>
           <button
-            onClick={() => handleChoice('Prefer not to say')}
+            onClick={() => handleChoice('other')}
             className='flex-1 bg-gray-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
           >
             Prefer not to say
@@ -262,7 +813,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Main content (blurred while overlay is active) */}
+      {/* Main content */}
       <div
         className={showOverlay ? 'blur-md pointer-events-none select-none' : ''}
       >
@@ -294,7 +845,6 @@ export default function Home() {
           </>
         </Hero>
         <Mission />
-        <Videos />
         <Priority />
         <Vehicle />
         <Feature
@@ -327,71 +877,512 @@ export default function Home() {
 # Directory: src\app\[locale]\partner
 
 ===== File: src\app\[locale]\partner\page.tsx =====
-"use client";
-import { AccessibilityIcon } from "../../../../public/assets/icons/AccessibilityIcon";
-import { ArrowRightLongIcon } from "../../../../public/assets/icons/ArrowRightLongIcon";
-import { useTranslations } from "next-intl";
-import Button from "@/components/Button";
-import Benefits from "@/sections/Benefits";
-import Feature from "@/sections/Feature";
-import Help from "@/sections/Help";
-import Hero from "@/sections/Hero";
-import Testimonial from "@/sections/Testimonial";
-import Link from "next/link";
-import React from "react";
-import { usePathname } from "next/navigation";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
-export default function Partner() {
-  const t = useTranslations("PartnerPage");
+import Button from '@/components/UI/botton';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/UI/card';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
+import { usePathname } from 'next/navigation';
+
+export default function PartnersPage() {
+  const tHero = useTranslations('PartnerPage.hero');
+  const tBenefits = useTranslations('PartnerPage.benefits');
+  const tTypes = useTranslations('PartnerPage.types');
+  const tCta = useTranslations('PartnerPage.cta');
+
   const pathname = usePathname();
+  const currentLocale = pathname.split('/')[1] || 'en';
 
-  const currentLocale = pathname.split("/")[1] || "id";
+  const benefits = tBenefits.raw('items') as Array<any>;
+  const types = tTypes.raw('items') as Array<any>;
+
   return (
-    <>
-      <Hero
-        title={t("hero.title")}
-        description={t("hero.description")}
-        backgroundClass="bg-hero-partner-pattern"
-      >
-        <div className="flex flex-col md:flex-row gap-3 mt-11">
-          <Link href={`/${currentLocale}/download`}>
-            <Button
-              variant="primary"
-              icon={<ArrowRightLongIcon />}
-              iconPosition="right"
-            >
-              {t("buttons.downloadApp")}
-            </Button>
-          </Link>
+    <div className='min-h-screen'>
+      {/* Hero Section */}
+      <section className='relative bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900 py-24 sm:py-32'>
+        <div className='absolute inset-0 bg-black/20'></div>
+        <div className='relative mx-auto max-w-7xl px-6 lg:px-8'>
+          <div className='mx-auto max-w-2xl text-center'>
+            <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
+              {tHero('title')}
+            </h1>
+            <p className='mt-6 text-lg leading-8 text-slate-300'>
+              {tHero('description')}
+            </p>
+            <div className='mt-10 flex items-center justify-center gap-x-6'>
+              <Button
+                variant='primary'
+                size='lg'
+                className='bg-amber-600 hover:bg-amber-700'
+              >
+                {tHero('buttons.becomePartner')}
+              </Button>
+              <Link href={`/${currentLocale}/contact`}>
+                <Button
+                  variant='outline'
+                  size='lg'
+                  className='text-white border-white hover:bg-white hover:text-slate-900'
+                >
+                  {tHero('buttons.getInTouch')}
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <Button
-          variant="secondary"
-          icon={<AccessibilityIcon />}
-          className="px-[10px]"
-        ></Button>
-      </Hero>
-      <Benefits />
-      <Feature
-        tag={t("feature.tag")}
-        title={t("feature.title")}
-        description={t("feature.description")}
-        button={t("feature.button")}
-      />
-      <Testimonial />
-      <Help
-        title={t("help.title")}
-        description={t("help.description")}
-        backgroundClass="bg-partner-pattern"
-      >
-        <Button
-          variant="primary"
-          icon={<ArrowRightLongIcon />}
-          iconPosition="right"
-        >
-          {t("buttons.collaborateNow")}
-        </Button>
-      </Help>
-    </>
+      </section>
+
+      {/* Benefits Section */}
+      <section className='py-24 sm:py-32 bg-white'>
+        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+          <div className='mx-auto max-w-2xl text-center'>
+            <h2 className='text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
+              {tBenefits('title')}
+            </h2>
+            <p className='mt-4 text-lg leading-8 text-slate-600'>
+              {tBenefits('description')}
+            </p>
+          </div>
+          <div className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4'>
+            {benefits.map((benefit, index) => (
+              <Card
+                key={index}
+                className='text-center hover:shadow-lg transition-shadow'
+              >
+                <CardHeader>
+                  <div className='mx-auto w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center text-2xl mb-4'>
+                    {benefit.icon}
+                  </div>
+                  <CardTitle className='text-xl'>{benefit.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className='text-slate-600'>{benefit.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Partnership Types */}
+      <section className='py-24 sm:py-32 bg-slate-50'>
+        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+          <div className='mx-auto max-w-2xl text-center'>
+            <h2 className='text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
+              {tTypes('title')}
+            </h2>
+            <p className='mt-4 text-lg leading-8 text-slate-600'>
+              {tTypes('description')}
+            </p>
+          </div>
+          <div className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
+            {types.map((type, index) => (
+              <Card
+                key={index}
+                className='flex flex-col justify-between hover:shadow-xl transition-all duration-300'
+              >
+                <div>
+                  <CardHeader>
+                    <CardTitle className='text-xl'>{type.title}</CardTitle>
+                    <p className='text-slate-600'>{type.description}</p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className='space-y-2'>
+                      {type.features.map(
+                        (feature: string, featureIndex: number) => (
+                          <li
+                            key={featureIndex}
+                            className='flex items-center text-sm text-slate-600'
+                          >
+                            <div className='w-2 h-2 bg-amber-600 rounded-full mr-3'></div>
+                            {feature}
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </CardContent>
+                </div>
+                <div className='p-6 pt-0'>
+                  <Button variant='outline' className='w-full'>
+                    {type.cta}
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className='py-24 sm:py-32 bg-amber-600'>
+        <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+          <div className='mx-auto max-w-2xl text-center'>
+            <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>
+              {tCta('title')}
+            </h2>
+            <p className='mt-6 text-lg leading-8 text-amber-100'>
+              {tCta('description')}
+            </p>
+            <div className='mt-10 flex items-center justify-center gap-x-6'>
+              <Button
+                variant='secondary'
+                size='lg'
+                className='bg-white text-amber-600 hover:bg-slate-100'
+              >
+                {tCta('buttons.applyNow')}
+              </Button>
+              <Button
+                variant='ghost'
+                size='lg'
+                className='text-white hover:bg-amber-700'
+              >
+                {tCta('buttons.downloadKit')}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+
+# Directory: src\app\[locale]\pricing
+
+===== File: src\app\[locale]\pricing\page.tsx =====
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
+
+import Button from '@/components/Button';
+import NewsCard from '@/components/NewsCard';
+import { formatPrice } from '@/lib/utils';
+import { useMessages, useTranslations } from 'next-intl';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from '../../../components/UI/card';
+import image1 from '/public/assets/images/pricing-1.jpg';
+import image2 from '/public/assets/images/pricing-2.jpg';
+import image3 from '/public/assets/images/pricing-3.jpg';
+
+const highlightImages = [image1, image2, image3];
+
+// Type definitions
+interface Offer {
+  title: string;
+  description: string;
+  button: string;
+}
+
+interface ServiceItem {
+  name: string;
+  price: number;
+  description: string;
+}
+
+interface ServiceCategory {
+  category: string;
+  items: ServiceItem[];
+}
+
+interface Highlight {
+  imageAlt: string;
+  category: string;
+  description: string;
+  date: string;
+}
+
+interface PricingPageMessages {
+  Hero: {
+    title: string;
+    description: string;
+  };
+  Highlights: Highlight[];
+  Services: ServiceCategory[];
+  SpecialOffers: {
+    title: string;
+    offers: Offer[];
+  };
+}
+
+export default function PricingPage() {
+  const tHero = useTranslations('PricingPage.Hero');
+  const tOffers = useTranslations('PricingPage.SpecialOffers');
+
+  // Type-safe access to messages
+  const messagesTyped = useMessages() as unknown as {
+    PricingPage: PricingPageMessages;
+  };
+
+  const highlights = messagesTyped.PricingPage.Highlights;
+  const services = messagesTyped.PricingPage.Services;
+  const offers = messagesTyped.PricingPage.SpecialOffers.offers;
+
+  return (
+    <div className='py-24 sm:py-32'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        {/* Hero */}
+        <div className='mx-auto max-w-2xl text-center'>
+          <h1 className='text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl'>
+            {tHero('title')}
+          </h1>
+          <p className='mt-6 text-lg leading-8 text-slate-600'>
+            {tHero('description')}
+          </p>
+        </div>
+
+        {/* Highlights */}
+        <div className='mt-16 grid grid-cols-1 md:grid-cols-3 gap-8'>
+          {highlights.map((h: Highlight, index: number) => (
+            <NewsCard
+              key={index}
+              imageSrc={highlightImages[index]}
+              imageAlt={h.imageAlt}
+              category={h.category}
+              description={h.description}
+              date={h.date}
+            />
+          ))}
+        </div>
+
+        {/* Services */}
+        <div className='mt-20 space-y-12'>
+          {services.map((category: ServiceCategory, i: number) => (
+            <div key={i}>
+              <h2 className='text-2xl font-bold text-slate-900 mb-6'>
+                {category.category}
+              </h2>
+              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                {category.items.map((service: ServiceItem, j: number) => (
+                  <Card key={j} className='hover:shadow-lg transition-shadow'>
+                    <CardContent className='p-6'>
+                      <div className='flex justify-between items-start mb-4'>
+                        <h3 className='font-semibold text-lg'>
+                          {service.name}
+                        </h3>
+                        <span className='text-2xl font-bold text-primary-500'>
+                          {formatPrice(service.price)}
+                        </span>
+                      </div>
+                      <p className='text-slate-600 mb-6'>
+                        {service.description}
+                      </p>
+                      <Button variant='primary' fullWidth navigateTo='/booking'>
+                        Book Now
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Special Offers */}
+        <div className='mt-20'>
+          <Card className='bg-primary-50 border-primary-200'>
+            <CardHeader>
+              <CardTitle className='text-center text-2xl text-primary-700'>
+                {tOffers('title')}
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className='grid md:grid-cols-3 gap-6 text-center'>
+                {offers.map((offer: Offer, i: number) => (
+                  <div key={i} className='p-4'>
+                    <h3 className='font-semibold text-primary-700 mb-2'>
+                      {offer.title}
+                    </h3>
+                    <p className='text-primary-600 mb-4'>{offer.description}</p>
+                    <Button variant='secondary' size='sm'>
+                      {offer.button}
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+# Directory: src\app\[locale]\shop
+
+===== File: src\app\[locale]\shop\page.tsx =====
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
+
+import Button from '@/components/UI/botton';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/UI/card';
+import { cn, formatPrice } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+
+export default function ShopPage() {
+  const t = useTranslations('ShopPage');
+
+  const categories = t.raw('categories'); // returns array
+  const products = t.raw('products'); // returns array
+
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [cart, setCart] = useState<string[]>([]);
+
+  const filteredProducts =
+    selectedCategory === 'All'
+      ? products
+      : products.filter((p: any) => p.category === selectedCategory);
+
+  const addToCart = (productId: string) => {
+    setCart([...cart, productId]);
+  };
+
+  return (
+    <div className='py-24 sm:py-32'>
+      <div className='mx-auto max-w-7xl px-6 lg:px-8'>
+        {/* Hero */}
+        <div className='mx-auto max-w-2xl text-center'>
+          <h1 className='text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl'>
+            {t('hero.title')}
+          </h1>
+          <p className='mt-6 text-lg leading-8 text-slate-600'>
+            {t('hero.description')}
+          </p>
+        </div>
+
+        {/* Categories */}
+        <div className='flex justify-center flex-wrap gap-2 mt-12'>
+          {categories.map((category: string) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={cn(
+                'px-4 py-2 rounded-full text-sm font-medium transition-colors',
+                selectedCategory === category
+                  ? 'bg-amber-600 text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+              )}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Products */}
+        <div className='mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+          {filteredProducts.map((product: any) => (
+            <Card
+              key={product.id}
+              className='hover:shadow-lg transition-shadow'
+            >
+              <div className='relative'>
+                <div className='aspect-square bg-slate-300 rounded-t-lg'></div>
+                {product.originalPrice && (
+                  <span className='absolute top-2 left-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium'>
+                    Save {formatPrice(product.originalPrice - product.price)}
+                  </span>
+                )}
+                {!product.inStock && (
+                  <div className='absolute inset-0 bg-black/50 rounded-t-lg flex items-center justify-center'>
+                    <span className='text-white font-semibold'>
+                      {t('buttons.outOfStock')}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <CardHeader>
+                <div className='flex justify-between items-start'>
+                  <CardTitle className='text-lg'>{product.name}</CardTitle>
+                  <div className='text-right'>
+                    <span className='text-xl font-bold text-amber-600'>
+                      {formatPrice(product.price)}
+                    </span>
+                    {product.originalPrice && (
+                      <span className='block text-sm text-slate-500 line-through'>
+                        {formatPrice(product.originalPrice)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <p className='text-slate-600 text-sm'>{product.description}</p>
+                <div className='flex items-center gap-2'>
+                  <div className='flex text-yellow-400'>
+                    {'★'.repeat(Math.floor(product.rating))}
+                  </div>
+                  <span className='text-sm text-slate-500'>
+                    {product.rating} ({product.reviews} reviews)
+                  </span>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <Button
+                  variant={product.inStock ? 'primary' : 'outline'}
+                  disabled={!product.inStock}
+                  className='w-full'
+                  onClick={() => product.inStock && addToCart(product.id)}
+                >
+                  {product.inStock
+                    ? t('buttons.addToCart')
+                    : t('buttons.outOfStock')}
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Cart */}
+        {cart.length > 0 && (
+          <div className='mt-12 max-w-md mx-auto'>
+            <Card className='bg-amber-50 border-amber-200'>
+              <CardHeader>
+                <CardTitle className='text-center text-amber-800'>
+                  {t('cart.title')} ({cart.length} items)
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className='flex justify-between items-center'>
+                  <span className='font-semibold'>
+                    {t('cart.total')}: {formatPrice(cart.length * 25)}
+                  </span>
+                  <Button
+                    variant='primary'
+                    className='bg-amber-600 hover:bg-amber-700'
+                  >
+                    {t('buttons.checkout')}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        )}
+
+        {/* Featured */}
+        <div className='mt-20'>
+          <Card className='bg-slate-900 text-white'>
+            <CardContent className='text-center p-12'>
+              <h2 className='text-2xl font-bold mb-4'>{t('featured.title')}</h2>
+              <p className='text-slate-300 mb-6 max-w-2xl mx-auto'>
+                {t('featured.description')}
+              </p>
+              <div className='grid md:grid-cols-3 gap-6 text-sm'>
+                {t.raw('featured.benefits').map((benefit: any, idx: number) => (
+                  <div key={idx}>
+                    <div className='text-2xl mb-2'>{benefit.icon}</div>
+                    <h3 className='font-semibold mb-1'>{benefit.title}</h3>
+                    <p className='text-slate-400'>{benefit.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -489,11 +1480,14 @@ export default function Button(
 
 
 ===== File: src\components\ChangeLanguage.tsx =====
-"use client";
-import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
-import React, { useState, useTransition } from "react";
-import Image from "next/image";
+'use client';
+
+import * as Select from '@radix-ui/react-select';
+import { Check, ChevronDown } from 'lucide-react';
+import { useLocale } from 'next-intl';
+import Image from 'next/image';
+import { usePathname, useRouter } from 'next/navigation';
+import * as React from 'react';
 
 interface Country {
   code: string;
@@ -502,63 +1496,84 @@ interface Country {
 }
 
 const countries: Country[] = [
-  { code: "ID", value: "id", flag: "/flags/id.svg" },
-  { code: "EN", value: "en", flag: "/flags/en.svg" },
-  { code: "FR", value: "fr", flag: "/flags/fr.svg" },
+  { code: 'ID', value: 'id', flag: '/flags/id.svg' },
+  { code: 'EN', value: 'en', flag: '/flags/en.svg' },
+  { code: 'FR', value: 'fr', flag: '/flags/fr.svg' },
+  { code: 'DE', value: 'de', flag: '/flags/de.svg' },
+  { code: 'RU', value: 'russ', flag: '/flags/russ.svg' },
+  { code: 'AR', value: 'ar', flag: '/flags/ar.svg' },
 ];
 
 export default function ChangeLanguage() {
-  const [isPending, startTransition] = useTransition();
   const router = useRouter();
-  const pathname = usePathname(); // Get the current pathname
+  const pathname = usePathname();
   const localActive = useLocale();
 
-  // Set the initial selected country based on the current locale
-  const [selectedCountry, setSelectedCountry] = useState<Country>(
-    countries.find((c) => c.value === localActive) || countries[0]
+  const [selected, setSelected] = React.useState<string>(
+    countries.find(c => c.value === localActive)?.value || countries[0].value
   );
 
-  const handleCountryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedValue = event.target.value;
-
-    startTransition(() => {
-      // Replace the locale part of the pathname with the selected language
-      const newPath = pathname.replace(/^\/[a-z]{2}/, `/${selectedValue}`);
-      router.replace(newPath); // Redirect to the updated path
-    });
-
-    const country = countries.find((c) => c.value === selectedValue);
-    if (country) {
-      setSelectedCountry(country);
-    }
+  const handleChange = (value: string) => {
+    setSelected(value);
+    const newPath = pathname.replace(/^\/[a-z]{2}/, `/${value}`);
+    router.replace(newPath);
   };
 
+  const activeCountry = countries.find(c => c.value === selected)!;
+
   return (
-    <div className="flex items-center gap-2 bg-text-blackSecondary lg:bg-others-stack px-4 rounded-lg">
-      <Image
-        src={selectedCountry.flag}
-        alt={`${selectedCountry.code} flag`}
-        width={16}
-        height={15}
-        className="w-4 h-[15px]"
-      />
-      <select
-        value={selectedCountry.value}
-        onChange={handleCountryChange}
-        disabled={isPending}
-        className="h-11 bg-text-blackSecondary lg:bg-others-stack text-text-whitePrimary focus:outline-none"
+    <Select.Root value={selected} onValueChange={handleChange}>
+      <Select.Trigger
+        className='relative inline-flex items-center gap-2 bg-gradient-to-r from-slate-900/80 to-slate-800/80 backdrop-blur-md px-5 py-2 rounded-xl border border-white/10 shadow-sm hover:shadow-md transition focus:outline-none focus:ring-2 focus:ring-indigo-500'
+        aria-label='Language'
       >
-        {countries.map((country) => (
-          <option
-            key={country.code}
-            value={country.value}
-            className="text-text-whitePrimary bg-text-blackSecondary lg:bg-others-stack"
-          >
-            {country.code}
-          </option>
-        ))}
-      </select>
-    </div>
+        <Image
+          src={activeCountry.flag}
+          alt={activeCountry.code}
+          width={20}
+          height={16}
+          className='w-5 h-4 rounded-sm object-cover'
+        />
+        <Select.Value>
+          <span className='text-white text-sm font-medium'>
+            {activeCountry.code}
+          </span>
+        </Select.Value>
+        <Select.Icon>
+          <ChevronDown className='h-4 w-4 text-slate-400' />
+        </Select.Icon>
+      </Select.Trigger>
+
+      <Select.Portal>
+        <Select.Content
+          sideOffset={6}
+          position='popper' // ensures it overlays, no layout shift
+          className='absolute z-50 min-w-[120px] rounded-lg shadow-xl border border-slate-800 bg-slate-900 text-white animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95'
+        >
+          <Select.Viewport className='p-1'>
+            {countries.map(country => (
+              <Select.Item
+                key={country.code}
+                value={country.value}
+                className='relative flex items-center gap-2 px-3 py-2 rounded-md text-sm cursor-pointer select-none hover:bg-slate-800 focus:bg-slate-800 focus:outline-none'
+              >
+                <Image
+                  src={country.flag}
+                  alt={country.code}
+                  width={18}
+                  height={14}
+                  className='w-4 h-3 rounded-sm'
+                />
+                <Select.ItemText>{country.code}</Select.ItemText>
+                <Select.ItemIndicator className='absolute right-2'>
+                  <Check className='h-4 w-4 text-indigo-400' />
+                </Select.ItemIndicator>
+              </Select.Item>
+            ))}
+          </Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 }
 
@@ -843,6 +1858,134 @@ export default function Tag(props: HTMLAttributes<HTMLDivElement>) {
 }
 
 
+# Directory: src\components\UI
+
+===== File: src\components\UI\botton.tsx =====
+import { cn } from '@/lib/utils';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        primary:
+          'bg-amber-600 text-white hover:bg-amber-700 focus-visible:ring-amber-600',
+        secondary:
+          'bg-slate-900 text-white hover:bg-slate-800 focus-visible:ring-slate-900',
+        outline:
+          'border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white',
+        ghost: 'text-slate-900 hover:bg-slate-100',
+      },
+      size: {
+        sm: 'h-9 px-3 text-sm',
+        default: 'h-11 px-6',
+        lg: 'h-12 px-8 text-lg',
+        icon: 'h-10 w-10',
+      },
+    },
+    defaultVariants: {
+      variant: 'primary',
+      size: 'default',
+    },
+  }
+);
+
+interface ButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  children: React.ReactNode;
+  icon?: React.ReactNode;
+  iconPosition?: 'left' | 'right';
+}
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      className,
+      variant,
+      size,
+      children,
+      icon,
+      iconPosition = 'left',
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      >
+        {icon && iconPosition === 'left' && (
+          <span className='mr-2'>{icon}</span>
+        )}
+        {children}
+        {icon && iconPosition === 'right' && (
+          <span className='ml-2'>{icon}</span>
+        )}
+      </button>
+    );
+  }
+);
+Button.displayName = 'Button';
+
+export default Button;
+
+
+===== File: src\components\UI\card.tsx =====
+import { cn } from '@/lib/utils';
+import { HTMLAttributes, forwardRef } from 'react';
+
+const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('rounded-xl border bg-white p-6 shadow-sm', className)}
+      {...props}
+    />
+  )
+);
+Card.displayName = 'Card';
+
+const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn('flex flex-col space-y-1.5 pb-4', className)}
+      {...props}
+    />
+  )
+);
+CardHeader.displayName = 'CardHeader';
+
+const CardTitle = forwardRef<
+  HTMLParagraphElement,
+  HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      'font-semibold text-xl leading-none tracking-tight',
+      className
+    )}
+    {...props}
+  />
+));
+CardTitle.displayName = 'CardTitle';
+
+const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, ...props }, ref) => (
+    <div ref={ref} className={cn('pt-0', className)} {...props} />
+  )
+);
+CardContent.displayName = 'CardContent';
+
+export { Card, CardContent, CardHeader, CardTitle };
+
+
 ===== File: src\components\VehicleCard.tsx =====
 "use client";
 
@@ -952,14 +2095,57 @@ export default function VehicleSafetyCard({
 }
 
 
+# Directory: src\context
+
+===== File: src\context\GenderContext.tsx =====
+'use client';
+
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
+type Gender = 'male' | 'female' | 'other';
+
+interface GenderContextType {
+  gender: Gender;
+  setGender: (gender: Gender) => void;
+}
+
+const GenderContext = createContext<GenderContextType | undefined>(undefined);
+
+export const GenderProvider = ({ children }: { children: React.ReactNode }) => {
+  const [gender, setGender] = useState<Gender>('other');
+
+  useEffect(() => {
+    const saved = localStorage.getItem('genderChoice') as Gender | null;
+    if (saved) setGender(saved);
+  }, []);
+
+  const handleSetGender = (g: Gender) => {
+    setGender(g);
+    localStorage.setItem('genderChoice', g);
+  };
+
+  return (
+    <GenderContext.Provider value={{ gender, setGender: handleSetGender }}>
+      <div className={`gender-${gender} min-h-screen`}>{children}</div>
+    </GenderContext.Provider>
+  );
+};
+
+export const useGender = () => {
+  const ctx = useContext(GenderContext);
+  if (!ctx) throw new Error('useGender must be used inside GenderProvider');
+  return ctx;
+};
+
+
 # Directory: src\i18n
 
 ===== File: src\i18n\request.ts =====
-import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
+import { getRequestConfig } from 'next-intl/server';
+import { routing } from './routing';
 
 // Tentukan tipe Locale
-type Locale = "en" | "fr" | "id"; // Sesuaikan dengan routing.locales
+type Locale = 'en' | 'fr' | 'id' | 'de' | 'ar' | 'russ'; // Sesuaikan dengan routing.locales
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // Menunggu hasil requestLocale yang bisa berupa string atau undefined
@@ -981,15 +2167,15 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
 
 ===== File: src\i18n\routing.ts =====
-import { defineRouting } from "next-intl/routing";
-import { createNavigation } from "next-intl/navigation";
+import { createNavigation } from 'next-intl/navigation';
+import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: ["id", "en", "fr"],
+  locales: ['id', 'en', 'fr', 'de', 'ar', 'russ'],
 
   // Used when no locale matches
-  defaultLocale: "id",
+  defaultLocale: 'de',
 });
 
 // Lightweight wrappers around Next.js' navigation APIs
@@ -998,15 +2184,43 @@ export const { Link, redirect, usePathname, useRouter, getPathname } =
   createNavigation(routing);
 
 
+# Directory: src\lib
+
+===== File: src\lib\utils.ts =====
+import { type ClassValue, clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
+export const formatPrice = (price: number, locale: string = 'en') => {
+  const currency = locale === 'fr' ? 'EUR' : 'USD';
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency,
+  }).format(price);
+};
+
+export const formatDuration = (minutes: number) => {
+  const hours = Math.floor(minutes / 60);
+  const mins = minutes % 60;
+  if (hours > 0) {
+    return `${hours}h ${mins > 0 ? `${mins}m` : ''}`;
+  }
+  return `${mins}m`;
+};
+
+
 ===== File: src\middleware.ts =====
-import createMiddleware from "next-intl/middleware";
-import { routing } from "./i18n/routing";
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 
 export default createMiddleware(routing);
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ["/", "/(id|en|fr)/:path*"],
+  matcher: ['/', '/(id|en|fr|de|ar|russ)/:path*'],
 };
 
 
@@ -1182,105 +2396,105 @@ export default function Feature({
 
 
 ===== File: src\sections\Footer.tsx =====
-import DashedBorderContainer from "@/components/DashedBorderContainer";
-import Image from "next/image";
-import vectorFooterImage from "../../public/assets/images/vector-footer.webp";
-import logoPrimary from "../../public/assets/images/logo-primary.svg";
-import instagramIcon from "../../public/assets/images/instagram-icon.svg";
-import facebookIcon from "../../public/assets/images/facebook-icon.svg";
-import linkedinIcon from "../../public/assets/images/linkedin-icon.svg";
-import { useTranslations } from "next-intl";
+import DashedBorderContainer from '@/components/DashedBorderContainer';
+import Image from 'next/image';
+import vectorFooterImage from '../../public/assets/images/vector-footer.webp';
+import logoPrimary from '../../public/assets/images/logo-primary.png';
+import instagramIcon from '../../public/assets/images/instagram-icon.svg';
+import facebookIcon from '../../public/assets/images/facebook-icon.svg';
+import linkedinIcon from '../../public/assets/images/linkedin-icon.svg';
+import { useTranslations } from 'next-intl';
 
 const footerLinks = [
   {
-    key: "Kota",
-    links: ["KotaYangBeroperasi"],
+    key: 'Kota',
+    links: ['KotaYangBeroperasi'],
   },
   {
-    key: "Mitra",
-    links: ["BermitraDenganKami"],
+    key: 'Mitra',
+    links: ['BermitraDenganKami'],
   },
   {
-    key: "Pengendara",
+    key: 'Pengendara',
     links: [
-      "PerjalananGrup",
-      "BeamBooster",
-      "PesanKendaraanBeam",
-      "BerkendaraDenganKami",
+      'PerjalananGrup',
+      'BeamBooster',
+      'PesanKendaraanBeam',
+      'BerkendaraDenganKami',
     ],
   },
   {
-    key: "Perusahaan",
+    key: 'Perusahaan',
     links: [
-      "UnduhAplikasi",
-      "Karir",
-      "KendaraanKami",
-      "PrioritasKami",
-      "Berita",
+      'UnduhAplikasi',
+      'Karir',
+      'KendaraanKami',
+      'PrioritasKami',
+      'Berita',
     ],
   },
 ];
 
 export default function Footer() {
-  const t = useTranslations("Footer");
+  const t = useTranslations('Footer');
 
   return (
-    <footer className="relative pb-5">
+    <footer className='relative pb-5'>
       <DashedBorderContainer showBottom={false}>
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="flex items-start gap-6 md:gap-10">
+        <div className='max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10'>
+          <div className='flex items-start gap-6 md:gap-10'>
             <div>
-              <Image src={logoPrimary} alt="Beam logo" className="size-12" />
+              <Image src={logoPrimary} alt='Beam logo' className='size-12' />
             </div>
             <div>
-              <h2 className="w-full md:w-40 text-h4 md:text-h2 text-primary-500 font-semibold">
-                {t("BeamMobility")}
+              <h2 className='w-full md:w-40 text-h4 md:text-h2 text-primary-500 font-semibold'>
+                {t('BeamMobility')}
               </h2>
-              <div className="mt-4 md:mt-8">
-                <p className="text-body4 text-text-blackSecondary">
-                  <span>{t("Copyright")}</span> <br />
-                  <span>{t("CopyrightCompany")}</span>
+              <div className='mt-4 md:mt-8'>
+                <p className='text-body4 text-text-blackSecondary'>
+                  <span>{t('Copyright')}</span> <br />
+                  <span>{t('CopyrightCompany')}</span>
                 </p>
               </div>
-              <div className="mt-5 flex items-center gap-3">
+              <div className='mt-5 flex items-center gap-3'>
                 <div>
                   <Image
                     src={instagramIcon}
-                    alt="Instagram icon"
-                    className="size-4"
+                    alt='Instagram icon'
+                    className='size-4'
                   />
                 </div>
                 <div>
                   <Image
                     src={facebookIcon}
-                    alt="Facebook icon"
-                    className="size-4"
+                    alt='Facebook icon'
+                    className='size-4'
                   />
                 </div>
                 <div>
                   <Image
                     src={linkedinIcon}
-                    alt="Linkedin icon"
-                    className="size-4"
+                    alt='Linkedin icon'
+                    className='size-4'
                   />
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="flex lg:justify-end">
-            <div className="grid grid-cols-2 md:grid-cols-[repeat(4,_140px)] items-start gap-7 xl:gap-10">
+          <div className='flex lg:justify-end'>
+            <div className='grid grid-cols-2 md:grid-cols-[repeat(4,_140px)] items-start gap-7 xl:gap-10'>
               {footerLinks.map((section, index) => (
                 <div key={index}>
-                  <h3 className="font-medium text-text-blackPrimary">
+                  <h3 className='font-medium text-text-blackPrimary'>
                     {t(`Links.${section.key}`)}
                   </h3>
-                  <div className="flex flex-col gap-1 mt-3">
+                  <div className='flex flex-col gap-1 mt-3'>
                     {section.links.map((link, linkIndex) => (
                       <a
                         key={linkIndex}
-                        href="#"
-                        className="block text-body4 text-tertiary-700"
+                        href='#'
+                        className='block text-body4 text-tertiary-700'
                       >
                         {t(`Links.${link}`)}
                       </a>
@@ -1292,8 +2506,8 @@ export default function Footer() {
           </div>
         </div>
       </DashedBorderContainer>
-      <div className="absolute bottom-0 left-0 -z-10">
-        <Image src={vectorFooterImage} alt="Vector image" draggable="false" />
+      <div className='absolute bottom-0 left-0 -z-10'>
+        <Image src={vectorFooterImage} alt='Vector image' draggable='false' />
       </div>
     </footer>
   );
@@ -1610,37 +2824,45 @@ export default function Help({
 
 
 ===== File: src\sections\Hero.tsx =====
+'use client';
+
+import { useGender } from '@/context/GenderContext';
+
 type HeroProps = {
   title: string;
   description: string;
-  backgroundClass: string;
   children: React.ReactNode;
+  backgroundClass?: string;
 };
 
-export default function Hero({
-  title,
-  description,
-  backgroundClass,
-  children,
-}: HeroProps) {
+export default function Hero({ title, description, children }: HeroProps) {
+  const { gender } = useGender();
+
+  // choose background image dynamically
+  const backgroundMap: Record<typeof gender, string> = {
+    male: 'bg-hero-male',
+    female: 'bg-hero-female',
+    other: 'bg-hero-default',
+  };
+
   return (
-    <section className="xl:px-7 xl:pt-7">
+    <section className='xl:px-7 xl:pt-7'>
       <div
-        className={`container lg:px-16 w-full h-[42.5rem] bg-cover bg-center xl:rounded-[2rem] ${backgroundClass}`}
+        className={`container lg:px-16 w-full h-[42.5rem] bg-cover bg-center xl:rounded-[2rem] ${backgroundMap[gender]}`}
       >
-        <div className="flex flex-col items-start justify-center h-full mx-auto">
-          <h1 className="text-text-whitePrimary text-6xl md:text-title font-semibold mt-32 w-full md:w-[519px]">
+        <div className='flex flex-col items-start justify-center h-full mx-auto'>
+          <h1 className='text-text-whitePrimary text-6xl md:text-title font-semibold mt-32 w-full md:w-[519px]'>
             {title}
           </h1>
-          <p className="mt-3 text-body1 text-text-whiteSecondary w-full md:w-[519px]">
+          <p className='mt-3 text-body1 text-text-whiteSecondary w-full md:w-[519px]'>
             {description}
           </p>
-          <div className="flex items-end justify-between w-full">
+          <div className='flex items-end justify-between w-full'>
             {children}
           </div>
         </div>
       </div>
-      <div className="container max-w-xs md:max-w-[44rem] lg:max-w-6xl pb-10 border-x border-others-santasGray border-dashed"></div>
+      <div className='container max-w-xs md:max-w-[44rem] lg:max-w-6xl pb-10 border-x border-others-santasGray border-dashed'></div>
     </section>
   );
 }
@@ -1709,43 +2931,43 @@ export default function Mission() {
 
 
 ===== File: src\sections\Navbar.tsx =====
-"use client";
+'use client';
 
-import Image from "next/image";
-import logoPrimary from "../../public/assets/images/logo-primary.svg";
-import Button from "@/components/Button";
-import ChangeLanguage from "@/components/ChangeLanguage";
-import { PhoneWhiteIcon } from "../../public/assets/icons/PhoneWhiteIcon";
-import Link from "next/link";
-import MenuIcon from "../../public/assets/icons/MenuIcon";
-import { useEffect, useState } from "react";
-import CloseIcon from "../../public/assets/icons/CloseIcon";
-import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
+import Button from '@/components/Button';
+import ChangeLanguage from '@/components/ChangeLanguage';
+import { useTranslations } from 'next-intl';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import CloseIcon from '../../public/assets/icons/CloseIcon';
+import MenuIcon from '../../public/assets/icons/MenuIcon';
+import { PhoneWhiteIcon } from '../../public/assets/icons/PhoneWhiteIcon';
+import logoPrimary from '../../public/assets/images/logo-primary.png';
 
 const navLinks = [
-  { key: "city", path: "/city" },
-  { key: "partner", path: "/partner" },
-  { key: "vehicle", path: "#vehicle" },
-  { key: "company", path: "#company" },
+  { key: 'city', path: '/city' },
+  { key: 'partner', path: '/partner' },
+  { key: 'vehicle', path: '#vehicle' },
+  { key: 'company', path: '#company' },
 ];
 
 export default function Navbar() {
-  const t = useTranslations("Navbar");
+  const t = useTranslations('Navbar');
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   // Extract the current locale from the path (e.g., /en, /id)
-  const currentLocale = pathname.split("/")[1] || "id"; // Default to "en"
+  const currentLocale = pathname.split('/')[1] || 'id'; // Default to "en"
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30); // Change state if scroll > 50px
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -1753,46 +2975,46 @@ export default function Navbar() {
     <header
       className={`fixed left-0 w-full z-30 transition-colors duration-300 ${
         isScrolled
-          ? "py-4 top-0 md:py-6 lg:top-0 bg-background-whitebg/25 backdrop-blur shadow-md"
-          : "bg-transparent pt-4 md:pt-6 lg:pt-0 lg:mt-14"
+          ? 'py-4 top-0 md:py-6 lg:top-0 bg-background-whitebg/25 backdrop-blur shadow-md'
+          : 'bg-transparent pt-4 md:pt-6 lg:pt-0 lg:mt-14'
       }`}
     >
-      <div className="container mx-auto lg:px-16">
-        <div className="grid grid-cols-2 lg:grid-cols-3 items-center">
+      <div className='container mx-auto lg:px-16'>
+        <div className='grid grid-cols-2 lg:grid-cols-3 items-center'>
           <Link href={`/${currentLocale}`}>
             <Image
               src={logoPrimary}
-              alt="Logo image"
-              className="w-[54px] h:auto"
+              alt='Logo image'
+              className='w-[54px] h:auto'
             />
           </Link>
-          <div className="lg:flex items-center justify-center hidden">
-            <nav className="flex px-5 py-3 gap-6 rounded-xl bg-others-stack/50 backdrop-blur">
-              {navLinks.map((link) => (
+          <div className='lg:flex items-center justify-center hidden'>
+            <nav className='flex px-5 py-3 gap-6 rounded-xl bg-others-stack/50 backdrop-blur'>
+              {navLinks.map(link => (
                 <Link
                   key={link.key}
                   href={`/${currentLocale}${link.path}`}
-                  className="px-2 text-secondary-50 font-medium text-sm"
+                  className='px-2 text-secondary-50 font-medium text-sm'
                 >
                   {t(link.key)}
                 </Link>
               ))}
             </nav>
           </div>
-          <div className="flex justify-end gap-3">
-            <div className="md:flex gap-3 hidden">
+          <div className='flex justify-end gap-3'>
+            <div className='md:flex gap-3 hidden'>
               <ChangeLanguage />
               <Button
-                variant="primary"
+                variant='primary'
                 icon={<PhoneWhiteIcon />}
-                iconPosition="right"
+                iconPosition='right'
               >
-                {t("contact")}
+                {t('contact')}
               </Button>
             </div>
             <button
-              className="flex lg:hidden items-center justify-center p-2.5 bg-text-whitePrimary rounded-lg"
-              onClick={() => setIsOpen((prev) => !prev)}
+              className='flex lg:hidden items-center justify-center p-2.5 bg-text-whitePrimary rounded-lg'
+              onClick={() => setIsOpen(prev => !prev)}
             >
               <MenuIcon />
             </button>
@@ -1802,44 +3024,44 @@ export default function Navbar() {
         {/* Mobile Menu */}
         <div
           className={`lg:hidden fixed top-0 left-0 w-full bg-background-whitebg h-dvh shadow-lg z-30 transition-transform duration-300 ease-in-out ${
-            isOpen ? "transform translate-x-0" : "transform -translate-x-full"
+            isOpen ? 'transform translate-x-0' : 'transform -translate-x-full'
           }`}
         >
-          <div className="flex items-center justify-between p-4 md:p-8">
+          <div className='flex items-center justify-between p-4 md:p-8'>
             <Link href={`/${currentLocale}`}>
               <Image
                 src={logoPrimary}
-                alt="Logo image"
-                className="w-[54px] h:auto"
+                alt='Logo image'
+                className='w-[54px] h:auto'
               />
             </Link>
             <button
-              className="flex items-center justify-center p-2.5 bg-text-whitePrimary rounded-lg border border-text-blackSecondary"
-              onClick={() => setIsOpen((prev) => !prev)}
+              className='flex items-center justify-center p-2.5 bg-text-whitePrimary rounded-lg border border-text-blackSecondary'
+              onClick={() => setIsOpen(prev => !prev)}
             >
               <CloseIcon />
             </button>
           </div>
-          <nav className="flex flex-col items-start gap-4 p-4 md:p-8 mt-10">
-            {navLinks.map((link) => (
+          <nav className='flex flex-col items-start gap-4 p-4 md:p-8 mt-10'>
+            {navLinks.map(link => (
               <Link
                 key={link.key}
                 href={`/${currentLocale}${link.path}`}
-                className="text-text-blackSecondary font-medium text-h3"
+                className='text-text-blackSecondary font-medium text-h3'
               >
                 {t(link.key)}
               </Link>
             ))}
           </nav>
-          <div className="border-t border-text-blackTertiary mx-4 md:mx-8 my-5"></div>
-          <div className="flex flex-col md:flex-row gap-3 p-4 md:p-8 border-gray-200">
+          <div className='border-t border-text-blackTertiary mx-4 md:mx-8 my-5'></div>
+          <div className='flex flex-col md:flex-row gap-3 p-4 md:p-8 border-gray-200'>
             <ChangeLanguage />
             <Button
-              variant="primary"
+              variant='primary'
               icon={<PhoneWhiteIcon />}
-              iconPosition="right"
+              iconPosition='right'
             >
-              {t("contact")}
+              {t('contact')}
             </Button>
           </div>
         </div>
@@ -2468,51 +3690,51 @@ export default function VehicleSafety() {
 
 
 ===== File: src\sections\Videos.tsx =====
-import DashedBorderContainer from "@/components/DashedBorderContainer";
-import Image from "next/image";
-import thumbnailVideo from "../../public/assets/images/video-image.png";
-import Button from "@/components/Button";
+// import DashedBorderContainer from "@/components/DashedBorderContainer";
+// import Image from "next/image";
+// import thumbnailVideo from "../../public/assets/images/video-image.png";
+// import Button from "@/components/Button";
 
-const PlayICon = () => (
-  <svg
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M5.25 5.65308C5.25 4.79708 6.167 4.25508 6.917 4.66708L18.457 11.0141C18.6336 11.1111 18.781 11.2538 18.8836 11.4273C18.9862 11.6007 19.0403 11.7986 19.0403 12.0001C19.0403 12.2016 18.9862 12.3994 18.8836 12.5729C18.781 12.7463 18.6336 12.889 18.457 12.9861L6.917 19.3331C6.74569 19.4273 6.55278 19.4752 6.35731 19.4721C6.16184 19.469 5.97054 19.4151 5.80227 19.3155C5.634 19.216 5.49457 19.0744 5.39773 18.9045C5.30089 18.7347 5.24997 18.5426 5.25 18.3471V5.65308Z"
-      stroke="#0F0F0F"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+// const PlayICon = () => (
+//   <svg
+//     width="24"
+//     height="24"
+//     viewBox="0 0 24 24"
+//     fill="none"
+//     xmlns="http://www.w3.org/2000/svg"
+//   >
+//     <path
+//       d="M5.25 5.65308C5.25 4.79708 6.167 4.25508 6.917 4.66708L18.457 11.0141C18.6336 11.1111 18.781 11.2538 18.8836 11.4273C18.9862 11.6007 19.0403 11.7986 19.0403 12.0001C19.0403 12.2016 18.9862 12.3994 18.8836 12.5729C18.781 12.7463 18.6336 12.889 18.457 12.9861L6.917 19.3331C6.74569 19.4273 6.55278 19.4752 6.35731 19.4721C6.16184 19.469 5.97054 19.4151 5.80227 19.3155C5.634 19.216 5.49457 19.0744 5.39773 18.9045C5.30089 18.7347 5.24997 18.5426 5.25 18.3471V5.65308Z"
+//       stroke="#0F0F0F"
+//       strokeWidth="1.6"
+//       strokeLinecap="round"
+//       strokeLinejoin="round"
+//     />
+//   </svg>
+// );
 
-export default function Videos() {
-  return (
-    <section>
-      <DashedBorderContainer showTop={false}>
-        <div className="relative">
-          <Image
-            src={thumbnailVideo}
-            alt="Thumbnail video"
-            className="w-full md:h-[536px] object-cover xl:rounded-[32px]"
-          />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <Button
-              variant="secondary"
-              icon={<PlayICon />}
-              className="px-[10px]"
-            ></Button>
-          </div>
-        </div>
-      </DashedBorderContainer>
-    </section>
-  );
-}
+// export default function Videos() {
+//   return (
+//     <section>
+//       <DashedBorderContainer showTop={false}>
+//         <div className="relative">
+//           <Image
+//             src={thumbnailVideo}
+//             alt="Thumbnail video"
+//             className="w-full md:h-[536px] object-cover xl:rounded-[32px]"
+//           />
+//           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+//             <Button
+//               variant="secondary"
+//               icon={<PlayICon />}
+//               className="px-[10px]"
+//             ></Button>
+//           </div>
+//         </div>
+//       </DashedBorderContainer>
+//     </section>
+//   );
+// }
 
 
 # Directory: src\styles

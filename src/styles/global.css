@@ -23,3 +23,33 @@
   -ms-overflow-style: none; /* Untuk Internet Explorer 10+ */
   scrollbar-width: none; /* Untuk Firefox */
 }
+
+/* default */
+.gender-male {
+  --accent: #3b82f6; /* blue */
+  --bg: #eff6ff;
+  --hero-img: url('/assets/images/hero-image.webp');
+}
+
+.gender-female {
+  --accent: #ec4899; /* pink */
+  --bg: #fdf2f8;
+  --hero-img: url('/assets/images/contact-1.jpg');
+}
+
+.gender-other {
+  --accent: #6b7280; /* neutral gray */
+  --bg: #f9fafb;
+  --hero-img: url('/assets/images/hero-image.webp');
+}
+
+/* usage */
+.bg-dynamic {
+  background: var(--bg);
+}
+.text-accent {
+  color: var(--accent);
+}
+.bg-hero-dynamic {
+  background-image: var(--hero-img);
+}

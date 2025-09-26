@@ -22,13 +22,8 @@ export default {
         sans: ['var(--font-poppins)', 'sans-serif'],
       },
 
-      // screens: {
-      //   sm: "375px",
-      //   md: "768px",
-      //   lg: "1200px",
-      // },
-
       backgroundImage: {
+        // Static backgrounds
         'hero-pattern': "url('/assets/images/hero-image.webp')",
         'help-pattern': "url('/assets/images/help-image.webp')",
         'city-pattern': "url('/assets/images/city-image.webp')",
@@ -37,6 +32,16 @@ export default {
           "url('/assets/images/hero-download-image.webp')",
         'hero-city-pattern': "url('/assets/images/hero-city-image.webp')",
         'hero-partner-pattern': "url('/assets/images/hero-partner-image.webp')",
+
+        // Gender-specific backgrounds
+        'hero-male': "url('/assets/images/male-hero.webp')",
+        'hero-female': "url('/assets/images/female-hero.webp')",
+        'hero-default': "url('/assets/images/hero-image.webp')",
+
+        // Dynamic background using CSS custom property
+        'hero-dynamic': 'var(--hero-img)',
+
+        // Gradients
         gradientPrimary: 'linear-gradient(to right, #E8E1FF, #FFEADB)',
         gradientPrimaryHover: 'linear-gradient(to right, #E5E5E5, #E5E5E5)',
         gradientSecondary: 'linear-gradient(to right, #CFC1FF, #FFE1CC)',
@@ -45,23 +50,14 @@ export default {
         gradientTertiaryHover: 'linear-gradient(to right, #E5E5E5, #E5E5E5)',
       },
 
-      fontSize: {
-        title: ['4.5rem', '5rem'], // Title: 72px / 80px
-        h1: ['3rem', '3.25rem'], // Heading 1: 48px / 52px
-        h2: ['2.375rem', '3.125rem'], // Heading 2: 38px / 50px
-        h3: ['2rem', '2.875rem'], // Heading 3: 32px / 46px
-        h4: ['1.5rem', '2.5rem'], // Heading 4: 24px / 40px
-        h5: ['1.25rem', '2.125rem'], // Heading 5: 20px / 34px
-        h6: ['1.125rem', '1.875rem'], // Heading 6: 18px / 30px
-        nav: ['0.875rem', '1.25rem'], // Nav/Buttons: 14px / 20px
-        body1: ['1.125rem', '1.875rem'], // Body/1: 18px / 30px
-        body2: ['1rem', '1.875rem'], // Body/2: 16px / 30px
-        body3: ['0.875rem', '1.5rem'], // Body/3: 14px / 24px
-        body4: ['0.625rem', '1rem'], // Body/4: 10px / 16px
-        kategori: ['0.875rem', '1.5rem'], // Kategori: 14px / 24px
-      },
-
+      // Add dynamic colors using CSS custom properties
       colors: {
+        // Dynamic colors that change based on gender
+        dynamic: {
+          accent: 'var(--accent)',
+          bg: 'var(--bg)',
+        },
+
         text: {
           DEFAULT: '#000000',
           blackPrimary: '#222222',
@@ -121,6 +117,22 @@ export default {
           tuftBush: '#FFE1CC',
           santasGray: '#A09EA8',
         },
+      },
+
+      fontSize: {
+        title: ['4.5rem', '5rem'], // Title: 72px / 80px
+        h1: ['3rem', '3.25rem'], // Heading 1: 48px / 52px
+        h2: ['2.375rem', '3.125rem'], // Heading 2: 38px / 50px
+        h3: ['2rem', '2.875rem'], // Heading 3: 32px / 46px
+        h4: ['1.5rem', '2.5rem'], // Heading 4: 24px / 40px
+        h5: ['1.25rem', '2.125rem'], // Heading 5: 20px / 34px
+        h6: ['1.125rem', '1.875rem'], // Heading 6: 18px / 30px
+        nav: ['0.875rem', '1.25rem'], // Nav/Buttons: 14px / 20px
+        body1: ['1.125rem', '1.875rem'], // Body/1: 18px / 30px
+        body2: ['1rem', '1.875rem'], // Body/2: 16px / 30px
+        body3: ['0.875rem', '1.5rem'], // Body/3: 14px / 24px
+        body4: ['0.625rem', '1rem'], // Body/4: 10px / 16px
+        kategori: ['0.875rem', '1.5rem'], // Kategori: 14px / 24px
       },
     },
   },

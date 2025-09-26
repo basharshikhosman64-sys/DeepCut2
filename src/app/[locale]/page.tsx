@@ -1,6 +1,7 @@
 'use client';
 
 import Button from '@/components/Button';
+import { useGender } from '@/context/GenderContext';
 import Feature from '@/sections/Feature';
 import Help from '@/sections/Help';
 import Hero from '@/sections/Hero';
@@ -12,31 +13,25 @@ import Vehicle from '@/sections/Vehicle';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { AccessibilityIcon } from '../../../public/assets/icons/AccessibilityIcon';
 import { ArrowRightLongIcon } from '../../../public/assets/icons/ArrowRightLongIcon';
 import { MapPinIcon } from '../../../public/assets/icons/MapPinIcon';
 import { PhoneWhiteIcon } from '../../../public/assets/icons/PhoneWhiteIcon';
 
 export default function Home() {
-  const [showOverlay, setShowOverlay] = useState(true); // overlay active at start
+  const { setGender } = useGender(); // context
+  const [showOverlay, setShowOverlay] = useState(true); // always true on load
+
   const tHero = useTranslations('HomePage.Hero');
   const tFeature = useTranslations('HomePage.Feature');
   const tHelp = useTranslations('HomePage.Help');
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1] || 'id';
 
-  // Optional: only show once (persist in localStorage)
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const savedChoice = localStorage.getItem('genderChoice');
-    // if (savedChoice) setShowOverlay(false);
-  }, []);
-
-  const handleChoice = (choice: string) => {
-    localStorage.setItem('genderChoice', choice);
-    setShowOverlay(false);
-    console.log('User selected:', choice);
+  const handleChoice = (choice: 'male' | 'female' | 'other') => {
+    setGender(choice); // only in memory
+    setShowOverlay(false); // close overlay
   };
 
   return (
@@ -45,19 +40,19 @@ export default function Home() {
       {showOverlay && (
         <div className='fixed inset-0 z-50 flex'>
           <button
-            onClick={() => handleChoice('Male')}
+            onClick={() => handleChoice('male')}
             className='flex-1 bg-blue-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
           >
             Male
           </button>
           <button
-            onClick={() => handleChoice('Female')}
+            onClick={() => handleChoice('female')}
             className='flex-1 bg-pink-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
           >
             Female
           </button>
           <button
-            onClick={() => handleChoice('Prefer not to say')}
+            onClick={() => handleChoice('other')}
             className='flex-1 bg-gray-500 text-white text-2xl font-bold flex items-center justify-center hover:opacity-90 transition'
           >
             Prefer not to say
@@ -65,7 +60,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Main content (blurred while overlay is active) */}
+      {/* Main content */}
       <div
         className={showOverlay ? 'blur-md pointer-events-none select-none' : ''}
       >
@@ -97,7 +92,6 @@ export default function Home() {
           </>
         </Hero>
         <Mission />
-        {/* <Videos /> */}
         <Priority />
         <Vehicle />
         <Feature

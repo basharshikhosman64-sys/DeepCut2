@@ -7,7 +7,337 @@
     "company": "Company",
     "contact": "Contact Us"
   },
-
+  "BookingPage": {
+    "hero": {
+      "title": "Book Your Appointment",
+      "description": "Choose your service, barber, and preferred time in just a few steps"
+    },
+    "steps": {
+      "service": {
+        "title": "Select a Service",
+        "nextButton": "Next: Choose Your Barber"
+      },
+      "barber": {
+        "title": "Select Your Barber",
+        "nextButton": "Next: Choose Date & Time",
+        "backButton": "Back"
+      },
+      "dateTime": {
+        "title": "Select Date & Time",
+        "dateLabel": "Date",
+        "timeLabel": "Time",
+        "nextButton": "Next: Confirm Details",
+        "backButton": "Back"
+      },
+      "contact": {
+        "title": "Contact Information",
+        "fields": {
+          "name": "Full Name",
+          "email": "Email Address",
+          "phone": "Phone Number"
+        },
+        "summary": {
+          "title": "Booking Summary",
+          "service": "Service:",
+          "barber": "Barber:",
+          "date": "Date:",
+          "time": "Time:",
+          "total": "Total:"
+        },
+        "buttons": {
+          "back": "Back",
+          "confirm": "Confirm Booking"
+        }
+      }
+    },
+    "services": [
+      { "id": "1", "name": "Classic Haircut", "price": 35, "duration": 30 },
+      { "id": "2", "name": "Modern Fade", "price": 45, "duration": 40 },
+      { "id": "3", "name": "Beard Trim", "price": 25, "duration": 20 },
+      { "id": "4", "name": "Hot Shave", "price": 45, "duration": 45 },
+      { "id": "5", "name": "The Complete Package", "price": 75, "duration": 60 }
+    ],
+    "barbers": [
+      {
+        "id": "1",
+        "name": "Marcus Johnson",
+        "specialty": "Classic Cuts & Traditional Styling"
+      },
+      {
+        "id": "2",
+        "name": "David Rodriguez",
+        "specialty": "Modern Styles & Precision Fades"
+      },
+      {
+        "id": "3",
+        "name": "James Wilson",
+        "specialty": "Straight Razor Shaves & Beard Care"
+      }
+    ],
+    "timeSlots": [
+      "9:00 AM",
+      "9:30 AM",
+      "10:00 AM",
+      "10:30 AM",
+      "11:00 AM",
+      "11:30 AM",
+      "1:00 PM",
+      "1:30 PM",
+      "2:00 PM",
+      "2:30 PM",
+      "3:00 PM",
+      "3:30 PM",
+      "4:00 PM"
+    ],
+    "alerts": {
+      "confirmation": "Booking confirmed! We'll send you a confirmation email shortly."
+    }
+  },
+  "PartnerPage": {
+    "hero": {
+      "title": "Partner With BarberCo",
+      "description": "Join our network of partners and grow your business with the leading barbershop brand. Exclusive opportunities for the right partners.",
+      "buttons": {
+        "becomePartner": "Become a Partner",
+        "getInTouch": "Get In Touch"
+      }
+    },
+    "benefits": {
+      "title": "Why Partner With Us?",
+      "description": "Discover the benefits of joining our growing network of partners",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Revenue Sharing",
+          "description": "Earn competitive commissions on every referral and booking through your platform."
+        },
+        {
+          "icon": "🎯",
+          "title": "Marketing Support",
+          "description": "Access our marketing materials, brand assets, and promotional campaigns."
+        },
+        {
+          "icon": "📊",
+          "title": "Analytics Dashboard",
+          "description": "Track your performance with detailed analytics and reporting tools."
+        },
+        {
+          "icon": "🤝",
+          "title": "Dedicated Support",
+          "description": "Get priority support from our partnership team whenever you need help."
+        }
+      ]
+    },
+    "types": {
+      "title": "Partnership Opportunities",
+      "description": "Find the perfect partnership model for your business",
+      "items": [
+        {
+          "title": "Corporate Partnerships",
+          "description": "Employee wellness programs and corporate grooming packages",
+          "features": [
+            "Bulk booking discounts",
+            "On-site services",
+            "Corporate billing",
+            "Flexible scheduling"
+          ],
+          "cta": "Partner with Us"
+        },
+        {
+          "title": "Influencer Program",
+          "description": "Content creators and social media influencers",
+          "features": [
+            "Commission per referral",
+            "Exclusive content",
+            "Product sponsorship",
+            "Event invitations"
+          ],
+          "cta": "Join Program"
+        },
+        {
+          "title": "Franchise Opportunities",
+          "description": "Expand our brand to new locations",
+          "features": [
+            "Proven business model",
+            "Training & support",
+            "Marketing assistance",
+            "Ongoing mentorship"
+          ],
+          "cta": "Learn More"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join our partner network today and start growing your business with BarberCo",
+      "buttons": {
+        "applyNow": "Apply Now",
+        "downloadKit": "Download Partnership Kit"
+      }
+    }
+  },
+  "PricingPage": {
+    "Hero": {
+      "title": "Transparent Pricing",
+      "description": "Quality barbering services at fair prices. No hidden fees, just exceptional craftsmanship."
+    },
+    "Highlights": [
+      {
+        "imageAlt": "Professional haircut service",
+        "category": "Premium Services",
+        "description": "Experience our signature services with master barbers who bring years of expertise to every cut.",
+        "date": "Starting at $35"
+      },
+      {
+        "imageAlt": "Traditional hot towel shave",
+        "category": "Classic Treatments",
+        "description": "Indulge in traditional barbering with our hot towel shaves and beard grooming services.",
+        "date": "From $25"
+      },
+      {
+        "imageAlt": "Group booking packages",
+        "category": "Special Packages",
+        "description": "Save more with our exclusive packages designed for families and regular clients.",
+        "date": "Save up to $20"
+      }
+    ],
+    "Services": [
+      {
+        "category": "Haircuts",
+        "items": [
+          {
+            "name": "Classic Cut",
+            "price": 35,
+            "description": "Traditional scissor cut with styling"
+          },
+          {
+            "name": "Modern Fade",
+            "price": 45,
+            "description": "Precision fade with modern styling"
+          },
+          {
+            "name": "Signature Cut",
+            "price": 55,
+            "description": "Premium cut with full consultation"
+          },
+          {
+            "name": "Kids Cut (12 & under)",
+            "price": 25,
+            "description": "Special care for young gentlemen"
+          }
+        ]
+      },
+      {
+        "category": "Beard Services",
+        "items": [
+          {
+            "name": "Beard Trim",
+            "price": 25,
+            "description": "Professional shaping with hot towel"
+          },
+          {
+            "name": "Mustache Trim",
+            "price": 15,
+            "description": "Precision mustache maintenance"
+          },
+          {
+            "name": "Full Beard Service",
+            "price": 40,
+            "description": "Complete beard grooming experience"
+          }
+        ]
+      }
+    ],
+    "SpecialOffers": {
+      "title": "Special Offers",
+      "offers": [
+        {
+          "title": "Student Discount",
+          "description": "20% off all services with valid student ID",
+          "button": "Learn More"
+        },
+        {
+          "title": "Senior Discount",
+          "description": "15% off for customers 65+ (Mon-Wed)",
+          "button": "Learn More"
+        },
+        {
+          "title": "First Visit",
+          "description": "$10 off your first service with us",
+          "button": "Claim Offer"
+        }
+      ]
+    }
+  },
+  "ShopPage": {
+    "hero": {
+      "title": "Barbershop Store",
+      "description": "Premium grooming products and tools used by our professional barbers"
+    },
+    "categories": [
+      "All",
+      "Hair Care",
+      "Beard Care",
+      "Styling",
+      "Tools",
+      "Gift Cards"
+    ],
+    "products": [
+      {
+        "id": "1",
+        "name": "Premium Hair Pomade",
+        "price": 28,
+        "originalPrice": 35,
+        "category": "Hair Care",
+        "description": "Professional-grade pomade for classic styling",
+        "image": "/product-1.jpg",
+        "rating": 4.8,
+        "reviews": 124,
+        "inStock": true
+      },
+      {
+        "id": "2",
+        "name": "Beard Oil - Sandalwood",
+        "price": 22,
+        "category": "Beard Care",
+        "description": "Nourishing beard oil with sandalwood scent",
+        "image": "/product-2.jpg",
+        "rating": 4.9,
+        "reviews": 89,
+        "inStock": true
+      }
+    ],
+    "featured": {
+      "title": "Professional Quality",
+      "description": "All our products are carefully selected and tested by our master barbers. Get the same professional-grade tools and products we use in our shop.",
+      "benefits": [
+        {
+          "icon": "🚚",
+          "title": "Free Shipping",
+          "desc": "On orders over $50"
+        },
+        {
+          "icon": "↩️",
+          "title": "Easy Returns",
+          "desc": "30-day return policy"
+        },
+        {
+          "icon": "⭐",
+          "title": "Quality Guaranteed",
+          "desc": "Professional grade products"
+        }
+      ]
+    },
+    "buttons": {
+      "addToCart": "Add to Cart",
+      "outOfStock": "Out of Stock",
+      "checkout": "Checkout"
+    },
+    "cart": {
+      "title": "Cart",
+      "total": "Total"
+    }
+  },
   "HomePage": {
     "Hero": {
       "title": "Move freely with Beam",
@@ -268,28 +598,6 @@
     "iosButton": "Download for iOS",
     "androidButton": "Download for Android"
   },
-
-  "PartnerPage": {
-    "hero": {
-      "title": "Partner",
-      "description": "If you care about a better future through sustainable transportation, let's talk. We want to hear your ideas and suggestions!"
-    },
-    "buttons": {
-      "downloadApp": "Download App",
-      "collaborateNow": "Collaborate Now"
-    },
-    "feature": {
-      "tag": "Partnership Program",
-      "title": "#BeamBooster",
-      "description": "Helping local businesses connect with Beam users to increase footfall, exposure, and revenue.",
-      "button": "Learn More"
-    },
-    "help": {
-      "title": "Let's collaborate!",
-      "description": "Partnering with us can mean many things—from simple collaborations to long-term strategic partnerships. We're open to discussions and finding the best solutions with you."
-    }
-  },
-
   "Benefit": {
     "tag": "Benefit",
     "title": "Our Benefits",

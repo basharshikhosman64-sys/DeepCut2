@@ -1,34 +1,42 @@
+'use client';
+
+import { useGender } from '@/context/GenderContext';
+
 type HeroProps = {
   title: string;
   description: string;
-  backgroundClass: string;
   children: React.ReactNode;
+  backgroundClass?: string;
 };
 
-export default function Hero({
-  title,
-  description,
-  backgroundClass,
-  children,
-}: HeroProps) {
+export default function Hero({ title, description, children }: HeroProps) {
+  const { gender } = useGender();
+
+  // choose background image dynamically
+  const backgroundMap: Record<typeof gender, string> = {
+    male: 'bg-hero-male',
+    female: 'bg-hero-female',
+    other: 'bg-hero-default',
+  };
+
   return (
-    <section className="xl:px-7 xl:pt-7">
+    <section className='xl:px-7 xl:pt-7'>
       <div
-        className={`container lg:px-16 w-full h-[42.5rem] bg-cover bg-center xl:rounded-[2rem] ${backgroundClass}`}
+        className={`container lg:px-16 w-full h-[42.5rem] bg-cover bg-center xl:rounded-[2rem] ${backgroundMap[gender]}`}
       >
-        <div className="flex flex-col items-start justify-center h-full mx-auto">
-          <h1 className="text-text-whitePrimary text-6xl md:text-title font-semibold mt-32 w-full md:w-[519px]">
+        <div className='flex flex-col items-start justify-center h-full mx-auto'>
+          <h1 className='text-text-whitePrimary text-6xl md:text-title font-semibold mt-32 w-full md:w-[519px]'>
             {title}
           </h1>
-          <p className="mt-3 text-body1 text-text-whiteSecondary w-full md:w-[519px]">
+          <p className='mt-3 text-body1 text-text-whiteSecondary w-full md:w-[519px]'>
             {description}
           </p>
-          <div className="flex items-end justify-between w-full">
+          <div className='flex items-end justify-between w-full'>
             {children}
           </div>
         </div>
       </div>
-      <div className="container max-w-xs md:max-w-[44rem] lg:max-w-6xl pb-10 border-x border-others-santasGray border-dashed"></div>
+      <div className='container max-w-xs md:max-w-[44rem] lg:max-w-6xl pb-10 border-x border-others-santasGray border-dashed'></div>
     </section>
   );
 }

@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
+import { GenderProvider } from '../../context/GenderContext';
 import '../../styles/global.css';
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description: 'DeepCut - Modern Design Website Landing Page',
 };
 
-type Locale = 'en' | 'fr' | 'id';
+type Locale = 'en' | 'fr' | 'id' | 'de' | 'ar' | 'russ';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -34,11 +35,13 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className='relative font-sans bg-background-whitebg antialiased'>
-        <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          {children}
-          <Footer />
-        </NextIntlClientProvider>
+        <GenderProvider>
+          <NextIntlClientProvider messages={messages}>
+            <Navbar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
+        </GenderProvider>
       </body>
     </html>
   );

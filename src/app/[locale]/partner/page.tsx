@@ -1,81 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
+import Button from '@/components/UI/botton';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/UI/card';
 import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
-import Button from '../../../components//UI/botton';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '../../../components/UI/card';
-
-const partnerBenefits = [
-  {
-    icon: '💰',
-    title: 'Revenue Sharing',
-    description:
-      'Earn competitive commissions on every referral and booking through your platform.',
-  },
-  {
-    icon: '🎯',
-    title: 'Marketing Support',
-    description:
-      'Access our marketing materials, brand assets, and promotional campaigns.',
-  },
-  {
-    icon: '📊',
-    title: 'Analytics Dashboard',
-    description:
-      'Track your performance with detailed analytics and reporting tools.',
-  },
-  {
-    icon: '🤝',
-    title: 'Dedicated Support',
-    description:
-      'Get priority support from our partnership team whenever you need help.',
-  },
-];
-
-const partnerTypes = [
-  {
-    title: 'Corporate Partnerships',
-    description: 'Employee wellness programs and corporate grooming packages',
-    features: [
-      'Bulk booking discounts',
-      'On-site services',
-      'Corporate billing',
-      'Flexible scheduling',
-    ],
-    cta: 'Partner with Us',
-  },
-  {
-    title: 'Influencer Program',
-    description: 'Content creators and social media influencers',
-    features: [
-      'Commission per referral',
-      'Exclusive content',
-      'Product sponsorship',
-      'Event invitations',
-    ],
-    cta: 'Join Program',
-  },
-  {
-    title: 'Franchise Opportunities',
-    description: 'Expand our brand to new locations',
-    features: [
-      'Proven business model',
-      'Training & support',
-      'Marketing assistance',
-      'Ongoing mentorship',
-    ],
-    cta: 'Learn More',
-  },
-];
 
 export default function PartnersPage() {
+  const tHero = useTranslations('PartnerPage.hero');
+  const tBenefits = useTranslations('PartnerPage.benefits');
+  const tTypes = useTranslations('PartnerPage.types');
+  const tCta = useTranslations('PartnerPage.cta');
+
   const pathname = usePathname();
   const currentLocale = pathname.split('/')[1] || 'en';
+
+  const benefits = tBenefits.raw('items') as Array<any>;
+  const types = tTypes.raw('items') as Array<any>;
 
   return (
     <div className='min-h-screen'>
@@ -85,12 +27,10 @@ export default function PartnersPage() {
         <div className='relative mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <h1 className='text-4xl font-bold tracking-tight text-white sm:text-6xl'>
-              Partner With BarberCo
+              {tHero('title')}
             </h1>
             <p className='mt-6 text-lg leading-8 text-slate-300'>
-              Join our network of partners and grow your business with the
-              leading barbershop brand. Exclusive opportunities for the right
-              partners.
+              {tHero('description')}
             </p>
             <div className='mt-10 flex items-center justify-center gap-x-6'>
               <Button
@@ -98,20 +38,7 @@ export default function PartnersPage() {
                 size='lg'
                 className='bg-amber-600 hover:bg-amber-700'
               >
-                Become a Partner
-                <svg
-                  className='ml-2 h-4 w-4'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M17 8l4 4m0 0l-4 4m4-4H3'
-                  />
-                </svg>
+                {tHero('buttons.becomePartner')}
               </Button>
               <Link href={`/${currentLocale}/contact`}>
                 <Button
@@ -119,7 +46,7 @@ export default function PartnersPage() {
                   size='lg'
                   className='text-white border-white hover:bg-white hover:text-slate-900'
                 >
-                  Get In Touch
+                  {tHero('buttons.getInTouch')}
                 </Button>
               </Link>
             </div>
@@ -132,14 +59,14 @@ export default function PartnersPage() {
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <h2 className='text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
-              Why Partner With Us?
+              {tBenefits('title')}
             </h2>
             <p className='mt-4 text-lg leading-8 text-slate-600'>
-              Discover the benefits of joining our growing network of partners
+              {tBenefits('description')}
             </p>
           </div>
           <div className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4'>
-            {partnerBenefits.map((benefit, index) => (
+            {benefits.map((benefit, index) => (
               <Card
                 key={index}
                 className='text-center hover:shadow-lg transition-shadow'
@@ -164,14 +91,14 @@ export default function PartnersPage() {
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <h2 className='text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
-              Partnership Opportunities
+              {tTypes('title')}
             </h2>
             <p className='mt-4 text-lg leading-8 text-slate-600'>
-              Find the perfect partnership model for your business
+              {tTypes('description')}
             </p>
           </div>
           <div className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3'>
-            {partnerTypes.map((type, index) => (
+            {types.map((type, index) => (
               <Card
                 key={index}
                 className='flex flex-col justify-between hover:shadow-xl transition-all duration-300'
@@ -183,15 +110,17 @@ export default function PartnersPage() {
                   </CardHeader>
                   <CardContent>
                     <ul className='space-y-2'>
-                      {type.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className='flex items-center text-sm text-slate-600'
-                        >
-                          <div className='w-2 h-2 bg-amber-600 rounded-full mr-3'></div>
-                          {feature}
-                        </li>
-                      ))}
+                      {type.features.map(
+                        (feature: string, featureIndex: number) => (
+                          <li
+                            key={featureIndex}
+                            className='flex items-center text-sm text-slate-600'
+                          >
+                            <div className='w-2 h-2 bg-amber-600 rounded-full mr-3'></div>
+                            {feature}
+                          </li>
+                        )
+                      )}
                     </ul>
                   </CardContent>
                 </div>
@@ -211,11 +140,10 @@ export default function PartnersPage() {
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <h2 className='text-3xl font-bold tracking-tight text-white sm:text-4xl'>
-              Ready to Get Started?
+              {tCta('title')}
             </h2>
             <p className='mt-6 text-lg leading-8 text-amber-100'>
-              Join our partner network today and start growing your business
-              with BarberCo
+              {tCta('description')}
             </p>
             <div className='mt-10 flex items-center justify-center gap-x-6'>
               <Button
@@ -223,14 +151,14 @@ export default function PartnersPage() {
                 size='lg'
                 className='bg-white text-amber-600 hover:bg-slate-100'
               >
-                Apply Now
+                {tCta('buttons.applyNow')}
               </Button>
               <Button
                 variant='ghost'
                 size='lg'
                 className='text-white hover:bg-amber-700'
               >
-                Download Partnership Kit
+                {tCta('buttons.downloadKit')}
               </Button>
             </div>
           </div>

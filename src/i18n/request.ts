@@ -1,8 +1,8 @@
-import { getRequestConfig } from "next-intl/server";
-import { routing } from "./routing";
+import { getRequestConfig } from 'next-intl/server';
+import { routing } from './routing';
 
 // Tentukan tipe Locale
-type Locale = "en" | "fr" | "id"; // Sesuaikan dengan routing.locales
+type Locale = 'en' | 'fr' | 'id' | 'de' | 'ar' | 'russ'; // Sesuaikan dengan routing.locales
 
 export default getRequestConfig(async ({ requestLocale }) => {
   // Menunggu hasil requestLocale yang bisa berupa string atau undefined
