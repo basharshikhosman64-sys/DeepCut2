@@ -1,5 +1,4 @@
-import Image from 'next/image';
-import bulletIcon from '../../public/assets/images/bullet-icon.svg';
+import { RiScissors2Fill } from 'react-icons/ri';
 
 type HelpProps = {
   title: string;
@@ -17,22 +16,24 @@ export default function Help({
   return (
     <section>
       <div className='relative container max-w-xs md:max-w-[44rem] lg:max-w-6xl pt-10 border-x border-others-santasGray border-dashed'>
-        <div className='absolute z-10 -top-[5px] -left-1'>
-          <Image
+        <div className='absolute z-10 -top-[5px] -left-1 pt-3'>
+          {/* <Image
             src={bulletIcon}
             alt='Bullet icon'
             className='size-2'
             draggable='false'
-          />
+          /> */}
+          <RiScissors2Fill />
         </div>
 
-        <div className='absolute z-10 -top-[5px] -right-1'>
-          <Image
+        <div className='absolute z-10 -top-[5px] -right-1 pt-3'>
+          {/* <Image
             src={bulletIcon}
             alt='Bullet icon'
             className='size-2'
             draggable='false'
-          />
+          /> */}
+          <RiScissors2Fill />
         </div>
       </div>
       <div

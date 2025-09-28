@@ -31,10 +31,20 @@ export default async function RootLayout({
   }
 
   const messages = await getMessages();
+  const { gender } = useGender();
+
+  const genderBg =
+    gender === 'male'
+      ? 'bg-black text-white'
+      : gender === 'female'
+      ? 'bg-pink-200'
+      : gender === 'other'
+      ? 'bg-gray-400'
+      : 'bg-gray-300'; // default before choice
 
   return (
     <html lang={locale}>
-      <body className='relative font-sans bg-orange-100 antialiased'>
+      <body className={`relative font-sans antialiased ${genderBg}`}>
         <GenderProvider>
           <NextIntlClientProvider messages={messages}>
             <Navbar />

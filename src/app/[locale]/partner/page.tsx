@@ -55,7 +55,6 @@ export default function PartnersPage() {
           </div>
         </div>
       </section>
-
       {/* Benefits Section */}
       <section className='py-24 sm:py-32 bg-white'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
@@ -87,7 +86,6 @@ export default function PartnersPage() {
           </div>
         </div>
       </section>
-
       {/* Partnership Types */}
       <section className='py-24 sm:py-32 bg-accent'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
@@ -136,7 +134,6 @@ export default function PartnersPage() {
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className='py-24 sm:py-32 bg-amber-600'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>

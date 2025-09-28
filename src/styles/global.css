@@ -26,6 +26,7 @@
 
 /* Gender-based theming using CSS custom properties */
 .gender-male {
+  @apply bg-black text-white;
   --accent: #3b82f6; /* blue-500 */
   --accent-hover: #2563eb; /* blue-600 */
   --bg: #f0f9ff; /* light blue background instead of black */

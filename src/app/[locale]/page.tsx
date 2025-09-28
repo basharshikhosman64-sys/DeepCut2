@@ -62,7 +62,9 @@ export default function Home() {
 
       {/* Main content */}
       <div
-        className={showOverlay ? 'blur-md pointer-events-none select-none' : ''}
+        className={
+          showOverlay ? 'blur-md pointer-events-none select-none ' : ''
+        }
       >
         <Hero
           title={tHero('title')}

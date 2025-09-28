@@ -1,11 +1,11 @@
 'use client';
 
 import * as Select from '@radix-ui/react-select';
-import { Check, ChevronDown } from 'lucide-react';
 import { useLocale } from 'next-intl';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
+import { LuCheck, LuChevronDown } from 'react-icons/lu';
 
 interface Country {
   code: string;
@@ -57,7 +57,7 @@ export default function ChangeLanguage() {
           </span>
         </Select.Value>
         <Select.Icon>
-          <ChevronDown className='h-4 w-4 text-slate-400' />
+          <LuChevronDown className='h-4 w-4 text-slate-400' />
         </Select.Icon>
       </Select.Trigger>
 
@@ -83,7 +83,7 @@ export default function ChangeLanguage() {
                 />
                 <Select.ItemText>{country.code}</Select.ItemText>
                 <Select.ItemIndicator className='absolute right-2'>
-                  <Check className='h-4 w-4 text-indigo-400' />
+                  <LuCheck className='h-4 w-4 text-indigo-400' />
                 </Select.ItemIndicator>
               </Select.Item>
             ))}
