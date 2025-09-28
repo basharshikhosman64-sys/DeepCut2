@@ -41,7 +41,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className='py-24 sm:py-32'>
+    <div className='py-24 sm:py-32 bg-dynamic'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Hero */}
         <div className='mx-auto max-w-2xl text-center'>
@@ -70,7 +70,7 @@ export default function ContactPage() {
         {/* Contact Form + Info */}
         <div className='mt-16 grid gap-12 lg:grid-cols-2'>
           {/* Form */}
-          <Card className='shadow-xl rounded-2xl border border-secondary-200'>
+          <Card className='shadow-xl rounded-2xl border-2 border-accent/20'>
             <CardHeader>
               <CardTitle className='text-2xl'>{t('Form.title')}</CardTitle>
               <p className='text-text-blackSecondary'>{t('Form.subtitle')}</p>
@@ -89,7 +89,7 @@ export default function ContactPage() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                      className='w-full rounded-xl border-2 border-secondary-200 focus:border-accent focus:ring-2 focus:ring-accent/20 p-4'
                     />
                   </div>
                   <div>
@@ -101,7 +101,7 @@ export default function ContactPage() {
                       name='phone'
                       value={formData.phone}
                       onChange={handleChange}
-                      className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                      className='w-full rounded-xl border-2 border-secondary-200 focus:border-accent focus:ring-2 focus:ring-accent/20 p-4'
                     />
                   </div>
                 </div>
@@ -117,7 +117,7 @@ export default function ContactPage() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                    className='w-full rounded-xl border-2 border-secondary-200 focus:border-accent focus:ring-2 focus:ring-accent/20 p-4'
                   />
                 </div>
 
@@ -131,7 +131,7 @@ export default function ContactPage() {
                     required
                     value={formData.subject}
                     onChange={handleChange}
-                    className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                    className='w-full rounded-xl border-2 border-secondary-200 focus:border-accent focus:ring-2 focus:ring-accent/20 p-4'
                   >
                     <option value=''>{t('Form.selectOptions.default')}</option>
                     {Object.entries(t.raw('Form.selectOptions')).map(
@@ -156,11 +156,16 @@ export default function ContactPage() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className='w-full rounded-xl border-2 border-secondary-200 p-4'
+                    className='w-full rounded-xl border-2 border-secondary-200 focus:border-accent focus:ring-2 focus:ring-accent/20 p-4'
                   />
                 </div>
 
-                <Button variant='primary' type='submit' className='w-full'>
+                <Button
+                  variant='primary'
+                  type='submit'
+                  className='w-full'
+                  useDynamicColors={true}
+                >
                   {t('Form.button')}
                 </Button>
               </form>
@@ -169,7 +174,7 @@ export default function ContactPage() {
 
           {/* Info Section */}
           <div className='space-y-8'>
-            <Card className='shadow-xl rounded-2xl border border-secondary-200'>
+            <Card className='shadow-xl rounded-2xl border-2 border-accent/20'>
               <CardHeader>
                 <CardTitle className='text-2xl'>
                   {t('Info.visitTitle')}

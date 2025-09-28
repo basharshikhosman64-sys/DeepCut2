@@ -20,36 +20,169 @@
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none; /* Untuk Internet Explorer 10+ */
-  scrollbar-width: none; /* Untuk Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer 10+ */
+  scrollbar-width: none; /* For Firefox */
 }
 
-/* default */
+/* Gender-based theming using CSS custom properties */
 .gender-male {
-  --accent: #3b82f6; /* blue */
-  --bg: #eff6ff;
-  --hero-img: url('/assets/images/hero-image.webp');
+  --accent: #3b82f6; /* blue-500 */
+  --accent-hover: #2563eb; /* blue-600 */
+  --bg: #f0f9ff; /* light blue background instead of black */
+  --hero-img: url('/assets/images/male-hero.webp');
+  --button-primary: #3b82f6;
+  --button-primary-hover: #2563eb;
+  --button-secondary: #dbeafe;
+  --button-secondary-hover: #bfdbfe;
 }
 
 .gender-female {
-  --accent: #ec4899; /* pink */
-  --bg: #fdf2f8;
-  --hero-img: url('/assets/images/contact-1.jpg');
+  --accent: #ec4899; /* pink-500 */
+  --accent-hover: #db2777; /* pink-600 */
+  --bg: #fdf2f8; /* pink-50 */
+  --hero-img: url('/assets/images/female-hero.webp');
+  --button-primary: #ec4899;
+  --button-primary-hover: #db2777;
+  --button-secondary: #fce7f3;
+  --button-secondary-hover: #fbcfe8;
 }
 
 .gender-other {
-  --accent: #6b7280; /* neutral gray */
-  --bg: #f9fafb;
+  --accent: #6b7280; /* gray-500 */
+  --accent-hover: #4b5563; /* gray-600 */
+  --bg: #f9fafb; /* gray-50 */
   --hero-img: url('/assets/images/hero-image.webp');
+  --button-primary: #6b7280;
+  --button-primary-hover: #4b5563;
+  --button-secondary: #f3f4f6;
+  --button-secondary-hover: #e5e7eb;
 }
 
-/* usage */
-.bg-dynamic {
-  background: var(--bg);
-}
-.text-accent {
-  color: var(--accent);
-}
-.bg-hero-dynamic {
-  background-image: var(--hero-img);
+/* Utility classes for dynamic theming */
+@layer utilities {
+  .bg-dynamic {
+    background-color: var(--bg);
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .bg-accent {
+    background-color: var(--accent);
+  }
+
+  .bg-accent-hover:hover {
+    background-color: var(--accent-hover);
+  }
+
+  .bg-hero-dynamic {
+    background-image: var(--hero-img);
+  }
+
+  .border-accent {
+    border-color: var(--accent);
+  }
+
+  /* Dynamic button styles */
+  .btn-dynamic-primary {
+    background-color: var(--button-primary);
+    color: white;
+  }
+
+  .btn-dynamic-primary:hover {
+    background-color: var(--button-primary-hover);
+  }
+
+  .btn-dynamic-secondary {
+    background-color: var(--button-secondary);
+    color: var(--accent);
+  }
+
+  .btn-dynamic-secondary:hover {
+    background-color: var(--button-secondary-hover);
+  }
+
+  /* Text overlay utilities for text over images */
+  .text-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .text-overlay-dark {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: white;
+  }
+
+  .text-overlay-subtle {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .text-overlay-accent {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+    border: 2px solid var(--accent, #3b82f6);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .text-overlay-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(255, 255, 255, 0.7) 100%
+    );
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    padding: 1.25rem 2rem;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Hover effects for text overlays */
+  .text-overlay:hover {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+
+  .text-overlay-dark:hover {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+
+  /* Text shadow utilities for better readability */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-white {
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  }
 }

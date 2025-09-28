@@ -47,10 +47,11 @@ export default function Button(
     icon?: ReactNode;
     iconPosition?: 'left' | 'right';
     navigateTo?: string;
+    useDynamicColors?: boolean;
   } & ButtonHTMLAttributes<HTMLButtonElement>
 ) {
   const {
-    variant,
+    variant = 'primary',
     className,
     size,
     fullWidth,
@@ -59,6 +60,7 @@ export default function Button(
     iconPosition = 'left',
     navigateTo,
     onClick,
+    useDynamicColors = false,
     ...otherProps
   } = props;
 
@@ -73,9 +75,34 @@ export default function Button(
     }
   };
 
+  // Apply dynamic colors if requested
+  let dynamicClasses = '';
+  if (useDynamicColors) {
+    if (variant === 'primary') {
+      dynamicClasses =
+        'bg-accent hover:bg-accent-hover focus-visible:ring-[var(--accent)]';
+    } else if (variant === 'secondary') {
+      dynamicClasses =
+        'bg-accent/10 text-accent hover:bg-accent/20 focus-visible:ring-[var(--accent)]';
+    } else if (variant === 'tertiary') {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      dynamicClasses =
+        'bg-accent text-white hover:bg-accent-hover focus-visible:ring-[var(--accent)]';
+    }
+  }
+
   return (
     <button
-      className={cn(buttonVariants({ variant, size, fullWidth }), className)}
+      className={cn(
+        buttonVariants({ variant, size, fullWidth }),
+        useDynamicColors &&
+          variant === 'primary' &&
+          'bg-accent hover:bg-accent-hover',
+        useDynamicColors &&
+          variant === 'secondary' &&
+          'bg-accent/10 text-accent hover:bg-accent/20',
+        className
+      )}
       onClick={handleClick}
       {...otherProps}
     >

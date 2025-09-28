@@ -27,10 +27,10 @@ export default function Home() {
   const tFeature = useTranslations('HomePage.Feature');
   const tHelp = useTranslations('HomePage.Help');
   const pathname = usePathname();
-  const currentLocale = pathname.split('/')[1] || 'id';
+  const currentLocale = pathname.split('/')[1] || 'de';
 
-  const handleChoice = (choice: 'male' | 'female' | 'other') => {
-    setGender(choice); // only in memory
+  const handleChoice = (gender: 'male' | 'female' | 'other') => {
+    setGender(gender); // only in memory
     setShowOverlay(false); // close overlay
   };
 
@@ -71,7 +71,11 @@ export default function Home() {
         >
           <>
             <div className='flex flex-col md:flex-row gap-3 mt-11'>
-              <Button variant='secondary' icon={<MapPinIcon />}>
+              <Button
+                variant='secondary'
+                icon={<MapPinIcon />}
+                useDynamicColors={true}
+              >
                 {tHero('buttons.viewGarage')}
               </Button>
               <Link href={`/${currentLocale}/download`}>
@@ -79,6 +83,7 @@ export default function Home() {
                   variant='primary'
                   icon={<ArrowRightLongIcon />}
                   iconPosition='right'
+                  useDynamicColors={true}
                 >
                   {tHero('buttons.downloadApp')}
                 </Button>

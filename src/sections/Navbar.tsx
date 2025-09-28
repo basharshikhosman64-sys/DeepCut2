@@ -13,7 +13,6 @@ import { PhoneWhiteIcon } from '../../public/assets/icons/PhoneWhiteIcon';
 import logoPrimary from '../../public/assets/images/logo-primary.png';
 
 const navLinks = [
-  { key: 'city', path: '/city' },
   { key: 'partner', path: '/partner' },
   { key: 'vehicle', path: '#vehicle' },
   { key: 'company', path: '#company' },
@@ -26,7 +25,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Extract the current locale from the path (e.g., /en, /id)
-  const currentLocale = pathname.split('/')[1] || 'id'; // Default to "en"
+  const currentLocale = pathname.split('/')[1] || 'de'; // Default to "en"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,6 +74,7 @@ export default function Navbar() {
                 variant='primary'
                 icon={<PhoneWhiteIcon />}
                 iconPosition='right'
+                useDynamicColors={true}
               >
                 {t('contact')}
               </Button>
@@ -127,6 +127,7 @@ export default function Navbar() {
               variant='primary'
               icon={<PhoneWhiteIcon />}
               iconPosition='right'
+              useDynamicColors={true}
             >
               {t('contact')}
             </Button>

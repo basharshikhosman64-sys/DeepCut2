@@ -7,7 +7,71 @@
     "company": "Entreprise",
     "contact": "Contactez-nous"
   },
-
+  "ContactPage": {
+    "Hero": {
+      "title": "Contactez-nous",
+      "description": "Visitez notre salon de coiffure moderne pour la meilleure expérience de soins pour hommes et femmes"
+    },
+    "Highlights": [
+      {
+        "imageAlt": "Service de coiffure professionnel",
+        "category": "Coiffure",
+        "description": "Coupes expertes et coiffure pour tous types de cheveux",
+        "date": "Disponible quotidiennement"
+      },
+      {
+        "imageAlt": "Soins de barbe premium",
+        "category": "Soins de barbe",
+        "description": "Services professionnels de taille et de toilettage de barbe",
+        "date": "Visites sans rendez-vous bienvenues"
+      },
+      {
+        "imageAlt": "Environnement de salon relaxant",
+        "category": "Expérience premium",
+        "description": "Profitez de notre atmosphère de salon confortable et moderne",
+        "date": "Ouvert 7 jours"
+      }
+    ],
+    "Form": {
+      "title": "Envoyez-nous un message",
+      "subtitle": "Nous aimerions avoir de vos nouvelles. Envoyez-nous un message et nous répondrons dès que possible.",
+      "fields": {
+        "name": "Nom complet *",
+        "email": "Adresse e-mail *",
+        "phone": "Numéro de téléphone",
+        "subject": "Sujet *",
+        "message": "Message *"
+      },
+      "selectOptions": {
+        "default": "Sélectionner un sujet",
+        "appointment": "Prendre rendez-vous",
+        "services": "Demande de service",
+        "feedback": "Commentaires",
+        "complaint": "Plainte",
+        "other": "Autre"
+      },
+      "button": "Envoyer le message"
+    },
+    "Info": {
+      "visitTitle": "Visitez notre salon",
+      "address": {
+        "title": "Notre emplacement",
+        "lines": [
+          "123 Rue du Style",
+          "Quartier de la Beauté",
+          "Ville, État 12345"
+        ]
+      },
+      "email": {
+        "title": "Envoyez-nous un e-mail",
+        "lines": ["info@salonbarbershop.com", "bookings@salonbarbershop.com"]
+      },
+      "phone": {
+        "title": "Appelez-nous",
+        "lines": ["+1 (555) 123-4567", "+1 (555) 123-4568"]
+      }
+    }
+  },
   "HomePage": {
     "Hero": {
       "title": "Muévete libremente con Beam",

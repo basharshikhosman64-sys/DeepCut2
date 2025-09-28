@@ -69,7 +69,7 @@ export default function PricingPage() {
   const offers = messagesTyped.PricingPage.SpecialOffers.offers;
 
   return (
-    <div className='py-24 sm:py-32'>
+    <div className='py-24 sm:py-32 bg-dynamic'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Hero */}
         <div className='mx-auto max-w-2xl text-center'>
@@ -110,14 +110,19 @@ export default function PricingPage() {
                         <h3 className='font-semibold text-lg'>
                           {service.name}
                         </h3>
-                        <span className='text-2xl font-bold text-primary-500'>
+                        <span className='text-2xl font-bold text-accent'>
                           {formatPrice(service.price)}
                         </span>
                       </div>
                       <p className='text-slate-600 mb-6'>
                         {service.description}
                       </p>
-                      <Button variant='primary' fullWidth navigateTo='/booking'>
+                      <Button
+                        variant='primary'
+                        fullWidth
+                        navigateTo='/booking'
+                        useDynamicColors={true}
+                      >
                         Book Now
                       </Button>
                     </CardContent>
@@ -130,9 +135,9 @@ export default function PricingPage() {
 
         {/* Special Offers */}
         <div className='mt-20'>
-          <Card className='bg-primary-50 border-primary-200'>
+          <Card className='bg-accent/10 border-accent/20'>
             <CardHeader>
-              <CardTitle className='text-center text-2xl text-primary-700'>
+              <CardTitle className='text-center text-2xl text-accent'>
                 {tOffers('title')}
               </CardTitle>
             </CardHeader>
@@ -140,11 +145,15 @@ export default function PricingPage() {
               <div className='grid md:grid-cols-3 gap-6 text-center'>
                 {offers.map((offer: Offer, i: number) => (
                   <div key={i} className='p-4'>
-                    <h3 className='font-semibold text-primary-700 mb-2'>
+                    <h3 className='font-semibold text-accent mb-2'>
                       {offer.title}
                     </h3>
-                    <p className='text-primary-600 mb-4'>{offer.description}</p>
-                    <Button variant='secondary' size='sm'>
+                    <p className='text-accent/80 mb-4'>{offer.description}</p>
+                    <Button
+                      variant='secondary'
+                      size='sm'
+                      useDynamicColors={true}
+                    >
                       {offer.button}
                     </Button>
                   </div>

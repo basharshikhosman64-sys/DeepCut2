@@ -14,7 +14,6 @@ interface Country {
 }
 
 const countries: Country[] = [
-  { code: 'ID', value: 'id', flag: '/flags/id.svg' },
   { code: 'EN', value: 'en', flag: '/flags/en.svg' },
   { code: 'FR', value: 'fr', flag: '/flags/fr.svg' },
   { code: 'DE', value: 'de', flag: '/flags/de.svg' },

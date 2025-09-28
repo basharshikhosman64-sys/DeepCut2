@@ -7,6 +7,67 @@
     "company": "Unternehmen",
     "contact": "Kontaktieren Sie uns"
   },
+  "ContactPage": {
+    "Hero": {
+      "title": "Kontaktieren Sie uns",
+      "description": "Besuchen Sie unseren modernen Salon-Friseursalon für das beste Pflegeerlebnis für Männer und Frauen"
+    },
+    "Highlights": [
+      {
+        "imageAlt": "Professioneller Haarstyling-Service",
+        "category": "Haarstyling",
+        "description": "Expertenschnitte und Styling für alle Haartypen",
+        "date": "Täglich verfügbar"
+      },
+      {
+        "imageAlt": "Premium Bartpflege",
+        "category": "Bartpflege",
+        "description": "Professionelle Barttrimm- und Pflegeservice",
+        "date": "Spontanbesuche willkommen"
+      },
+      {
+        "imageAlt": "Entspannende Salon-Atmosphäre",
+        "category": "Premium-Erlebnis",
+        "description": "Genießen Sie unser komfortables und modernes Salon-Ambiente",
+        "date": "7 Tage geöffnet"
+      }
+    ],
+    "Form": {
+      "title": "Senden Sie uns eine Nachricht",
+      "subtitle": "Wir würden gerne von Ihnen hören. Senden Sie uns eine Nachricht und wir antworten so schnell wie möglich.",
+      "fields": {
+        "name": "Vollständiger Name *",
+        "email": "E-Mail-Adresse *",
+        "phone": "Telefonnummer",
+        "subject": "Betreff *",
+        "message": "Nachricht *"
+      },
+      "selectOptions": {
+        "default": "Betreff auswählen",
+        "appointment": "Termin buchen",
+        "services": "Service-Anfrage",
+        "feedback": "Feedback",
+        "complaint": "Beschwerde",
+        "other": "Sonstiges"
+      },
+      "button": "Nachricht senden"
+    },
+    "Info": {
+      "visitTitle": "Besuchen Sie unseren Salon",
+      "address": {
+        "title": "Unser Standort",
+        "lines": ["123 Style Straße", "Beauty Bezirk", "Stadt, Staat 12345"]
+      },
+      "email": {
+        "title": "E-Mail an uns",
+        "lines": ["info@salonbarbershop.com", "bookings@salonbarbershop.com"]
+      },
+      "phone": {
+        "title": "Rufen Sie uns an",
+        "lines": ["+1 (555) 123-4567", "+1 (555) 123-4568"]
+      }
+    }
+  },
   "BookingPage": {
     "hero": {
       "title": "Buchen Sie Ihren Termin",

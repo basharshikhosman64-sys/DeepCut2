@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import Button from '@/components/UI/botton';
+import Button from '@/components/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/UI/card';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
@@ -20,9 +20,9 @@ export default function PartnersPage() {
   const types = tTypes.raw('items') as Array<any>;
 
   return (
-    <div className='min-h-screen'>
+    <div className='min-h-screen bg-dynamic'>
       {/* Hero Section */}
-      <section className='relative bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900 py-24 sm:py-32'>
+      <section className='relative bg-gradient-to-br from-slate-900 via-slate-800 to-[var(--accent)] py-24 sm:py-32'>
         <div className='absolute inset-0 bg-black/20'></div>
         <div className='relative mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
@@ -36,15 +36,17 @@ export default function PartnersPage() {
               <Button
                 variant='primary'
                 size='lg'
-                className='bg-amber-600 hover:bg-amber-700'
+                className='bg-accent hover:bg-accent-hover'
+                useDynamicColors={true}
               >
                 {tHero('buttons.becomePartner')}
               </Button>
               <Link href={`/${currentLocale}/contact`}>
                 <Button
-                  variant='outline'
+                  variant='primary'
                   size='lg'
                   className='text-white border-white hover:bg-white hover:text-slate-900'
+                  useDynamicColors={true}
                 >
                   {tHero('buttons.getInTouch')}
                 </Button>
@@ -65,7 +67,7 @@ export default function PartnersPage() {
               {tBenefits('description')}
             </p>
           </div>
-          <div className='mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4'>
+          <div className='mx-auto w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center text-2xl mb-4 text-accent'>
             {benefits.map((benefit, index) => (
               <Card
                 key={index}
@@ -87,7 +89,7 @@ export default function PartnersPage() {
       </section>
 
       {/* Partnership Types */}
-      <section className='py-24 sm:py-32 bg-slate-50'>
+      <section className='py-24 sm:py-32 bg-accent'>
         <div className='mx-auto max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <h2 className='text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl'>
@@ -116,7 +118,7 @@ export default function PartnersPage() {
                             key={featureIndex}
                             className='flex items-center text-sm text-slate-600'
                           >
-                            <div className='w-2 h-2 bg-amber-600 rounded-full mr-3'></div>
+                            <div className='w-2 h-2 bg-accent rounded-full mr-3'></div>
                             {feature}
                           </li>
                         )
@@ -125,7 +127,7 @@ export default function PartnersPage() {
                   </CardContent>
                 </div>
                 <div className='p-6 pt-0'>
-                  <Button variant='outline' className='w-full'>
+                  <Button variant='primary' className='w-full'>
                     {type.cta}
                   </Button>
                 </div>
@@ -149,14 +151,16 @@ export default function PartnersPage() {
               <Button
                 variant='secondary'
                 size='lg'
-                className='bg-white text-amber-600 hover:bg-slate-100'
+                className='bg-white text-[var(--accent)] hover:bg-slate-100'
+                useDynamicColors={true}
               >
                 {tCta('buttons.applyNow')}
               </Button>
               <Button
                 variant='ghost'
                 size='lg'
-                className='text-white hover:bg-amber-700'
+                className='text-white hover:bg-accent-hover'
+                useDynamicColors={true}
               >
                 {tCta('buttons.downloadKit')}
               </Button>

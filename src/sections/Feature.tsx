@@ -1,15 +1,17 @@
-"use client";
-import Button from "@/components/Button";
-import DashedBorderContainer from "@/components/DashedBorderContainer";
-import Tag from "@/components/Tag";
-import Image from "next/image";
-import imageFeature1 from "../../public/assets/images/feature-image1.png";
-import imageFeature2 from "../../public/assets/images/feature-image1.png";
-import imageFeature3 from "../../public/assets/images/feature-image1.png";
-import { useState } from "react";
-import ArrowRightBlackIcon from "../../public/assets/icons/ArrowRightBlackIcon";
-import ArrowLeftBlackIcon from "../../public/assets/icons/ArrowLeftBlackIcon";
-import { ArrowRightLongIcon } from "../../public/assets/icons/ArrowRightLongIcon";
+'use client';
+import Button from '@/components/Button';
+import DashedBorderContainer from '@/components/DashedBorderContainer';
+import Tag from '@/components/Tag';
+import Image from 'next/image';
+import { useState } from 'react';
+import ArrowLeftBlackIcon from '../../public/assets/icons/ArrowLeftBlackIcon';
+import ArrowRightBlackIcon from '../../public/assets/icons/ArrowRightBlackIcon';
+import { ArrowRightLongIcon } from '../../public/assets/icons/ArrowRightLongIcon';
+import {
+  default as imageFeature1,
+  default as imageFeature2,
+  default as imageFeature3,
+} from '../../public/assets/images/feature-image1.png';
 
 type FeatureProps = {
   tag: string;
@@ -19,9 +21,9 @@ type FeatureProps = {
 };
 
 const images = [
-  { src: imageFeature1, alt: "Feature image 1" },
-  { src: imageFeature2, alt: "Feature image 2" },
-  { src: imageFeature3, alt: "Feature image 3" },
+  { src: imageFeature1, alt: 'Feature image 1' },
+  { src: imageFeature2, alt: 'Feature image 2' },
+  { src: imageFeature3, alt: 'Feature image 3' },
 ];
 
 export default function Feature({
@@ -35,63 +37,66 @@ export default function Feature({
 
   // Fungsi untuk navigasi ke gambar berikutnya
   const nextImage = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
   };
 
   // Fungsi untuk navigasi ke gambar sebelumnya
   const prevImage = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      prevIndex => (prevIndex - 1 + images.length) % images.length
     );
   };
 
   return (
     <section>
       <DashedBorderContainer showTop={false}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 items-center">
-          <div className="flex flex-col">
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-y-10 items-center'>
+          <div className='flex flex-col'>
             <Tag>{tag}</Tag>
-            <h3 className="mt-8 text-text-blackPrimary text-h3 font-medium">
+            <h3 className='mt-8 text-text-blackPrimary text-h3 font-medium'>
               {title}
             </h3>
-            <p className="mt-3 text-text-blackSecondary text-body1">
+            <p className='mt-3 text-text-blackSecondary text-body1'>
               {description}
             </p>
-            <div className="mt-6">
+            <div className='mt-6'>
               <Button
-                variant="tertiary"
+                variant='tertiary'
                 icon={<ArrowRightLongIcon />}
-                iconPosition="right"
+                iconPosition='right'
               >
                 {button}
               </Button>
             </div>
           </div>
-          <div className="flex justify-end">
-            <div className="w-[530px] flex flex-col gap-4">
-              <div className="w-full md:h-[348px] mx-auto bg-gradientPrimary rounded-3xl">
-                <div className="flex items-center justify-center p-10">
+          <div className='flex justify-end'>
+            <div className='w-[530px] flex flex-col gap-4'>
+              <div className='w-full md:h-[348px] mx-auto bg-dynamic rounded-3xl'>
+                <div className='flex items-center justify-center p-10'>
                   <Image
                     src={images[currentIndex].src}
                     alt={images[currentIndex].alt}
-                    className="w-full md:w-[382px] object-cover"
+                    className='w-full md:w-[382px] object-cover'
                   />
                 </div>
               </div>
-              <div className="flex items-center justify-between">
+              <div className='flex items-center justify-between'>
                 <span>{`${currentIndex + 1}/${images.length}`}</span>
-                <div className="flex items-center gap-3">
+                <div className='flex items-center gap-3'>
                   <Button
-                    variant="secondary"
+                    variant='secondary'
                     icon={<ArrowLeftBlackIcon />}
-                    className="border border-tertiary-200"
+                    className='border border-accent/20 hover:border-accent'
                     onClick={prevImage}
+                    useDynamicColors={true}
                   />
+
                   <Button
-                    variant="secondary"
+                    variant='secondary'
                     icon={<ArrowRightBlackIcon />}
-                    className="border border-tertiary-200"
+                    className='border border-accent/20 hover:border-accent'
                     onClick={nextImage}
+                    useDynamicColors={true}
                   />
                 </div>
               </div>

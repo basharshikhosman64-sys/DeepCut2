@@ -1,24 +1,89 @@
 {
   "Navbar": {
     "home": "Home",
-    "city": "City",
-    "partner": "Partner",
-    "vehicle": "Vehicle",
+    "city": "Locations",
+    "partner": "Partners",
+    "vehicle": "Services",
     "company": "Company",
     "contact": "Contact Us"
+  },
+  "ContactPage": {
+    "Hero": {
+      "title": "Get in Touch",
+      "description": "Visit DeepCut Salon for the best grooming and styling experience for both men and women"
+    },
+    "Highlights": [
+      {
+        "imageAlt": "Professional hair styling service",
+        "category": "Hair Styling",
+        "description": "Expert cuts and styling for all hair types and lengths",
+        "date": "Available Daily"
+      },
+      {
+        "imageAlt": "Premium beard grooming",
+        "category": "Beard Care",
+        "description": "Professional beard trimming and grooming services",
+        "date": "Walk-ins Welcome"
+      },
+      {
+        "imageAlt": "Relaxing salon environment",
+        "category": "Premium Experience",
+        "description": "Enjoy our comfortable and modern salon atmosphere",
+        "date": "Open 7 Days"
+      }
+    ],
+    "Form": {
+      "title": "Send us a Message",
+      "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+      "fields": {
+        "name": "Full Name *",
+        "email": "Email Address *",
+        "phone": "Phone Number",
+        "subject": "Subject *",
+        "message": "Message *"
+      },
+      "selectOptions": {
+        "default": "Select a subject",
+        "appointment": "Book an Appointment",
+        "services": "Service Inquiry",
+        "feedback": "Feedback",
+        "complaint": "Complaint",
+        "other": "Other"
+      },
+      "button": "Send Message"
+    },
+    "Info": {
+      "visitTitle": "Visit DeepCut Salon",
+      "address": {
+        "title": "Our Location",
+        "lines": [
+          "123 Style Street",
+          "Beauty District",
+          "Berlin, Germany 10115"
+        ]
+      },
+      "email": {
+        "title": "Email Us",
+        "lines": ["info@deepcutsalon.com", "bookings@deepcutsalon.com"]
+      },
+      "phone": {
+        "title": "Call Us",
+        "lines": ["+49 (30) 123-4567", "+49 (30) 123-4568"]
+      }
+    }
   },
   "BookingPage": {
     "hero": {
       "title": "Book Your Appointment",
-      "description": "Choose your service, barber, and preferred time in just a few steps"
+      "description": "Choose your service, stylist, and preferred time in just a few steps"
     },
     "steps": {
       "service": {
         "title": "Select a Service",
-        "nextButton": "Next: Choose Your Barber"
+        "nextButton": "Next: Choose Your Stylist"
       },
       "barber": {
-        "title": "Select Your Barber",
+        "title": "Select Your Stylist",
         "nextButton": "Next: Choose Date & Time",
         "backButton": "Back"
       },
@@ -39,7 +104,7 @@
         "summary": {
           "title": "Booking Summary",
           "service": "Service:",
-          "barber": "Barber:",
+          "barber": "Stylist:",
           "date": "Date:",
           "time": "Time:",
           "total": "Total:"
@@ -51,27 +116,54 @@
       }
     },
     "services": [
-      { "id": "1", "name": "Classic Haircut", "price": 35, "duration": 30 },
-      { "id": "2", "name": "Modern Fade", "price": 45, "duration": 40 },
-      { "id": "3", "name": "Beard Trim", "price": 25, "duration": 20 },
-      { "id": "4", "name": "Hot Shave", "price": 45, "duration": 45 },
-      { "id": "5", "name": "The Complete Package", "price": 75, "duration": 60 }
+      {
+        "id": "1",
+        "name": "Women's Wash & Cut (Short)",
+        "price": 20,
+        "duration": 45
+      },
+      {
+        "id": "2",
+        "name": "Women's Wash, Cut & Style (Medium)",
+        "price": 42,
+        "duration": 60
+      },
+      {
+        "id": "3",
+        "name": "Women's Wash, Cut & Style (Long)",
+        "price": 47,
+        "duration": 75
+      },
+      { "id": "4", "name": "Women's Full Color", "price": 52, "duration": 120 },
+      { "id": "5", "name": "Women's Balayage", "price": 60, "duration": 150 },
+      { "id": "6", "name": "Men's Cut with Wash", "price": 23, "duration": 30 },
+      { "id": "7", "name": "Men's Dry Cut", "price": 18, "duration": 20 },
+      { "id": "8", "name": "Beard Shave", "price": 18, "duration": 25 },
+      { "id": "9", "name": "Hair & Beard Combo", "price": 35, "duration": 45 },
+      {
+        "id": "10",
+        "name": "Hair & Beard & Waxing",
+        "price": 40,
+        "duration": 55
+      },
+      { "id": "11", "name": "Kids Cut", "price": 15, "duration": 20 },
+      { "id": "12", "name": "Student Cut", "price": 16, "duration": 25 }
     ],
     "barbers": [
       {
         "id": "1",
-        "name": "Marcus Johnson",
-        "specialty": "Classic Cuts & Traditional Styling"
+        "name": "Sarah Mueller",
+        "specialty": "Women's Cuts & Color Specialist"
       },
       {
         "id": "2",
-        "name": "David Rodriguez",
-        "specialty": "Modern Styles & Precision Fades"
+        "name": "Marcus Wagner",
+        "specialty": "Men's Cuts & Beard Care Expert"
       },
       {
         "id": "3",
-        "name": "James Wilson",
-        "specialty": "Straight Razor Shaves & Beard Care"
+        "name": "Lisa Schmidt",
+        "specialty": "Styling & Wedding Hair Specialist"
       }
     ],
     "timeSlots": [
@@ -95,8 +187,8 @@
   },
   "PartnerPage": {
     "hero": {
-      "title": "Partner With BarberCo",
-      "description": "Join our network of partners and grow your business with the leading barbershop brand. Exclusive opportunities for the right partners.",
+      "title": "Partner With DeepCut",
+      "description": "Join our network of partners and grow your business with the leading salon brand. Exclusive opportunities for the right partners.",
       "buttons": {
         "becomePartner": "Become a Partner",
         "getInTouch": "Get In Touch"
@@ -169,7 +261,7 @@
     },
     "cta": {
       "title": "Ready to Get Started?",
-      "description": "Join our partner network today and start growing your business with BarberCo",
+      "description": "Join our partner network today and start growing your business with DeepCut",
       "buttons": {
         "applyNow": "Apply Now",
         "downloadKit": "Download Partnership Kit"
@@ -179,71 +271,181 @@
   "PricingPage": {
     "Hero": {
       "title": "Transparent Pricing",
-      "description": "Quality barbering services at fair prices. No hidden fees, just exceptional craftsmanship."
+      "description": "Quality salon services at fair prices. No hidden fees, just exceptional craftsmanship."
     },
     "Highlights": [
       {
         "imageAlt": "Professional haircut service",
-        "category": "Premium Services",
-        "description": "Experience our signature services with master barbers who bring years of expertise to every cut.",
-        "date": "Starting at $35"
+        "category": "Women's Services",
+        "description": "Experience our signature services with master stylists who bring years of expertise to every cut.",
+        "date": "Starting at €18"
       },
       {
-        "imageAlt": "Traditional hot towel shave",
-        "category": "Classic Treatments",
-        "description": "Indulge in traditional barbering with our hot towel shaves and beard grooming services.",
-        "date": "From $25"
+        "imageAlt": "Traditional beard grooming",
+        "category": "Men's Services",
+        "description": "Classic and modern men's grooming with professional beard care.",
+        "date": "From €16"
       },
       {
-        "imageAlt": "Group booking packages",
-        "category": "Special Packages",
-        "description": "Save more with our exclusive packages designed for families and regular clients.",
-        "date": "Save up to $20"
+        "imageAlt": "Special treatments",
+        "category": "Premium Treatments",
+        "description": "Color services, styling, and specialized treatments for your perfect look.",
+        "date": "From €25"
       }
     ],
     "Services": [
       {
-        "category": "Haircuts",
+        "category": "Women's Services",
         "items": [
           {
-            "name": "Classic Cut",
+            "name": "Wash & Cut (Short)",
+            "price": 20,
+            "description": "Professional wash and cut for short hair"
+          },
+          {
+            "name": "Wash, Cut & Style (Medium)",
+            "price": 42,
+            "description": "Complete service with styling for medium length hair"
+          },
+          {
+            "name": "Wash, Cut & Style (Long)",
+            "price": 47,
+            "description": "Full service for long hair with professional styling"
+          },
+          {
+            "name": "Root Touch-up Color",
+            "price": 27,
+            "description": "Color refresh for roots (all lengths)"
+          },
+          {
+            "name": "Full Hair Color",
+            "price": 52,
+            "description": "Complete hair coloring service"
+          },
+          {
+            "name": "Partial Highlights (up to 10)",
             "price": 35,
-            "description": "Traditional scissor cut with styling"
+            "description": "Selective highlighting for medium hair"
           },
           {
-            "name": "Modern Fade",
+            "name": "Full Highlights",
+            "price": 50,
+            "description": "Complete highlighting service"
+          },
+          {
+            "name": "Balayage",
+            "price": 60,
+            "description": "Modern hand-painted highlighting technique"
+          },
+          {
+            "name": "Perm",
             "price": 45,
-            "description": "Precision fade with modern styling"
+            "description": "Professional permanent wave styling"
           },
           {
-            "name": "Signature Cut",
-            "price": 55,
-            "description": "Premium cut with full consultation"
+            "name": "Eyebrow Plucking",
+            "price": 8,
+            "description": "Professional eyebrow shaping"
           },
           {
-            "name": "Kids Cut (12 & under)",
-            "price": 25,
-            "description": "Special care for young gentlemen"
+            "name": "Eyelash Tinting",
+            "price": 10,
+            "description": "Professional eyelash coloring"
+          },
+          {
+            "name": "Facial Waxing",
+            "price": 10,
+            "description": "Professional facial hair removal"
           }
         ]
       },
       {
-        "category": "Beard Services",
+        "category": "Men's Services",
         "items": [
           {
-            "name": "Beard Trim",
-            "price": 25,
-            "description": "Professional shaping with hot towel"
+            "name": "Dry Cut",
+            "price": 18,
+            "description": "Quick professional dry cut"
           },
           {
-            "name": "Mustache Trim",
-            "price": 15,
-            "description": "Precision mustache maintenance"
+            "name": "Cut with Wash",
+            "price": 23,
+            "description": "Complete wash and cut service"
           },
           {
-            "name": "Full Beard Service",
+            "name": "Beard Shave",
+            "price": 18,
+            "description": "Professional beard trimming and shaping"
+          },
+          {
+            "name": "Hair & Beard Combo",
+            "price": 35,
+            "description": "Complete hair and beard grooming"
+          },
+          {
+            "name": "Hair & Beard & Waxing",
             "price": 40,
-            "description": "Complete beard grooming experience"
+            "description": "Full grooming with waxing service"
+          },
+          {
+            "name": "Machine Cut",
+            "price": 16,
+            "description": "Quick clipper cut"
+          },
+          {
+            "name": "Waxing",
+            "price": 5,
+            "description": "Professional waxing service"
+          },
+          {
+            "name": "Eyebrow Plucking",
+            "price": 8,
+            "description": "Men's eyebrow grooming"
+          },
+          {
+            "name": "Eyebrow Tinting",
+            "price": 10,
+            "description": "Professional eyebrow coloring"
+          },
+          {
+            "name": "Eyelash Tinting",
+            "price": 10,
+            "description": "Professional eyelash coloring"
+          },
+          {
+            "name": "Beard Coloring",
+            "price": 15,
+            "description": "Professional beard color service"
+          },
+          {
+            "name": "Hair Coloring",
+            "price": 20,
+            "description": "Professional hair coloring for men"
+          },
+          {
+            "name": "Facial Cleansing",
+            "price": 20,
+            "description": "Deep cleansing facial treatment"
+          },
+          {
+            "name": "Face Mask",
+            "price": 5,
+            "description": "Nourishing face mask treatment"
+          },
+          {
+            "name": "Wash & Style",
+            "price": 8,
+            "description": "Quick wash and styling service"
+          },
+          {
+            "name": "Kids Cut",
+            "price": 15,
+            "description": "Special care for children"
+          },
+          {
+            "name": "Student Cut",
+            "price": 16,
+            "description": "Discounted rate for students"
           }
         ]
       }
@@ -253,26 +455,26 @@
       "offers": [
         {
           "title": "Student Discount",
-          "description": "20% off all services with valid student ID",
+          "description": "Special student pricing available with valid ID",
           "button": "Learn More"
         },
         {
-          "title": "Senior Discount",
-          "description": "15% off for customers 65+ (Mon-Wed)",
-          "button": "Learn More"
-        },
-        {
-          "title": "First Visit",
-          "description": "$10 off your first service with us",
+          "title": "First Visit Bonus",
+          "description": "€5 off your first service with us",
           "button": "Claim Offer"
+        },
+        {
+          "title": "Combo Deals",
+          "description": "Save when you book multiple services together",
+          "button": "View Combos"
         }
       ]
     }
   },
   "ShopPage": {
     "hero": {
-      "title": "Barbershop Store",
-      "description": "Premium grooming products and tools used by our professional barbers"
+      "title": "DeepCut Store",
+      "description": "Premium grooming products and tools recommended by our professional stylists"
     },
     "categories": [
       "All",
@@ -285,11 +487,11 @@
     "products": [
       {
         "id": "1",
-        "name": "Premium Hair Pomade",
+        "name": "Premium Hair Serum",
         "price": 28,
         "originalPrice": 35,
         "category": "Hair Care",
-        "description": "Professional-grade pomade for classic styling",
+        "description": "Professional-grade serum for all hair types",
         "image": "/product-1.jpg",
         "rating": 4.8,
         "reviews": 124,
@@ -297,10 +499,10 @@
       },
       {
         "id": "2",
-        "name": "Beard Oil - Sandalwood",
+        "name": "Beard Oil - Natural",
         "price": 22,
         "category": "Beard Care",
-        "description": "Nourishing beard oil with sandalwood scent",
+        "description": "Nourishing beard oil with natural ingredients",
         "image": "/product-2.jpg",
         "rating": 4.9,
         "reviews": 89,
@@ -309,12 +511,12 @@
     ],
     "featured": {
       "title": "Professional Quality",
-      "description": "All our products are carefully selected and tested by our master barbers. Get the same professional-grade tools and products we use in our shop.",
+      "description": "All our products are carefully selected and tested by our master stylists. Get the same professional-grade tools and products we use in our salon.",
       "benefits": [
         {
           "icon": "🚚",
           "title": "Free Shipping",
-          "desc": "On orders over $50"
+          "desc": "On orders over €50"
         },
         {
           "icon": "↩️",
@@ -340,97 +542,92 @@
   },
   "HomePage": {
     "Hero": {
-      "title": "Move freely with Beam",
-      "description": "Change the future starting with yourself by using Beam now.",
+      "title": "Your style, our expertise",
+      "description": "Transform your look with DeepCut - where tradition meets innovation.",
       "buttons": {
-        "viewGarage": "View Beam Garage",
+        "viewGarage": "Find Locations",
         "downloadApp": "Download App"
       }
     },
     "Feature": {
-      "tag": "Our Features",
-      "title": "Group Travel",
-      "description": "Enjoy exciting trips with friends and family using the Group Travel feature, where you can ride together using a single account. This feature is available in select cities.",
+      "tag": "Our Expertise",
+      "title": "For Men & Women",
+      "description": "Whether classic elegance or modern trends, our experienced stylists create the perfect look for you. Professional services for all hair types and lengths.",
       "button": "Learn more"
     },
     "Help": {
       "title": "Still have questions?",
-      "description": "If you want to learn more about Beam or are interested in partnering with us, we are happy to assist you. Contact us now and let's create something great together.",
+      "description": "If you want to learn more about DeepCut or are interested in partnering with us, we are happy to assist you. Contact us now and let's create something beautiful together.",
       "button": "Contact us"
     }
   },
-
   "Mission": {
     "tag": "Mission",
-    "text1": "We have a mission to turn small journeys into better journeys, and",
-    "text2": "make the city walk",
-    "text3": "better for everyone."
+    "text1": "We have a mission to turn every visit into an",
+    "text2": "exceptional experience",
+    "text3": "for both men and women."
   },
-
   "Priority": {
     "tag": "Our Priority",
     "title": "Sustainability",
-    "description": "Beam is the only operator in the Asia-Pacific with Climate Neutral Certification. And because we’re committed to going further, we’re determined to achieve Carbon Negative by 2025.",
+    "description": "DeepCut is committed to using eco-friendly products and sustainable practices. We continuously work to reduce our environmental footprint while delivering exceptional results.",
     "button": "Learn more",
     "tabs": {
       "sustainability": "Sustainability",
-      "safety": "Safety",
+      "safety": "Hygiene",
       "community": "Community"
     }
   },
-
   "Vehicle": {
-    "tag": "Vehicles",
-    "title": "Vehicles",
-    "description": "Our electric scooters and bikes, designed for sharing, provide a comfortable and reliable riding experience tailored to your daily needs."
+    "tag": "Services",
+    "title": "Our Services",
+    "description": "From classic cuts to modern coloring, we offer the complete spectrum of professional hair and beauty services tailored to your individual needs."
   },
-
   "News": {
     "tag": "News",
     "title": "Latest News",
-    "description": "Stay updated with the latest news and exciting updates about our city, community, and programs.",
+    "description": "Stay updated with the latest trends, techniques, and exciting updates from DeepCut Salon.",
     "button": "Show More",
     "news": [
       {
-        "category": "APAC",
-        "description": "Beam accelerates growth with a 36% surge in gross revenue, achieving adjusted EBITDA profitability.",
-        "date": "07 October 2024"
+        "category": "Trends",
+        "description": "Fall 2024 hair trends: Natural textures and warm tones dominate the season's hottest looks.",
+        "date": "15 October 2024"
       },
       {
-        "category": "APAC",
-        "description": "Beam initiates pedestrian shield technology integration.",
-        "date": "26 September 2024"
+        "category": "Events",
+        "description": "DeepCut presents: Bridal hair styling workshop on November 2nd. Limited seats available.",
+        "date": "28 October 2024"
       },
       {
-        "category": "APAC",
-        "description": "Beam launches summer safety campaign",
-        "date": "12 September 2024"
+        "category": "Products",
+        "description": "New organic product line now available - 100% natural ingredients for healthier hair.",
+        "date": "20 October 2024"
       }
     ]
   },
-
   "Partnership": {
     "tag": "Strategic Partnership",
-    "title": "Reimagining your city.",
-    "description": "We want to partner with you to drive something new today.",
+    "title": "Creating beauty together",
+    "description": "We want to partner with you to create something beautiful today.",
     "partnerships": [
       {
-        "title": "Collaborating, with cities",
-        "subtitle": "We are fully committed to partnering with governments at all levels to make city life work better for everyone.",
-        "imageAlt": "Partnership Image 1",
+        "title": "Corporate partnerships",
+        "subtitle": "We are fully committed to partnering with businesses to provide wellness programs for their employees.",
+        "imageAlt": "Corporate Partnership Image",
         "iconAlt": "Building Office Icon"
       },
       {
-        "title": "Partnering, with us",
-        "subtitle": "Wherever we operate, we strive to grow our operations through collaboration with local communities.",
-        "imageAlt": "Partnership Image 2",
-        "iconAlt": "User Group Icon"
+        "title": "Beauty brands",
+        "subtitle": "Wherever we operate, we collaborate with leading beauty brands to bring you the best products.",
+        "imageAlt": "Brand Partnership Image",
+        "iconAlt": "Beauty Brands Icon"
       },
       {
-        "title": "Beam safety academy",
-        "subtitle": "We work hard to ensure every Beam user is mindful of the riding environment and uses shared city spaces responsibly.",
-        "imageAlt": "Partnership Image 3",
-        "iconAlt": "Shield Check Icon"
+        "title": "Education partnerships",
+        "subtitle": "We work with beauty schools and training institutes to advance professional education in our industry.",
+        "imageAlt": "Education Partnership Image",
+        "iconAlt": "Education Icon"
       }
     ],
     "buttons": {
@@ -438,207 +635,131 @@
       "next": "Next"
     }
   },
-
   "GarageLocation": {
-    "tag": "Beam garage location",
-    "countries": [
-      {
-        "country": "Turkey",
-        "cities": ["Ankara", "Antalya", "Mugla"]
-      },
-      {
-        "country": "Indonesia",
-        "cities": [
-          "Bali",
-          "Bekasi",
-          "Bogor",
-          "Cikarang",
-          "Depok",
-          "Tanggerang",
-          "Tanggerang Selatan"
-        ]
-      },
-      {
-        "country": "Malaysia",
-        "cities": [
-          "Johor",
-          "Kedah",
-          "Kuala Lumpur",
-          "Kuala Trengganu",
-          "Kuantan",
-          "Selangor",
-          "Melaka",
-          "Negeri Sembilan",
-          "Perak",
-          "Pahang",
-          "Penang",
-          "Sabah",
-          "Sarawak"
-        ]
-      },
-      {
-        "country": "South Korea",
-        "cities": [
-          "Ansan",
-          "Asan",
-          "Buc-Bupyeong",
-          "Busan",
-          "Changwon",
-          "Cheonan",
-          "Cheongju",
-          "Chuncheon",
-          "Daegu",
-          "Daejeon",
-          "Incheon",
-          "Seoul"
-        ]
-      },
-      {
-        "country": "Japan",
-        "cities": ["Naha", "Osaka", "Minami Uonuma"]
-      },
-      {
-        "country": "Thailand",
-        "cities": [
-          "Bangkok",
-          "Chiangmai",
-          "Chonburi",
-          "Pathum Thani",
-          "Depok",
-          "Phuket"
-        ]
-      },
-      {
-        "country": "Australia",
-        "cities": [
-          "Adelaide",
-          "Albury",
-          "Bendigo",
-          "Broome",
-          "Burnburry",
-          "Cairns",
-          "Darwin",
-          "Esperance",
-          "Foster-Tuncurry",
-          "Geraldton",
-          "Harvey Bay",
-          "Hobart",
-          "Ipswich",
-          "Kogarah",
-          "Launceston"
-        ]
-      },
-      {
-        "country": "New Zealand",
-        "cities": [
-          "Napier",
-          "Porirua",
-          "Queenstown",
-          "Taupō",
-          "Tauranga",
-          "Whangārei"
-        ]
-      }
-    ]
+    "tag": "DeepCut locations",
+    "germany": {
+      "country": "Germany",
+      "city0": "Berlin",
+      "city1": "Munich",
+      "city2": "Hamburg",
+      "city3": "Cologne",
+      "city4": "Frankfurt",
+      "city5": "Stuttgart",
+      "city6": "Düsseldorf"
+    },
+    "austria": {
+      "country": "Austria",
+      "city0": "Vienna",
+      "city1": "Salzburg",
+      "city2": "Innsbruck"
+    },
+    "switzerland": {
+      "country": "Switzerland",
+      "city0": "Zurich",
+      "city1": "Basel",
+      "city2": "Bern",
+      "city3": "Geneva"
+    },
+    "france": {
+      "country": "France",
+      "city0": "Paris",
+      "city1": "Lyon",
+      "city2": "Marseille",
+      "city3": "Nice"
+    }
   },
-
   "VehicleSafety": {
-    "tag": "Vehicle safety",
-    "title1": "Safety",
-    "desc1": "For us, safety is not just about vehicles but also about riders, pedestrians, and the communities we pass through. Our technology ensures maximum safety for everyone.",
-    "title2": "Carbon footprint",
-    "desc2": "In Asia Pacific, Beam is the only Climate Neutral Certified electric mobility operator. We continuously work to reduce our carbon footprint for a greener future.",
-    "title3": "Boosting local businesses",
-    "desc3": "Our #BeamBooster platform leverages technology and location data to connect users with local businesses, helping to increase their revenue.",
-    "title4": "Job opportunities",
-    "desc4": "Our Beam Marshals program creates job opportunities in local communities, providing additional income and supporting the regional economy.",
-    "title5": "Data for urban planning",
-    "desc5": "We believe that data is key to better city planning. Our data helps governments design more efficient infrastructure."
+    "tag": "Quality & Safety",
+    "title1": "Hygiene Standards",
+    "desc1": "For us, safety means the highest hygiene standards. All tools are sterilized after each client, and we follow strict sanitation protocols.",
+    "title2": "Quality Products",
+    "desc2": "We use only premium, tested products from leading brands. Your hair's health and safety are our top priorities.",
+    "title3": "Expert Consultation",
+    "desc3": "Our skilled stylists provide personalized consultations to ensure you get the perfect look that suits your style and lifestyle.",
+    "title4": "Continuous Training",
+    "desc4": "Our team regularly updates their skills with the latest trends and techniques through professional development programs.",
+    "title5": "Customer Satisfaction",
+    "desc5": "We believe feedback is key to better service. Your input helps us continuously improve our salon experience."
   },
-
   "Footer": {
-    "BeamMobility": "Deep cut",
+    "BeamMobility": "DeepCut Salon",
     "Copyright": "Copyright 2025 ©",
-    "CopyrightCompany": "Deep cut Holdings Pte. Ltd.",
+    "CopyrightCompany": "DeepCut Holdings GmbH",
     "Links": {
-      "Kota": "Cities",
+      "Kota": "Locations",
       "Mitra": "Partners",
-      "Pengendara": "Riders",
+      "Pengendara": "Services",
       "Perusahaan": "Company",
-      "KotaYangBeroperasi": "Operating cities",
+      "KotaYangBeroperasi": "Our Locations",
       "BermitraDenganKami": "Partner with us",
-      "PerjalananGrup": "Group rides",
-      "BeamBooster": "#BeamBooster",
-      "PesanKendaraanBeam": "Book a Beam vehicle",
-      "BerkendaraDenganKami": "Ride with us",
+      "PerjalananGrup": "Group Services",
+      "BeamBooster": "Beauty Boost",
+      "PesanKendaraanBeam": "Book Appointment",
+      "BerkendaraDenganKami": "Our Team",
       "UnduhAplikasi": "Download the app",
       "Karir": "Careers",
-      "KendaraanKami": "Our vehicles",
-      "PrioritasKami": "Our priorities",
+      "KendaraanKami": "Our Services",
+      "PrioritasKami": "Our Values",
       "Berita": "News"
     }
   },
-
   "CityPage": {
     "Hero": {
-      "title": "City",
-      "description": "Beam is a global leader in micromobility, operating electric bikes, scooters, and mopeds in over 60 cities across Asia Pacific.",
+      "title": "Locations",
+      "description": "DeepCut is your premium salon for men and women with locations in major cities across Europe.",
       "downloadButton": "Download App"
     },
     "Help": {
-      "title": "Want Beam in your city?",
-      "description": "Are you a local or city government official who wants to learn more about how shared micromobility systems can be implemented in your city?",
-      "bringBeamButton": "Bring Beam to Your City"
+      "title": "Want DeepCut in your city?",
+      "description": "Are you interested in opening a DeepCut franchise in your city? Contact us to learn more about our franchise opportunities.",
+      "bringBeamButton": "Franchise Information"
     }
   },
-
   "DownloadPage": {
-    "title": "Get Started with Beam",
-    "description": "Find, unlock, and ride Beam in a nearby city. Depart within minutes, easy and quick. Available on iOS and Android.",
+    "title": "Get Started with DeepCut",
+    "description": "Book appointments, discover trends, and manage your beauty routine. Available on iOS and Android.",
     "iosButton": "Download for iOS",
     "androidButton": "Download for Android"
   },
   "Benefit": {
-    "tag": "Benefit",
-    "title": "Our Benefits",
-    "description": "At Beam, we are fully committed to collaborating with organizations of all types and sizes to make urban life better for everyone.",
+    "tag": "Benefits",
+    "title": "DeepCut Benefits",
+    "description": "At DeepCut, we are fully committed to collaborating with organizations of all types and sizes to enhance beauty and wellness for everyone.",
     "items": {
       "businessSolutions": "Business Solutions",
-      "brandingAndAdvertising": "Branding and Advertising",
-      "higherEducationPartnership": "Partnership with Higher Education"
+      "brandingAndAdvertising": "Marketing & Events",
+      "higherEducationPartnership": "Education Partnerships"
     }
   },
-
   "Testimonial": {
-    "tag": "Testimonial from partners",
+    "tag": "Testimonial from clients",
     "quotes": [
       {
-        "quote": "#BeamBooster is a smart initiative using Beam electric scooters to bring more people to our doors. We are thrilled to be involved.",
-        "author": "Helen Rutherford",
-        "position": "Commissioner"
+        "quote": "DeepCut is my absolute favorite salon. The quality and service are simply unbeatable, and I always leave feeling amazing.",
+        "author": "Maria Weber",
+        "position": "Regular Client"
       },
       {
-        "quote": "This program has helped increase daily visitors to our store. The Beam scooters are eye-catching, and we’ve seen a positive impact.",
-        "author": "Jane Smith",
-        "position": "Manager of ABC Store"
+        "quote": "The team understands exactly what I want. Always up-to-date with the latest trends and techniques.",
+        "author": "Thomas Mueller",
+        "position": "Corporate Client"
       },
       {
-        "quote": "We were highly impressed with the direct impact of #BeamBooster. This is a brilliant innovation supporting local businesses like ours.",
-        "author": "Michael Brown",
-        "position": "CEO of DEF Restaurant"
+        "quote": "Since going to DeepCut, I constantly get compliments on my hair. Absolute recommendation!",
+        "author": "Sarah Klein",
+        "position": "New Client"
       }
     ]
   },
-
   "QrCode": {
-    "title": "You can also download the Beam app via the QR Code below.",
+    "title": "You can also download the DeepCut app via the QR Code below.",
     "android": {
       "title": "Android",
-      "description": "Enjoy seamless travel with Beam. Find, unlock, and ride scooters in your city with our Android app."
+      "description": "Book appointments, discover trends and more with the DeepCut Android app."
     },
     "ios": {
       "title": "iOS",
-      "description": "Enjoy seamless travel with Beam. Find, unlock, and ride scooters in your city with our iOS app."
+      "description": "The complete DeepCut experience in your iOS app."
     }
   }
 }

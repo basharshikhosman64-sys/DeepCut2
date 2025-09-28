@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import Button from '@/components/UI/botton';
+import Button from '@/components/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/UI/card';
 import { cn, formatPrice } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
+import { useGender } from '@/context/GenderContext';
 
 export default function ShopPage() {
   const t = useTranslations('ShopPage');
@@ -26,7 +27,7 @@ export default function ShopPage() {
   };
 
   return (
-    <div className='py-24 sm:py-32'>
+    <div className='py-24 sm:py-32 bg-dynamic'>
       <div className='mx-auto max-w-7xl px-6 lg:px-8'>
         {/* Hero */}
         <div className='mx-auto max-w-2xl text-center'>
@@ -47,8 +48,8 @@ export default function ShopPage() {
               className={cn(
                 'px-4 py-2 rounded-full text-sm font-medium transition-colors',
                 selectedCategory === category
-                  ? 'bg-amber-600 text-white'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                  ? 'bg-accent text-white'
+                  : 'bg-slate-100 text-slate-600 hover:bg-accent/20'
               )}
             >
               {category}
@@ -82,7 +83,7 @@ export default function ShopPage() {
                 <div className='flex justify-between items-start'>
                   <CardTitle className='text-lg'>{product.name}</CardTitle>
                   <div className='text-right'>
-                    <span className='text-xl font-bold text-amber-600'>
+                    <span className='text-xl font-bold text-accent'>
                       {formatPrice(product.price)}
                     </span>
                     {product.originalPrice && (
@@ -104,10 +105,11 @@ export default function ShopPage() {
               </CardHeader>
               <CardContent>
                 <Button
-                  variant={product.inStock ? 'primary' : 'outline'}
+                  variant={product.inStock ? 'primary' : 'ghost'}
                   disabled={!product.inStock}
                   className='w-full'
                   onClick={() => product.inStock && addToCart(product.id)}
+                  useDynamicColors={product.inStock}
                 >
                   {product.inStock
                     ? t('buttons.addToCart')
@@ -121,9 +123,9 @@ export default function ShopPage() {
         {/* Cart */}
         {cart.length > 0 && (
           <div className='mt-12 max-w-md mx-auto'>
-            <Card className='bg-amber-50 border-amber-200'>
+            <Card className='bg-accent/10 border-accent/20'>
               <CardHeader>
-                <CardTitle className='text-center text-amber-800'>
+                <CardTitle className='text-center text-accent'>
                   {t('cart.title')} ({cart.length} items)
                 </CardTitle>
               </CardHeader>
@@ -134,7 +136,8 @@ export default function ShopPage() {
                   </span>
                   <Button
                     variant='primary'
-                    className='bg-amber-600 hover:bg-amber-700'
+                    className='bg-accent hover:bg-accent-hover'
+                    useDynamicColors={true}
                   >
                     {t('buttons.checkout')}
                   </Button>

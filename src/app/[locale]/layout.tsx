@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: 'DeepCut - Modern Design Website Landing Page',
 };
 
-type Locale = 'en' | 'fr' | 'id' | 'de' | 'ar' | 'russ';
+type Locale = 'en' | 'fr' | 'de' | 'ar' | 'russ';
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -34,7 +34,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className='relative font-sans bg-background-whitebg antialiased'>
+      <body className='relative font-sans bg-orange-100 antialiased'>
         <GenderProvider>
           <NextIntlClientProvider messages={messages}>
             <Navbar />
