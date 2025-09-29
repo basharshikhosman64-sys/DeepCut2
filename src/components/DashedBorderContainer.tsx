@@ -44,17 +44,17 @@ export default function DashedBorderContainer({
           </div>
         )}
         {showTop && showRight && (
-          <div className='absolute mr-2 -top-1 -right-1 pt-2'>
+          <div className='absolute mr-2 pt-2 -top-1 -right-1'>
             <RiScissors2Fill />
           </div>
         )}
         {showBottom && showLeft && (
-          <div className='absolute ml-2 -bottom-1 -left-1 pb-2'>
+          <div className='absolute ml-2 pb-2 -bottom-1 -left-1'>
             <RiScissors2Fill />
           </div>
         )}
         {showBottom && showRight && (
-          <div className='absolute mr-2 -bottom-1 -right-1 pb-2'>
+          <div className='absolute mr-2 pb-2 -bottom-1 -right-1'>
             <h5>
               <RiScissors2Fill />
             </h5>

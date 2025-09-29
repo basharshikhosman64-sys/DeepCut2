@@ -16,7 +16,7 @@ export default function Help({
   return (
     <section>
       <div className='relative container max-w-xs md:max-w-[44rem] lg:max-w-6xl pt-10 border-x border-others-santasGray border-dashed'>
-        <div className='absolute z-10 -top-[5px] -left-1 pt-3'>
+        <div className='absolute z-10 -top-[5px] -left-1 pt-2 pl-2'>
           {/* <Image
             src={bulletIcon}
             alt='Bullet icon'
@@ -26,7 +26,7 @@ export default function Help({
           <RiScissors2Fill />
         </div>
 
-        <div className='absolute z-10 -top-[5px] -right-1 pt-3'>
+        <div className='absolute z-10 -top-[5px] -right-1 pt-2 pr-2'>
           {/* <Image
             src={bulletIcon}
             alt='Bullet icon'

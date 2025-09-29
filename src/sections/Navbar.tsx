@@ -13,9 +13,12 @@ import { PhoneWhiteIcon } from '../../public/assets/icons/PhoneWhiteIcon';
 import logoPrimary from '../../public/assets/images/logo-primary.png';
 
 const navLinks = [
+  // { key: 'blog', path: '/blog' },
+  { key: 'booking', path: '/booking' },
+  { key: 'contact', path: '/contact' },
   { key: 'partner', path: '/partner' },
-  { key: 'vehicle', path: '#vehicle' },
-  { key: 'company', path: '#company' },
+  { key: 'pricing', path: '/pricing' },
+  // { key: 'shop', path: '/shop' },
 ];
 
 export default function Navbar() {

@@ -5,8 +5,8 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { GenderProvider } from '../../context/GenderContext';
 import '../../styles/global.css';
+import ClientLayout from './../ClientLayout'; // ✅ import wrapper
 
 export const metadata: Metadata = {
   title: 'DeepCut',
@@ -17,41 +17,30 @@ type Locale = 'en' | 'fr' | 'de' | 'ar' | 'russ';
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>; // ✅ make params async
+  params: Promise<{ locale: Locale }>; // ✅ keep async
 }
 
 export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const { locale } = await params; // ✅ await before destructuring
+  const { locale } = await params;
 
   if (!routing.locales.includes(locale)) {
     notFound();
   }
 
   const messages = await getMessages();
-  const { gender } = useGender();
-
-  const genderBg =
-    gender === 'male'
-      ? 'bg-black text-white'
-      : gender === 'female'
-      ? 'bg-pink-200'
-      : gender === 'other'
-      ? 'bg-gray-400'
-      : 'bg-gray-300'; // default before choice
 
   return (
     <html lang={locale}>
-      <body className={`relative font-sans antialiased ${genderBg}`}>
-        <GenderProvider>
-          <NextIntlClientProvider messages={messages}>
-            <Navbar />
-            {children}
-            <Footer />
-          </NextIntlClientProvider>
-        </GenderProvider>
+      <body className='relative font-sans antialiased'>
+        <NextIntlClientProvider messages={messages}>
+          <Navbar />
+          {/* ✅ Wrap client-only provider inside ClientLayout */}
+          <ClientLayout>{children}</ClientLayout>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

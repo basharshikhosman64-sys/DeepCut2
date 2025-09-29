@@ -61,6 +61,19 @@
 
 /* Utility classes for dynamic theming */
 @layer utilities {
+  .overlay-enter {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .bg-dynamic {
     background-color: var(--bg);
   }

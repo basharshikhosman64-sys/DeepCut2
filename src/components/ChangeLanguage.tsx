@@ -14,11 +14,14 @@ interface Country {
 }
 
 const countries: Country[] = [
-  { code: 'EN', value: 'en', flag: '/flags/en.svg' },
-  { code: 'FR', value: 'fr', flag: '/flags/fr.svg' },
+  { code: 'AR', value: 'ae', flag: '/flags/ae.svg' },
   { code: 'DE', value: 'de', flag: '/flags/de.svg' },
-  { code: 'RU', value: 'russ', flag: '/flags/russ.svg' },
-  { code: 'AR', value: 'ar', flag: '/flags/ar.svg' },
+  { code: 'EN', value: 'en', flag: '/flags/en.svg' },
+  { code: 'ES', value: 'es', flag: '/flags/es.svg' },
+  { code: 'FR', value: 'fr', flag: '/flags/fr.svg' },
+  { code: 'PL', value: 'pl', flag: '/flags/pl.svg' },
+  { code: 'RU', value: 'ru', flag: '/flags/ru.svg' },
+  { code: 'UA', value: 'ua', flag: '/flags/ua.svg' },
 ];
 
 export default function ChangeLanguage() {

@@ -1,0 +1,820 @@
+{
+  "GenderSelection": {
+    "Male": {
+      "title": "Mężczyzna"
+    },
+    "Female": {
+      "title": "Kobieta"
+    },
+    "Other": {
+      "title": "Inna"
+    }
+  },
+  "Navbar": {
+    "home": "Strona Główna",
+    "blog": "Nasza Praca",
+    "booking": "Zarezerwuj Wizytę",
+    "contact": "Kontakt",
+    "partner": "Zespół",
+    "pricing": "Cennik",
+    "city": "Lokalizacje",
+    "vehicle": "Usługi",
+    "company": "Firma"
+  },
+  "ContactPage": {
+    "Hero": {
+      "title": "Skontaktuj Się",
+      "description": "Odwiedź Salon DeepCut, aby skorzystać z najlepszych usług stylizacji i pielęgnacji dla kobiet i mężczyzn"
+    },
+    "Highlights": [
+      {
+        "imageAlt": "Profesjonalna usługa stylizacji włosów",
+        "category": "Stylizacja Włosów",
+        "description": "Eksperckie strzyżenie i stylizacja dla wszystkich typów i długości włosów",
+        "date": "Dostępne codziennie"
+      },
+      {
+        "imageAlt": "Premium pielęgnacja brody",
+        "category": "Pielęgnacja Brody",
+        "description": "Profesjonalne przycinanie i pielęgnacja brody",
+        "date": "Klienci bez rezerwacji mile widziani"
+      },
+      {
+        "imageAlt": "Relaksująca atmosfera salonu",
+        "category": "Premium Doświadczenie",
+        "description": "Ciesz się naszą komfortową i nowoczesną atmosferą salonu",
+        "date": "Otwarte 7 dni w tygodniu"
+      }
+    ],
+    "Form": {
+      "title": "Wyślij Wiadomość",
+      "subtitle": "Chcielibyśmy usłyszeć od Ciebie. Wyślij nam wiadomość, a odpowiemy tak szybko, jak to możliwe.",
+      "fields": {
+        "name": "Pełne Imię i Nazwisko *",
+        "email": "Adres Email *",
+        "phone": "Numer Telefonu",
+        "subject": "Temat *",
+        "message": "Wiadomość *"
+      },
+      "selectOptions": {
+        "default": "Wybierz temat",
+        "appointment": "Rezerwacja Wizyty",
+        "services": "Zapytanie o Usługi",
+        "feedback": "Opinie",
+        "complaint": "Reklamacja",
+        "other": "Inne"
+      },
+      "button": "Wyślij Wiadomość"
+    },
+    "Info": {
+      "visitTitle": "Odwiedź Salon DeepCut",
+      "address": {
+        "title": "Nasza Lokalizacja",
+        "lines": ["ul. Stylowa 123", "Dzielnica Piękna", "Berlin, Niemcy 10115"]
+      },
+      "email": {
+        "title": "Napisz do Nas",
+        "lines": ["info@deepcutsalon.com", "bookings@deepcutsalon.com"]
+      },
+      "phone": {
+        "title": "Zadzwoń do Nas",
+        "lines": ["+49 (30) 123-4567", "+49 (30) 123-4568"]
+      }
+    }
+  },
+  "BookingPage": {
+    "hero": {
+      "title": "Zarezerwuj Wizytę",
+      "description": "Wybierz usługę, stylistę i preferowany czas w zaledwie kilka kroków"
+    },
+    "steps": {
+      "service": {
+        "title": "Wybierz Usługę",
+        "nextButton": "Dalej: Wybierz Stylistę"
+      },
+      "barber": {
+        "title": "Wybierz Stylistę",
+        "nextButton": "Dalej: Wybierz Datę i Czas",
+        "backButton": "Wstecz"
+      },
+      "dateTime": {
+        "title": "Wybierz Datę i Czas",
+        "dateLabel": "Data",
+        "timeLabel": "Czas",
+        "nextButton": "Dalej: Potwierdź Szczegóły",
+        "backButton": "Wstecz"
+      },
+      "contact": {
+        "title": "Dane Kontaktowe",
+        "fields": {
+          "name": "Pełne Imię i Nazwisko",
+          "email": "Adres Email",
+          "phone": "Numer Telefonu"
+        },
+        "summary": {
+          "title": "Podsumowanie Rezerwacji",
+          "service": "Usługa:",
+          "barber": "Stylista:",
+          "date": "Data:",
+          "time": "Czas:",
+          "total": "Razem:"
+        },
+        "buttons": {
+          "back": "Wstecz",
+          "confirm": "Potwierdź Rezerwację"
+        }
+      }
+    },
+    "services": [
+      {
+        "id": "1",
+        "name": "Mycie i Strzyżenie Damskie (Krótkie)",
+        "price": 20,
+        "duration": 45
+      },
+      {
+        "id": "2",
+        "name": "Mycie, Strzyżenie i Stylizacja Damska (Średnie)",
+        "price": 42,
+        "duration": 60
+      },
+      {
+        "id": "3",
+        "name": "Mycie, Strzyżenie i Stylizacja Damska (Długie)",
+        "price": 47,
+        "duration": 75
+      },
+      {
+        "id": "4",
+        "name": "Pełna Koloryzacja Damska",
+        "price": 52,
+        "duration": 120
+      },
+      { "id": "5", "name": "Balayage Damski", "price": 60, "duration": 150 },
+      {
+        "id": "6",
+        "name": "Strzyżenie Męskie z Myciem",
+        "price": 23,
+        "duration": 30
+      },
+      {
+        "id": "7",
+        "name": "Strzyżenie Męskie na Sucho",
+        "price": 18,
+        "duration": 20
+      },
+      { "id": "8", "name": "Golenie Brody", "price": 18, "duration": 25 },
+      {
+        "id": "9",
+        "name": "Kompleks Włosy i Broda",
+        "price": 35,
+        "duration": 45
+      },
+      {
+        "id": "10",
+        "name": "Włosy, Broda i Depilacja",
+        "price": 40,
+        "duration": 55
+      },
+      {
+        "id": "11",
+        "name": "Strzyżenie Dziecięce",
+        "price": 15,
+        "duration": 20
+      },
+      {
+        "id": "12",
+        "name": "Strzyżenie Studenckie",
+        "price": 16,
+        "duration": 25
+      }
+    ],
+    "barbers": [
+      {
+        "id": "1",
+        "name": "Sarah Mueller",
+        "specialty": "Specjalistka Strzyżeń Damskich i Koloryzacji"
+      },
+      {
+        "id": "2",
+        "name": "Marcus Wagner",
+        "specialty": "Ekspert Strzyżeń Męskich i Pielęgnacji Brody"
+      },
+      {
+        "id": "3",
+        "name": "Lisa Schmidt",
+        "specialty": "Specjalistka Stylizacji i Fryzur Ślubnych"
+      }
+    ],
+    "timeSlots": [
+      "9:00",
+      "9:30",
+      "10:00",
+      "10:30",
+      "11:00",
+      "11:30",
+      "13:00",
+      "13:30",
+      "14:00",
+      "14:30",
+      "15:00",
+      "15:30",
+      "16:00"
+    ],
+    "alerts": {
+      "confirmation": "Rezerwacja potwierdzona! Wyślemy Ci email potwierdzający w najbliższym czasie."
+    }
+  },
+  "PartnerPage": {
+    "hero": {
+      "title": "Partnerstwo z DeepCut",
+      "description": "Dołącz do naszej sieci partnerów i rozwijaj swój biznes z wiodącą marką salonów. Ekskluzywne możliwości dla odpowiednich partnerów.",
+      "buttons": {
+        "becomePartner": "Zostań Partnerem",
+        "getInTouch": "Skontaktuj Się"
+      }
+    },
+    "benefits": {
+      "title": "Dlaczego Współpracować z Nami?",
+      "description": "Odkryj korzyści z dołączenia do naszej rosnącej sieci partnerów",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Podział Dochodów",
+          "description": "Zarabiaj konkurencyjne prowizje od każdego skierowania i rezerwacji przez Twoją platformę."
+        },
+        {
+          "icon": "🎯",
+          "title": "Wsparcie Marketingowe",
+          "description": "Dostęp do naszych materiałów marketingowych, aktywów marki i kampanii promocyjnych."
+        },
+        {
+          "icon": "📊",
+          "title": "Panel Analityczny",
+          "description": "Śledź swoją wydajność dzięki szczegółowym analizom i narzędziom raportowania."
+        },
+        {
+          "icon": "🤝",
+          "title": "Dedykowane Wsparcie",
+          "description": "Otrzymuj priorytetowe wsparcie od naszego zespołu partnerskiego, gdy tylko potrzebujesz pomocy."
+        }
+      ]
+    },
+    "types": {
+      "title": "Możliwości Partnerstwa",
+      "description": "Znajdź idealny model partnerstwa dla Twojego biznesu",
+      "items": [
+        {
+          "title": "Partnerstwa Korporacyjne",
+          "description": "Programy wellness dla pracowników i korporacyjne pakiety pielęgnacji",
+          "features": [
+            "Zniżki na rezerwacje grupowe",
+            "Usługi na miejscu",
+            "Rozliczenia firmowe",
+            "Elastyczne planowanie"
+          ],
+          "cta": "Partnerstwo z Nami"
+        },
+        {
+          "title": "Program Dla Influencerów",
+          "description": "Twórcy treści i influencerzy mediów społecznościowych",
+          "features": [
+            "Prowizja od skierowania",
+            "Ekskluzywne treści",
+            "Sponsoring produktów",
+            "Zaproszenia na wydarzenia"
+          ],
+          "cta": "Dołącz do Programu"
+        },
+        {
+          "title": "Możliwości Franczyzy",
+          "description": "Rozwiń naszą markę do nowych lokalizacji",
+          "features": [
+            "Sprawdzony model biznesowy",
+            "Szkolenia i wsparcie",
+            "Pomoc marketingowa",
+            "Ciągłe mentorskie wsparcie"
+          ],
+          "cta": "Dowiedz Się Więcej"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Gotowy na Start?",
+      "description": "Dołącz do naszej sieci partnerów już dziś i zacznij rozwijać swój biznes z DeepCut",
+      "buttons": {
+        "applyNow": "Aplikuj Teraz",
+        "downloadKit": "Pobierz Pakiet Partnerski"
+      }
+    }
+  },
+  "PricingPage": {
+    "Hero": {
+      "title": "Przejrzyste Ceny",
+      "description": "Usługi salonowe wysokiej jakości w uczciwych cenach. Żadnych ukrytych opłat, tylko doskonałe rzemiosło."
+    },
+    "Highlights": [
+      {
+        "imageAlt": "Profesjonalna usługa strzyżenia",
+        "category": "Usługi Damskie",
+        "description": "Doświadcz naszych sygnaturowych usług z mistrzowskimi stylistami, którzy wniosą lata doświadczenia w każde strzyżenie.",
+        "date": "Od 18 €"
+      },
+      {
+        "imageAlt": "Tradycyjna pielęgnacja brody",
+        "category": "Usługi Męskie",
+        "description": "Klasyczna i nowoczesna pielęgnacja męska z profesjonalną pielęgnacją brody.",
+        "date": "Od 16 €"
+      },
+      {
+        "imageAlt": "Zabiegi specjalne",
+        "category": "Zabiegi Premium",
+        "description": "Usługi koloryzacji, stylizacji i specjalistycznych zabiegów dla Twojego idealnego wyglądu.",
+        "date": "Od 25 €"
+      }
+    ],
+    "Services": [
+      {
+        "category": "Usługi Damskie",
+        "items": [
+          {
+            "name": "Mycie i Strzyżenie (Krótkie)",
+            "price": 20,
+            "description": "Profesjonalne mycie i strzyżenie krótkich włosów"
+          },
+          {
+            "name": "Mycie, Strzyżenie i Stylizacja (Średnie)",
+            "price": 42,
+            "description": "Kompleksowa usługa ze stylizacją dla włosów średniej długości"
+          },
+          {
+            "name": "Mycie, Strzyżenie i Stylizacja (Długie)",
+            "price": 47,
+            "description": "Pełna usługa dla długich włosów z profesjonalną stylizacją"
+          },
+          {
+            "name": "Kolor Odrostów",
+            "price": 27,
+            "description": "Odświeżenie koloru odrostów (wszystkie długości)"
+          },
+          {
+            "name": "Pełna Koloryzacja Włosów",
+            "price": 52,
+            "description": "Kompletna usługa koloryzacji włosów"
+          },
+          {
+            "name": "Częściowe Pasemka (do 10)",
+            "price": 35,
+            "description": "Selektywne pasemka dla włosów średniej długości"
+          },
+          {
+            "name": "Pełne Pasemka",
+            "price": 50,
+            "description": "Kompletna usługa pasemek"
+          },
+          {
+            "name": "Balayage",
+            "price": 60,
+            "description": "Nowoczesna technika ręcznego malowania pasemek"
+          },
+          {
+            "name": "Trwała",
+            "price": 45,
+            "description": "Profesjonalne stylizacja trwałej ondulacji"
+          },
+          {
+            "name": "Regulacja Brwi",
+            "price": 8,
+            "description": "Profesjonalne kształtowanie brwi"
+          },
+          {
+            "name": "Koloryzacja Rzęs",
+            "price": 10,
+            "description": "Profesjonalna koloryzacja rzęs"
+          },
+          {
+            "name": "Depilacja Twarzy",
+            "price": 10,
+            "description": "Profesjonalne usuwanie owłosienia z twarzy"
+          }
+        ]
+      },
+      {
+        "category": "Usługi Męskie",
+        "items": [
+          {
+            "name": "Strzyżenie na Sucho",
+            "price": 18,
+            "description": "Szybkie profesjonalne strzyżenie na sucho"
+          },
+          {
+            "name": "Strzyżenie z Myciem",
+            "price": 23,
+            "description": "Kompletna usługa mycia i strzyżenia"
+          },
+          {
+            "name": "Golenie Brody",
+            "price": 18,
+            "description": "Profesjonalne przycinanie i kształtowanie brody"
+          },
+          {
+            "name": "Kompleks Włosy i Broda",
+            "price": 35,
+            "description": "Kompletna pielęgnacja włosów i brody"
+          },
+          {
+            "name": "Włosy, Broda i Depilacja",
+            "price": 40,
+            "description": "Pełna pielęgnacja z usługą depilacji"
+          },
+          {
+            "name": "Strzyżenie Maszynką",
+            "price": 16,
+            "description": "Szybkie strzyżenie maszynką"
+          },
+          {
+            "name": "Depilacja",
+            "price": 5,
+            "description": "Profesjonalna usługa depilacji"
+          },
+          {
+            "name": "Regulacja Brwi",
+            "price": 8,
+            "description": "Pielęgnacja brwi męskich"
+          },
+          {
+            "name": "Koloryzacja Brwi",
+            "price": 10,
+            "description": "Profesjonalna koloryzacja brwi"
+          },
+          {
+            "name": "Koloryzacja Rzęs",
+            "price": 10,
+            "description": "Profesjonalna koloryzacja rzęs"
+          },
+          {
+            "name": "Koloryzacja Brody",
+            "price": 15,
+            "description": "Profesjonalna usługa koloryzacji brody"
+          },
+          {
+            "name": "Koloryzacja Włosów",
+            "price": 20,
+            "description": "Profesjonalna koloryzacja włosów dla mężczyzn"
+          },
+          {
+            "name": "Oczyszczanie Twarzy",
+            "price": 20,
+            "description": "Zabieg głębokiego oczyszczania twarzy"
+          },
+          {
+            "name": "Maseczka na Twarz",
+            "price": 5,
+            "description": "Odżywczy zabieg maseczką na twarz"
+          },
+          {
+            "name": "Mycie i Stylizacja",
+            "price": 8,
+            "description": "Szybka usługa mycia i stylizacji"
+          },
+          {
+            "name": "Strzyżenie Dziecięce",
+            "price": 15,
+            "description": "Specjalna opieka dla dzieci"
+          },
+          {
+            "name": "Strzyżenie Studenckie",
+            "price": 16,
+            "description": "Cena zniżkowa dla studentów"
+          }
+        ]
+      }
+    ],
+    "SpecialOffers": {
+      "title": "Oferty Specjalne",
+      "offers": [
+        {
+          "title": "Zniżka Studencka",
+          "description": "Specjalne ceny dla studentów dostępne z ważną legitymacją",
+          "button": "Dowiedz Się Więcej"
+        },
+        {
+          "title": "Bonus za Pierwszą Wizytę",
+          "description": "5 € zniżki na Twoją pierwszą usługę u nas",
+          "button": "Odbierz Ofertę"
+        },
+        {
+          "title": "Pakiety Zestawów",
+          "description": "Oszczędzaj, rezerwując kilka usług razem",
+          "button": "Zobacz Pakiety"
+        }
+      ]
+    }
+  },
+  "ShopPage": {
+    "hero": {
+      "title": "Sklep DeepCut",
+      "description": "Premium produkty do pielęgnacji i narzędzia polecane przez naszych profesjonalnych stylistów"
+    },
+    "categories": [
+      "Wszystkie",
+      "Pielęgnacja Włosów",
+      "Pielęgnacja Brody",
+      "Stylizacja",
+      "Narzędzia",
+      "Karty Podarunkowe"
+    ],
+    "products": [
+      {
+        "id": "1",
+        "name": "Premium Serum do Włosów",
+        "price": 28,
+        "originalPrice": 35,
+        "category": "Pielęgnacja Włosów",
+        "description": "Profesjonalne serum do wszystkich typów włosów",
+        "image": "/product-1.jpg",
+        "rating": 4.8,
+        "reviews": 124,
+        "inStock": true
+      },
+      {
+        "id": "2",
+        "name": "Olejek do Brody - Naturalny",
+        "price": 22,
+        "category": "Pielęgnacja Brody",
+        "description": "Odżywczy olejek do brody z naturalnymi składnikami",
+        "image": "/product-2.jpg",
+        "rating": 4.9,
+        "reviews": 89,
+        "inStock": true
+      }
+    ],
+    "featured": {
+      "title": "Jakość Profesjonalna",
+      "description": "Wszystkie nasze produkty są starannie wybierane i testowane przez naszych mistrzowskich stylistów. Zdobywaj te same profesjonalne narzędzia i produkty, których używamy w naszym salonie.",
+      "benefits": [
+        {
+          "icon": "🚚",
+          "title": "Darmowa Dostawa",
+          "desc": "Dla zamówień powyżej 50 €"
+        },
+        {
+          "icon": "↩️",
+          "title": "Łatwy Zwrot",
+          "desc": "30-dniowa polityka zwrotów"
+        },
+        {
+          "icon": "⭐",
+          "title": "Gwarancja Jakości",
+          "desc": "Produkty o jakości profesjonalnej"
+        }
+      ]
+    },
+    "buttons": {
+      "addToCart": "Dodaj do Koszyka",
+      "outOfStock": "Brak w Magazynie",
+      "checkout": "Do Kasy"
+    },
+    "cart": {
+      "title": "Koszyk",
+      "total": "Razem"
+    }
+  },
+  "HomePage": {
+    "Hero": {
+      "titleMale": "Twój styl, nasza ekspertyza",
+      "titleOther": "Twój styl, nasza ekspertyza",
+      "titleFemale": "Twój styl, Pani, nasz cel",
+      "title": "Twój styl, nasza ekspertyza",
+      "descriptionMale": "Przekształć swój wygląd z DeepCut - gdzie tradycja spotyka innowację.",
+      "descriptionFemale": "Przekształć swój wygląd z DeepCut - gdzie tradycja spotyka innowację.",
+      "descriptionOther": "Przekształć swój wygląd z DeepCut - gdzie tradycja spotyka innowację.",
+      "description": "Przekształć swój wygląd z DeepCut - gdzie tradycja spotyka innowację.",
+      "buttons": {
+        "viewGarage": "Znajdź Lokalizacje",
+        "downloadApp": "Pobierz Aplikację"
+      }
+    },
+    "Feature": {
+      "tag": "Nasza Ekspertyza",
+      "tagMale": "Nasza Ekspertyza",
+      "tagFemale": "Nasza Ekspertyza",
+      "tagOther": "Nasza Ekspertyza",
+      "title": "Dla Kobiet i Mężczyzn",
+      "titleMale": "Dla Kobiet i Mężczyzn",
+      "titleFemale": "Dla Kobiet i Mężczyzn",
+      "titleOther": "Dla Kobiet i Mężczyzn",
+      "description": "Niezależnie od klasycznej elegancji czy nowoczesnych trendów, nasi doświadczeni styliści tworzą idealny wygląd dla Ciebie. Profesjonalne usługi dla wszystkich typów i długości włosów.",
+      "descriptionMale": "Niezależnie od klasycznej elegancji czy nowoczesnych trendów, nasi doświadczeni styliści tworzą idealny wygląd dla Ciebie. Profesjonalne usługi dla wszystkich typów i długości włosów.",
+      "descriptionFemale": "Niezależnie od klasycznej elegancji czy nowoczesnych trendów, nasi doświadczeni styliści tworzą idealny wygląd dla Ciebie. Profesjonalne usługi dla wszystkich typów i długości włosów.",
+      "descriptionOther": "Niezależnie od klasycznej elegancji czy nowoczesnych trendów, nasi doświadczeni styliści tworzą idealny wygląd dla Ciebie. Profesjonalne usługi dla wszystkich typów i długości włosów.",
+      "button": "Dowiedz Się Więcej"
+    },
+    "Help": {
+      "title": "Nadal Masz Pytania?",
+      "description": "Jeśli chcesz dowiedzieć się więcej o DeepCut lub jesteś zainteresowany partnerstwem z nami, chętnie Ci pomożemy. Skontaktuj się z nami już teraz i stwórzmy razem coś pięknego.",
+      "button": "Skontaktuj Się z Nami"
+    }
+  },
+  "Mission": {
+    "tag": "Misja",
+    "text1": "Mamy misję, aby zamienić każdą wizytę w",
+    "text2": "wyjątkowe doświadczenie",
+    "text3": "dla kobiet i mężczyzn."
+  },
+  "Priority": {
+    "tag": "Nasz Priorytet",
+    "title": "Zrównoważony Rozwój",
+    "description": "DeepCut zobowiązuje się do używania przyjaznych dla środowiska produktów i zrównoważonych praktyk. Nieustannie pracujemy nad zmniejszeniem naszego śladu środowiskowego, zapewniając doskonałe rezultaty.",
+    "button": "Dowiedz Się Więcej",
+    "tabs": {
+      "sustainability": "Zrównoważony Rozwój",
+      "safety": "Higiena",
+      "community": "Społeczność"
+    }
+  },
+  "Vehicle": {
+    "tag": "Usługi",
+    "title": "Nasze Usługi",
+    "description": "Od klasycznych strzyżeń po nowoczesną koloryzację, oferujemy pełne spektrum profesjonalnych usług włosów i urody dostosowanych do Twoich indywidualnych potrzeb."
+  },
+  "News": {
+    "tag": "Aktualności",
+    "title": "Najnowsze Aktualności",
+    "description": "Bądź na bieżąco z najnowszymi trendami, technikami i ekscytującymi aktualizacjami z Salonu DeepCut.",
+    "button": "Pokaż Więcej",
+    "news": [
+      {
+        "category": "Trendy",
+        "description": "Trendy włosów jesień 2024: Naturalne tekstury i ciepłe tony dominują w najgorętszych lookach sezonu.",
+        "date": "15 Października 2024"
+      },
+      {
+        "category": "Wydarzenia",
+        "description": "DeepCut prezentuje: Warsztat stylizacji włosów ślubnych 2 listopada. Ograniczona liczba miejsc.",
+        "date": "28 Października 2024"
+      },
+      {
+        "category": "Produkty",
+        "description": "Nowa linia produktów organicznych już dostępna - 100% naturalnych składników dla zdrowszych włosów.",
+        "date": "20 Października 2024"
+      }
+    ]
+  },
+  "Partnership": {
+    "tag": "Partnerstwo Strategiczne",
+    "title": "Tworzymy piękno razem",
+    "description": "Chcemy partnerować z Tobą, aby stworzyć coś pięknego już dziś.",
+    "partnerships": [
+      {
+        "title": "Partnerstwa Korporacyjne",
+        "subtitle": "Jesteśmy w pełni zaangażowani we współpracę z firmami w celu zapewnienia programów wellness dla ich pracowników.",
+        "imageAlt": "Obraz Partnerstwa Korporacyjnego",
+        "iconAlt": "Ikona Budynku Biurowego"
+      },
+      {
+        "title": "Marki Kosmetyczne",
+        "subtitle": "Gdziekolwiek działamy, współpracujemy z wiodącymi markami kosmetycznymi, aby zapewnić Ci najlepsze produkty.",
+        "imageAlt": "Obraz Partnerstwa Marki",
+        "iconAlt": "Ikona Marek Kosmetycznych"
+      },
+      {
+        "title": "Partnerstwa Edukacyjne",
+        "subtitle": "Współpracujemy ze szkołami kosmetycznymi i instytutami szkoleniowymi w celu rozwoju edukacji zawodowej w naszej branży.",
+        "imageAlt": "Obraz Partnerstwa Edukacyjnego",
+        "iconAlt": "Ikona Edukacji"
+      }
+    ],
+    "buttons": {
+      "prev": "Poprzedni",
+      "next": "Następny"
+    }
+  },
+  "GarageLocation": {
+    "tag": "Lokalizacje DeepCut",
+    "germany": {
+      "country": "Niemcy",
+      "city0": "Berlin",
+      "city1": "Monachium",
+      "city2": "Hamburg",
+      "city3": "Kolonia",
+      "city4": "Frankfurt",
+      "city5": "Stuttgart",
+      "city6": "Düsseldorf"
+    },
+    "austria": {
+      "country": "Austria",
+      "city0": "Wiedeń",
+      "city1": "Salzburg",
+      "city2": "Innsbruck"
+    },
+    "switzerland": {
+      "country": "Szwajcaria",
+      "city0": "Zurych",
+      "city1": "Bazylea",
+      "city2": "Berno",
+      "city3": "Genewa"
+    },
+    "france": {
+      "country": "Francja",
+      "city0": "Paryż",
+      "city1": "Lyon",
+      "city2": "Marsylia",
+      "city3": "Nicea"
+    }
+  },
+  "VehicleSafety": {
+    "tag": "Jakość i Bezpieczeństwo",
+    "title1": "Standardy Higieny",
+    "desc1": "Dla nas bezpieczeństwo oznacza najwyższe standardy higieny. Wszystkie narzędzia są sterylizowane po każdym kliencie i przestrzegamy rygorystycznych protokołów sanitarnych.",
+    "title2": "Produkty Jakościowe",
+    "desc2": "Używamy tylko wysokiej jakości, przetestowanych produktów od wiodących marek. Zdrowie i bezpieczeństwo Twoich włosów są naszym najwyższym priorytetem.",
+    "title3": "Konsultacja z Ekspertem",
+    "desc3": "Nasi wykwalifikowani styliści zapewniają spersonalizowane konsultacje, aby zapewnić Ci idealny wygląd, który pasuje do Twojego stylu i stylu życia.",
+    "title4": "Ciągłe Szkolenia",
+    "desc4": "Nasz zespół regularnie aktualizuje swoje umiejętności w zakresie najnowszych trendów i technik poprzez programy rozwoju zawodowego.",
+    "title5": "Zadowolenie Klienta",
+    "desc5": "Wierzymy, że opinie są kluczem do lepszej obsługi. Twój wkład pomaga nam ciągle ulepszać doświadczenie salonowe."
+  },
+  "Footer": {
+    "BeamMobility": "Salon DeepCut",
+    "Copyright": "Prawa Autorskie 2025 ©",
+    "CopyrightCompany": "DeepCut Holdings GmbH",
+    "Links": {
+      "Kota": "Lokalizacje",
+      "Mitra": "Partnerzy",
+      "Pengendara": "Usługi",
+      "Perusahaan": "Firma",
+      "KotaYangBeroperasi": "Nasze Lokalizacje",
+      "BermitraDenganKami": "Partnerstwo z Nami",
+      "PerjalananGrup": "Usługi Grupowe",
+      "BeamBooster": "Beauty Boost",
+      "PesanKendaraanBeam": "Zarezerwuj Wizytę",
+      "BerkendaraDenganKami": "Nasz Zespół",
+      "UnduhAplikasi": "Pobierz Aplikację",
+      "Karir": "Kariera",
+      "KendaraanKami": "Nasze Usługi",
+      "PrioritasKami": "Nasze Wartości",
+      "Berita": "Aktualności"
+    }
+  },
+  "CityPage": {
+    "Hero": {
+      "title": "Lokalizacje",
+      "description": "DeepCut to Twój premium salon dla kobiet i mężczyzn z lokalizacjami w głównych miastach w całej Europie.",
+      "downloadButton": "Pobierz Aplikację"
+    },
+    "Help": {
+      "title": "Chcesz DeepCut w swoim mieście?",
+      "description": "Jesteś zainteresowany otwarciem franczyzy DeepCut w Twoim mieście? Skontaktuj się z nami, aby dowiedzieć się więcej o naszych możliwościach franczyzy.",
+      "bringBeamButton": "Informacje o Franczyzie"
+    }
+  },
+  "DownloadPage": {
+    "title": "Zacznij z DeepCut",
+    "description": "Rezerwuj wizyty, odkrywaj trendy i zarządzaj swoją rutyną pielęgnacyjną. Dostępne na iOS i Android.",
+    "iosButton": "Pobierz na iOS",
+    "androidButton": "Pobierz na Android"
+  },
+  "Benefit": {
+    "tag": "Korzyści",
+    "title": "Korzyści DeepCut",
+    "description": "W DeepCut jesteśmy w pełni zaangażowani we współpracę z organizacjami wszystkich typów i rozmiarów w celu poprawy urody i dobrego samopoczucia dla wszystkich.",
+    "items": {
+      "businessSolutions": "Rozwiązania Biznesowe",
+      "brandingAndAdvertising": "Marketing i Wydarzenia",
+      "higherEducationPartnership": "Partnerstwa Edukacyjne"
+    }
+  },
+  "Testimonial": {
+    "tag": "Opinie Klientów",
+    "quotes": [
+      {
+        "quote": "DeepCut to mój absolutnie ulubiony salon. Jakość i obsługa są po prostu nie do pobicia i zawsze wychodzę z fantastycznym samopoczuciem.",
+        "author": "Maria Weber",
+        "position": "Stała Klientka"
+      },
+      {
+        "quote": "Zespół dokładnie rozumie, czego chcę. Zawsze na bieżąco z najnowszymi trendami i technikami.",
+        "author": "Thomas Mueller",
+        "position": "Klient Korporacyjny"
+      },
+      {
+        "quote": "Od kiedy chodzę do DeepCut, ciągle otrzymuję komplementy na temat moich włosów. Absolutna rekomendacja!",
+        "author": "Sarah Klein",
+        "position": "Nowa Klientka"
+      }
+    ]
+  },
+  "QrCode": {
+    "title": "Możesz również pobrać aplikację DeepCut za pomocą poniższego kodu QR.",
+    "android": {
+      "title": "Android",
+      "description": "Rezerwuj wizyty, odkrywaj trendy i nie tylko z aplikacją DeepCut na Androida."
+    },
+    "ios": {
+      "title": "iOS",
+      "description": "Kompletne doświadczenie DeepCut w Twojej aplikacji iOS."
+    }
+  }
+}

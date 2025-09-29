@@ -25,11 +25,11 @@ export default function Mission() {
         </div>
 
         {/* Content */}
-        <div className='max-w-4xl mx-auto relative'>
+        <div className='max-w-4xl mx-auto relative '>
           {/* Text */}
-          <div className='relative z-20'>
-            <h3 className='text-h4 md:text-h3 text-center text-text-blackPrimary font-medium mt-8'>
-              {t('text1')} <span className='text-accent'>{t('text2')}</span>
+          <div className='relative z-20 '>
+            <h3 className='text-h4 md:text-h3 text-center text-accent font-medium mt-8'>
+              {t('text1')} <span>{t('text2')}</span>
               {t('text3')}
             </h3>
           </div>

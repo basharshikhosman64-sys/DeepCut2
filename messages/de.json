@@ -1,40 +1,54 @@
 {
+  "GenderSelection": {
+    "Male": {
+      "title": "Männlich"
+    },
+    "Female": {
+      "title": "Weiblich"
+    },
+    "Other": {
+      "title": "Divers"
+    }
+  },
   "Navbar": {
     "home": "Startseite",
-    "city": "Stadt",
-    "partner": "Partner",
-    "vehicle": "Fahrzeug",
-    "company": "Unternehmen",
-    "contact": "Kontaktieren Sie uns"
+    "blog": "Unsere Arbeit",
+    "booking": "Termin buchen",
+    "contact": "Kontakt",
+    "partner": "Team",
+    "pricing": "Preise",
+    "city": "Standorte",
+    "vehicle": "Services",
+    "company": "Unternehmen"
   },
   "ContactPage": {
     "Hero": {
       "title": "Kontaktieren Sie uns",
-      "description": "Besuchen Sie unseren modernen Salon-Friseursalon für das beste Pflegeerlebnis für Männer und Frauen"
+      "description": "Besuchen Sie den DeepCut Salon für die beste Pflege- und Styling-Erfahrung für Frauen und Männer"
     },
     "Highlights": [
       {
-        "imageAlt": "Professioneller Haarstyling-Service",
+        "imageAlt": "Professioneller Haarschnitt-Service",
         "category": "Haarstyling",
-        "description": "Expertenschnitte und Styling für alle Haartypen",
+        "description": "Experten-Schnitte und Styling für alle Haartypen und -längen",
         "date": "Täglich verfügbar"
       },
       {
         "imageAlt": "Premium Bartpflege",
         "category": "Bartpflege",
-        "description": "Professionelle Barttrimm- und Pflegeservice",
-        "date": "Spontanbesuche willkommen"
+        "description": "Professionelles Barttrimmen und Pflege-Services",
+        "date": "Walk-ins willkommen"
       },
       {
         "imageAlt": "Entspannende Salon-Atmosphäre",
         "category": "Premium-Erlebnis",
-        "description": "Genießen Sie unser komfortables und modernes Salon-Ambiente",
+        "description": "Genießen Sie unsere komfortable und moderne Salon-Atmosphäre",
         "date": "7 Tage geöffnet"
       }
     ],
     "Form": {
       "title": "Senden Sie uns eine Nachricht",
-      "subtitle": "Wir würden gerne von Ihnen hören. Senden Sie uns eine Nachricht und wir antworten so schnell wie möglich.",
+      "subtitle": "Wir freuen uns, von Ihnen zu hören. Senden Sie uns eine Nachricht und wir antworten so schnell wie möglich.",
       "fields": {
         "name": "Vollständiger Name *",
         "email": "E-Mail-Adresse *",
@@ -45,7 +59,7 @@
       "selectOptions": {
         "default": "Betreff auswählen",
         "appointment": "Termin buchen",
-        "services": "Service-Anfrage",
+        "services": "Anfrage zu Services",
         "feedback": "Feedback",
         "complaint": "Beschwerde",
         "other": "Sonstiges"
@@ -53,38 +67,42 @@
       "button": "Nachricht senden"
     },
     "Info": {
-      "visitTitle": "Besuchen Sie unseren Salon",
+      "visitTitle": "Besuchen Sie den DeepCut Salon",
       "address": {
-        "title": "Unser Standort",
-        "lines": ["123 Style Straße", "Beauty Bezirk", "Stadt, Staat 12345"]
+        "title": "Unsere Adresse",
+        "lines": [
+          "Style-Straße 123",
+          "Bezirk Schönheit",
+          "10115 Berlin, Deutschland"
+        ]
       },
       "email": {
-        "title": "E-Mail an uns",
-        "lines": ["info@salonbarbershop.com", "bookings@salonbarbershop.com"]
+        "title": "E-Mail",
+        "lines": ["info@deepcutsalon.com", "bookings@deepcutsalon.com"]
       },
       "phone": {
-        "title": "Rufen Sie uns an",
-        "lines": ["+1 (555) 123-4567", "+1 (555) 123-4568"]
+        "title": "Telefon",
+        "lines": ["+49 (30) 123-4567", "+49 (30) 123-4568"]
       }
     }
   },
   "BookingPage": {
     "hero": {
       "title": "Buchen Sie Ihren Termin",
-      "description": "Wählen Sie Ihren Service, Friseur und bevorzugte Zeit in nur wenigen Schritten"
+      "description": "Wählen Sie Ihren Service, Stylist und die bevorzugte Zeit in wenigen Schritten"
     },
     "steps": {
       "service": {
         "title": "Service auswählen",
-        "nextButton": "Weiter: Friseur wählen"
+        "nextButton": "Weiter: Stylist wählen"
       },
       "barber": {
-        "title": "Friseur auswählen",
-        "nextButton": "Weiter: Datum & Uhrzeit wählen",
+        "title": "Stylist auswählen",
+        "nextButton": "Weiter: Datum & Uhrzeit",
         "backButton": "Zurück"
       },
       "dateTime": {
-        "title": "Datum & Uhrzeit auswählen",
+        "title": "Datum & Uhrzeit",
         "dateLabel": "Datum",
         "timeLabel": "Uhrzeit",
         "nextButton": "Weiter: Details bestätigen",
@@ -98,9 +116,9 @@
           "phone": "Telefonnummer"
         },
         "summary": {
-          "title": "Buchungszusammenfassung",
+          "title": "Buchungsübersicht",
           "service": "Service:",
-          "barber": "Friseur:",
+          "barber": "Stylist:",
           "date": "Datum:",
           "time": "Uhrzeit:",
           "total": "Gesamt:"
@@ -114,30 +132,67 @@
     "services": [
       {
         "id": "1",
-        "name": "Klassischer Haarschnitt",
-        "price": 35,
+        "name": "Damen Waschen & Schneiden (Kurz)",
+        "price": 20,
+        "duration": 45
+      },
+      {
+        "id": "2",
+        "name": "Damen Waschen, Schneiden & Styling (Mittel)",
+        "price": 42,
+        "duration": 60
+      },
+      {
+        "id": "3",
+        "name": "Damen Waschen, Schneiden & Styling (Lang)",
+        "price": 47,
+        "duration": 75
+      },
+      {
+        "id": "4",
+        "name": "Damen Komplettfärbung",
+        "price": 52,
+        "duration": 120
+      },
+      { "id": "5", "name": "Damen Balayage", "price": 60, "duration": 150 },
+      {
+        "id": "6",
+        "name": "Herren Schnitt mit Waschen",
+        "price": 23,
         "duration": 30
       },
-      { "id": "2", "name": "Moderner Fade", "price": 45, "duration": 40 },
-      { "id": "3", "name": "Bartpflege", "price": 25, "duration": 20 },
-      { "id": "4", "name": "Heiße Rasur", "price": 45, "duration": 45 },
-      { "id": "5", "name": "Das Komplettpaket", "price": 75, "duration": 60 }
+      {
+        "id": "7",
+        "name": "Herren Trockenschnitt",
+        "price": 18,
+        "duration": 20
+      },
+      { "id": "8", "name": "Bartrasur", "price": 18, "duration": 25 },
+      { "id": "9", "name": "Haar & Bart Kombo", "price": 35, "duration": 45 },
+      {
+        "id": "10",
+        "name": "Haar, Bart & Waxing",
+        "price": 40,
+        "duration": 55
+      },
+      { "id": "11", "name": "Kinderschnitt", "price": 15, "duration": 20 },
+      { "id": "12", "name": "Studentenschnitt", "price": 16, "duration": 25 }
     ],
     "barbers": [
       {
         "id": "1",
-        "name": "Marcus Johnson",
-        "specialty": "Klassische Schnitte & Traditionelles Styling"
+        "name": "Sarah Müller",
+        "specialty": "Spezialistin für Damenschnitte & Coloration"
       },
       {
         "id": "2",
-        "name": "David Rodriguez",
-        "specialty": "Moderne Styles & Präzisions-Fades"
+        "name": "Marcus Wagner",
+        "specialty": "Experte für Herrenschnitte & Bartpflege"
       },
       {
         "id": "3",
-        "name": "James Wilson",
-        "specialty": "Rasiermesser-Rasur & Bartpflege"
+        "name": "Lisa Schmidt",
+        "specialty": "Styling & Brautfrisuren-Spezialistin"
       }
     ],
     "timeSlots": [
@@ -161,8 +216,8 @@
   },
   "PartnerPage": {
     "hero": {
-      "title": "Partner werden mit BarberCo",
-      "description": "Treten Sie unserem Partnernetzwerk bei und lassen Sie Ihr Unternehmen mit der führenden Friseurmarke wachsen. Exklusive Möglichkeiten für die richtigen Partner.",
+      "title": "Partner werden bei DeepCut",
+      "description": "Werden Sie Teil unseres Partnernetzwerks und growen Sie Ihr Business mit der führenden Salon-Marke. Exklusive Möglichkeiten für die richtigen Partner.",
       "buttons": {
         "becomePartner": "Partner werden",
         "getInTouch": "Kontakt aufnehmen"
@@ -170,40 +225,40 @@
     },
     "benefits": {
       "title": "Warum mit uns zusammenarbeiten?",
-      "description": "Entdecken Sie die Vorteile des Beitritts zu unserem wachsenden Partnernetzwerk",
+      "description": "Entdecken Sie die Vorteile, wenn Sie unser wachsendes Partnernetzwerk joinen",
       "items": [
         {
           "icon": "💰",
           "title": "Umsatzbeteiligung",
-          "description": "Verdienen Sie wettbewerbsfähige Provisionen bei jeder Empfehlung und Buchung über Ihre Plattform."
+          "description": "Verdienen Sie wettbewerbsfähige Provisionen für jede Vermittlung und Buchung über Ihre Plattform."
         },
         {
           "icon": "🎯",
-          "title": "Marketing-Unterstützung",
-          "description": "Zugang zu unseren Marketingmaterialien, Marken-Assets und Werbekampagnen."
+          "title": "Marketing-Support",
+          "description": "Zugriff auf unsere Marketing-Materialien, Brand-Assets und Werbekampagnen."
         },
         {
           "icon": "📊",
           "title": "Analytics-Dashboard",
-          "description": "Verfolgen Sie Ihre Leistung mit detaillierten Analytics und Berichtstools."
+          "description": "Verfolgen Sie Ihre Performance mit detaillierten Analysen und Reporting-Tools."
         },
         {
           "icon": "🤝",
-          "title": "Engagierter Support",
-          "description": "Erhalten Sie vorrangigen Support von unserem Partnership-Team, wann immer Sie Hilfe benötigen."
+          "title": "Dedizierter Support",
+          "description": "Erhalten Sie Prioritäts-Support von unserem Partnership-Team, wann immer Sie Hilfe benötigen."
         }
       ]
     },
     "types": {
-      "title": "Partnership-Möglichkeiten",
-      "description": "Finden Sie das perfekte Partnership-Modell für Ihr Unternehmen",
+      "title": "Partnerschaftsmöglichkeiten",
+      "description": "Finden Sie das perfekte Partnerschaftsmodell für Ihr Business",
       "items": [
         {
           "title": "Unternehmenspartnerschaften",
-          "description": "Mitarbeiter-Wellness-Programme und Unternehmens-Grooming-Pakete",
+          "description": "Employee-Wellness-Programme und Corporate-Grooming-Pakete",
           "features": [
             "Mengenrabatte für Buchungen",
-            "Vor-Ort-Services",
+            "Service vor Ort",
             "Unternehmensabrechnung",
             "Flexible Terminplanung"
           ],
@@ -211,23 +266,23 @@
         },
         {
           "title": "Influencer-Programm",
-          "description": "Content-Ersteller und Social-Media-Influencer",
+          "description": "Content Creator und Social-Media-Influencer",
           "features": [
-            "Provision pro Empfehlung",
+            "Provision pro Vermittlung",
             "Exklusive Inhalte",
-            "Produktsponsoring",
-            "Event-Einladungen"
+            "Produkt-Sponsoring",
+            "Einladungen zu Events"
           ],
           "cta": "Programm beitreten"
         },
         {
           "title": "Franchise-Möglichkeiten",
-          "description": "Erweitern Sie unsere Marke an neue Standorte",
+          "description": "Expandieren Sie unsere Marke an neue Standorte",
           "features": [
             "Bewährtes Geschäftsmodell",
-            "Schulung & Support",
+            "Training & Support",
             "Marketing-Unterstützung",
-            "Kontinuierliche Betreuung"
+            "Laufende Betreuung"
           ],
           "cta": "Mehr erfahren"
         }
@@ -235,7 +290,7 @@
     },
     "cta": {
       "title": "Bereit loszulegen?",
-      "description": "Treten Sie noch heute unserem Partnernetzwerk bei und beginnen Sie, Ihr Unternehmen mit BarberCo zu vergrößern",
+      "description": "Werden Sie noch heute Teil unseres Partnernetzwerks und growen Sie Ihr Business mit DeepCut",
       "buttons": {
         "applyNow": "Jetzt bewerben",
         "downloadKit": "Partnership-Kit herunterladen"
@@ -245,100 +300,210 @@
   "PricingPage": {
     "Hero": {
       "title": "Transparente Preise",
-      "description": "Qualitäts-Friseurdienstleistungen zu fairen Preisen. Keine versteckten Gebühren, nur außergewöhnliche Handwerkskunst."
+      "description": "Qualitativ hochwertige Salon-Services zu fairen Preisen. Keine versteckten Kosten, nur exzellente Handwerkskunst."
     },
     "Highlights": [
       {
         "imageAlt": "Professioneller Haarschnitt-Service",
-        "category": "Premium-Services",
-        "description": "Erleben Sie unsere Signature-Services mit Meisterfriseuren, die jahrelange Erfahrung in jeden Schnitt einbringen.",
-        "date": "Ab 35€"
+        "category": "Damen-Services",
+        "description": "Erleben Sie unsere Signature-Services mit Master-Stylisten, die jahrelange Expertise in jeden Schnitt einbringen.",
+        "date": "Ab 18 €"
       },
       {
-        "imageAlt": "Traditionelle heiße Handtuch-Rasur",
-        "category": "Klassische Behandlungen",
-        "description": "Gönnen Sie sich traditionelle Friseurkunst mit unseren heißen Handtuch-Rasuren und Bartpflege-Services.",
-        "date": "Ab 25€"
+        "imageAlt": "Traditionelle Bartpflege",
+        "category": "Herren-Services",
+        "description": "Klassische und moderne Herrenpflege mit professioneller Bartversorgung.",
+        "date": "Ab 16 €"
       },
       {
-        "imageAlt": "Gruppenbuchungspakete",
-        "category": "Spezial-Pakete",
-        "description": "Sparen Sie mehr mit unseren exklusiven Paketen für Familien und Stammkunden.",
-        "date": "Sparen Sie bis zu 20€"
+        "imageAlt": "Spezielle Behandlungen",
+        "category": "Premium-Behandlungen",
+        "description": "Color-Services, Styling und spezialisierte Behandlungen für Ihren perfekten Look.",
+        "date": "Ab 25 €"
       }
     ],
     "Services": [
       {
-        "category": "Haarschnitte",
+        "category": "Damen-Services",
         "items": [
           {
-            "name": "Klassischer Schnitt",
+            "name": "Waschen & Schneiden (Kurz)",
+            "price": 20,
+            "description": "Professionelles Waschen und Schneiden für kurze Haare"
+          },
+          {
+            "name": "Waschen, Schneiden & Styling (Mittel)",
+            "price": 42,
+            "description": "Komplett-Service mit Styling für mittellange Haare"
+          },
+          {
+            "name": "Waschen, Schneiden & Styling (Lang)",
+            "price": 47,
+            "description": "Full-Service für lange Haare mit professionellem Styling"
+          },
+          {
+            "name": "Ansatzfarbe",
+            "price": 27,
+            "description": "Auffrischung der Farbe am Ansatz (alle Längen)"
+          },
+          {
+            "name": "Komplettfärbung",
+            "price": 52,
+            "description": "Kompletter Haarfärbe-Service"
+          },
+          {
+            "name": "Teilsträhnen (bis 10)",
             "price": 35,
-            "description": "Traditioneller Scherenschnitt mit Styling"
+            "description": "Selektive Strähnen für mittellanges Haar"
           },
           {
-            "name": "Moderner Fade",
+            "name": "Komplettsträhnen",
+            "price": 50,
+            "description": "Kompletter Strähnen-Service"
+          },
+          {
+            "name": "Balayage",
+            "price": 60,
+            "description": "Moderne, handgemalte Strähnentechnik"
+          },
+          {
+            "name": "Dauerwelle",
             "price": 45,
-            "description": "Präzisions-Fade mit modernem Styling"
+            "description": "Professionelles Dauerwellen-Styling"
           },
           {
-            "name": "Signature-Schnitt",
-            "price": 55,
-            "description": "Premium-Schnitt mit vollständiger Beratung"
+            "name": "Augenbrauen zupfen",
+            "price": 8,
+            "description": "Professionelle Augenbrauenformung"
           },
           {
-            "name": "Kinderschnitt (12 & jünger)",
-            "price": 25,
-            "description": "Besondere Betreuung für junge Herren"
+            "name": "Wimpern färben",
+            "price": 10,
+            "description": "Professionelles Wimpernfärben"
+          },
+          {
+            "name": "Gesichtswaxing",
+            "price": 10,
+            "description": "Professionelle Haarentfernung im Gesicht"
           }
         ]
       },
       {
-        "category": "Bart-Services",
+        "category": "Herren-Services",
         "items": [
           {
-            "name": "Bartpflege",
-            "price": 25,
-            "description": "Professionelle Formgebung mit heißem Handtuch"
+            "name": "Trockenschnitt",
+            "price": 18,
+            "description": "Schneller professioneller Trockenschnitt"
           },
           {
-            "name": "Schnurrbart-Pflege",
-            "price": 15,
-            "description": "Präzisions-Schnurrbart-Wartung"
+            "name": "Schnitt mit Waschen",
+            "price": 23,
+            "description": "Kompletter Wasch- und Schneide-Service"
           },
           {
-            "name": "Vollbart-Service",
+            "name": "Bartrasur",
+            "price": 18,
+            "description": "Professionelles Barttrimmen und -formung"
+          },
+          {
+            "name": "Haar & Bart Kombo",
+            "price": 35,
+            "description": "Komplette Haar- und Bartpflege"
+          },
+          {
+            "name": "Haar, Bart & Waxing",
             "price": 40,
-            "description": "Komplette Bart-Grooming-Erfahrung"
+            "description": "Vollständige Pflege mit Waxing-Service"
+          },
+          {
+            "name": "Maschinenschnitt",
+            "price": 16,
+            "description": "Schneller Schnitt mit der Maschine"
+          },
+          {
+            "name": "Waxing",
+            "price": 5,
+            "description": "Professioneller Waxing-Service"
+          },
+          {
+            "name": "Augenbrauen zupfen",
+            "price": 8,
+            "description": "Augenbrauenpflege für Männer"
+          },
+          {
+            "name": "Augenbrauen färben",
+            "price": 10,
+            "description": "Professionelles Augenbrauenfärben"
+          },
+          {
+            "name": "Wimpern färben",
+            "price": 10,
+            "description": "Professionelles Wimpernfärben"
+          },
+          {
+            "name": "Bartfärbung",
+            "price": 15,
+            "description": "Professioneller Bartfärbe-Service"
+          },
+          {
+            "name": "Haarfärbung",
+            "price": 20,
+            "description": "Professionelles Haarfärben für Männer"
+          },
+          {
+            "name": "Gesichtsreinigung",
+            "price": 20,
+            "description": "Tiefenreinigende Gesichtsbehandlung"
+          },
+          {
+            "name": "Gesichtsmaske",
+            "price": 5,
+            "description": "Pflegende Gesichtsmaske"
+          },
+          {
+            "name": "Waschen & Styling",
+            "price": 8,
+            "description": "Schneller Wasch- und Styling-Service"
+          },
+          {
+            "name": "Kinderschnitt",
+            "price": 15,
+            "description": "Besondere Betreuung für Kinder"
+          },
+          {
+            "name": "Studentenschnitt",
+            "price": 16,
+            "description": "Ermäßigter Preis für Studenten"
           }
         ]
       }
     ],
     "SpecialOffers": {
-      "title": "Spezialangebote",
+      "title": "Sonderangebote",
       "offers": [
         {
           "title": "Studentenrabatt",
-          "description": "20% Rabatt auf alle Services mit gültigem Studentenausweis",
+          "description": "Spezielle Studentenpreise mit gültigem Ausweis",
           "button": "Mehr erfahren"
         },
         {
-          "title": "Seniorenrabatt",
-          "description": "15% Rabatt für Kunden 65+ (Mo-Mi)",
-          "button": "Mehr erfahren"
-        },
-        {
-          "title": "Erstbesuch",
-          "description": "10€ Rabatt auf Ihren ersten Service bei uns",
+          "title": "Willkommensbonus",
+          "description": "5 € Rabatt auf Ihren ersten Service bei uns",
           "button": "Angebot einlösen"
+        },
+        {
+          "title": "Kombi-Deals",
+          "description": "Sparen Sie, wenn Sie mehrere Services zusammen buchen",
+          "button": "Kombis ansehen"
         }
       ]
     }
   },
   "ShopPage": {
     "hero": {
-      "title": "Friseursalon-Shop",
-      "description": "Premium-Pflegeprodukte und -werkzeuge, die von unseren professionellen Friseuren verwendet werden"
+      "title": "DeepCut Store",
+      "description": "Premium-Pflegeprodukte und Tools, empfohlen von unseren professionellen Stylisten"
     },
     "categories": [
       "Alle",
@@ -351,11 +516,11 @@
     "products": [
       {
         "id": "1",
-        "name": "Premium-Haar-Pomade",
+        "name": "Premium Haar-Serum",
         "price": 28,
         "originalPrice": 35,
         "category": "Haarpflege",
-        "description": "Professionelle Pomade für klassisches Styling",
+        "description": "Professionelles Serum für alle Haartypen",
         "image": "/product-1.jpg",
         "rating": 4.8,
         "reviews": 124,
@@ -363,10 +528,10 @@
       },
       {
         "id": "2",
-        "name": "Bartöl - Sandelholz",
+        "name": "Bartöl - Natürlich",
         "price": 22,
         "category": "Bartpflege",
-        "description": "Nährendes Bartöl mit Sandelholz-Duft",
+        "description": "Pflegendes Bartöl mit natürlichen Inhaltsstoffen",
         "image": "/product-2.jpg",
         "rating": 4.9,
         "reviews": 89,
@@ -375,21 +540,21 @@
     ],
     "featured": {
       "title": "Professionelle Qualität",
-      "description": "Alle unsere Produkte werden sorgfältig von unseren Meisterfriseuren ausgewählt und getestet. Erhalten Sie dieselben professionellen Werkzeuge und Produkte, die wir in unserem Salon verwenden.",
+      "description": "Alle unsere Produkte werden von unseren Master-Stylisten sorgfältig ausgewählt und getestet. Erhalten Sie die gleichen professionellen Tools und Produkte, die wir in unserem Salon verwenden.",
       "benefits": [
         {
           "icon": "🚚",
           "title": "Kostenloser Versand",
-          "desc": "Bei Bestellungen über 50€"
+          "desc": "Bei Bestellungen über 50 €"
         },
         {
           "icon": "↩️",
           "title": "Einfache Rückgabe",
-          "desc": "30-Tage-Rückgaberecht"
+          "desc": "30-tägige Rückgaberecht"
         },
         {
           "icon": "⭐",
-          "title": "Qualität garantiert",
+          "title": "Qualitätsgarantie",
           "desc": "Professionelle Produkte"
         }
       ]
@@ -401,298 +566,244 @@
     },
     "cart": {
       "title": "Warenkorb",
-      "total": "Gesamt"
+      "total": "Gesamtsumme"
     }
   },
   "HomePage": {
     "Hero": {
-      "title": "Bewegen Sie sich frei mit Beam",
-      "description": "Verändern Sie die Zukunft, beginnend bei sich selbst, indem Sie Beam jetzt nutzen.",
+      "titleMale": "Ihr Stil, unsere Expertise",
+      "titleOther": "Ihr Stil, unsere Expertise",
+      "titleFemale": "Ihr Stil, meine Dame, unser Ziel",
+      "title": "Ihr Stil, unsere Expertise",
+      "descriptionMale": "Verwandeln Sie Ihren Look mit DeepCut - wo Tradition auf Innovation trifft.",
+      "descriptionFemale": "Verwandeln Sie Ihren Look mit DeepCut - wo Tradition auf Innovation trifft.",
+      "descriptionOther": "Verwandeln Sie Ihren Look mit DeepCut - wo Tradition auf Innovation trifft.",
+      "description": "Verwandeln Sie Ihren Look mit DeepCut - wo Tradition auf Innovation trifft.",
       "buttons": {
-        "viewGarage": "Beam Garage ansehen",
+        "viewGarage": "Standorte finden",
         "downloadApp": "App herunterladen"
       }
     },
     "Feature": {
-      "tag": "Unsere Features",
-      "title": "Gruppenreisen",
-      "description": "Genießen Sie aufregende Trips mit Freunden und Familie mit der Gruppenreisen-Funktion, bei der Sie zusammen mit einem einzigen Account fahren können. Diese Funktion ist in ausgewählten Städten verfügbar.",
+      "tag": "Unsere Expertise",
+      "tagMale": "Unsere Expertise",
+      "tagFemale": "Unsere Expertise",
+      "tagOther": "Unsere Expertise",
+      "title": "Für Frauen & Männer",
+      "titleMale": "Für Frauen & Männer",
+      "titleFemale": "Für Frauen & Männer",
+      "titleOther": "Für Frauen & Männer",
+      "description": "Ob klassische Eleganz oder moderne Trends, unsere erfahrenen Stylisten kreieren den perfekten Look für Sie. Professionelle Services für alle Haartypen und -längen.",
+      "descriptionMale": "Ob klassische Eleganz oder moderne Trends, unsere erfahrenen Stylisten kreieren den perfekten Look für Sie. Professionelle Services für alle Haartypen und -längen.",
+      "descriptionFemale": "Ob klassische Eleganz oder moderne Trends, unsere erfahrenen Stylisten kreieren den perfekten Look für Sie. Professionelle Services für alle Haartypen und -längen.",
+      "descriptionOther": "Ob klassische Eleganz oder moderne Trends, unsere erfahrenen Stylisten kreieren den perfekten Look für Sie. Professionelle Services für alle Haartypen und -längen.",
       "button": "Mehr erfahren"
     },
     "Help": {
       "title": "Haben Sie noch Fragen?",
-      "description": "Wenn Sie mehr über Beam erfahren möchten oder an einer Partnerschaft mit uns interessiert sind, helfen wir Ihnen gerne. Kontaktieren Sie uns jetzt und lassen Sie uns gemeinsam etwas Großartiges schaffen.",
+      "description": "Wenn Sie mehr über DeepCut erfahren möchten oder an einer Partnerschaft mit uns interessiert sind, helfen wir Ihnen gerne weiter. Kontaktieren Sie uns jetzt und lassen Sie uns gemeinsam etwas Schönes schaffen.",
       "button": "Kontaktieren Sie uns"
     }
   },
   "Mission": {
     "tag": "Mission",
-    "text1": "Wir haben eine Mission, kleine Reisen in bessere Reisen zu verwandeln und",
-    "text2": "die Stadt zum Laufen zu bringen",
-    "text3": "besser für alle."
+    "text1": "Wir haben die Mission, jeden Besuch zu einem",
+    "text2": "außergewöhnlichen Erlebnis",
+    "text3": "für Frauen und Männer zu machen."
   },
   "Priority": {
     "tag": "Unsere Priorität",
     "title": "Nachhaltigkeit",
-    "description": "Beam ist der einzige Betreiber im asiatisch-pazifischen Raum mit Climate Neutral-Zertifizierung. Und weil wir uns verpflichten, weiter zu gehen, sind wir entschlossen, bis 2025 Carbon Negative zu erreichen.",
+    "description": "DeepCut verpflichtet sich zur Verwendung umweltfreundlicher Produkte und nachhaltiger Praktiken. Wir arbeiten kontinuierlich daran, unseren ökologischen Fußabdruck zu reduzieren und dabei herausragende Ergebnisse zu liefern.",
     "button": "Mehr erfahren",
     "tabs": {
       "sustainability": "Nachhaltigkeit",
-      "safety": "Sicherheit",
-      "community": "Gemeinschaft"
+      "safety": "Hygiene",
+      "community": "Community"
     }
   },
   "Vehicle": {
-    "tag": "Fahrzeuge",
-    "title": "Fahrzeuge",
-    "description": "Unsere Elektro-Scooter und -Fahrräder, für das Teilen konzipiert, bieten ein komfortables und zuverlässiges Fahrerlebnis, das auf Ihre täglichen Bedürfnisse zugeschnitten ist."
+    "tag": "Services",
+    "title": "Unsere Services",
+    "description": "Von klassischen Schnitten bis zu moderner Coloration bieten wir das komplette Spektrum professioneller Haar- und Beauty-Services, die auf Ihre individuellen Bedürfnisse zugeschnitten sind."
   },
   "News": {
-    "tag": "Nachrichten",
-    "title": "Neueste Nachrichten",
-    "description": "Bleiben Sie auf dem Laufenden mit den neuesten Nachrichten und aufregenden Updates über unsere Stadt, Gemeinschaft und Programme.",
+    "tag": "News",
+    "title": "Aktuelle Nachrichten",
+    "description": "Bleiben Sie auf dem Laufenden mit den neuesten Trends, Techniken und spannenden Updates vom DeepCut Salon.",
     "button": "Mehr anzeigen",
     "news": [
       {
-        "category": "APAC",
-        "description": "Beam beschleunigt das Wachstum mit einem 36%igen Anstieg des Bruttoumsatzes und erreicht die bereinigte EBITDA-Rentabilität.",
-        "date": "07. Oktober 2024"
+        "category": "Trends",
+        "description": "Herbst-Trends 2024: Natürliche Texturen und warme Töne dominieren die angesagtesten Looks der Saison.",
+        "date": "15. Oktober 2024"
       },
       {
-        "category": "APAC",
-        "description": "Beam initiiert die Integration der Fußgängerschutz-Technologie.",
-        "date": "26. September 2024"
+        "category": "Events",
+        "description": "DeepCut präsentiert: Brautfrisuren-Workshop am 2. November. Begrenzte Plätze verfügbar.",
+        "date": "28. Oktober 2024"
       },
       {
-        "category": "APAC",
-        "description": "Beam startet Sommer-Sicherheitskampagne",
-        "date": "12. September 2024"
+        "category": "Produkte",
+        "description": "Neue Bio-Produktlinie jetzt erhältlich - 100 % natürliche Inhaltsstoffe für gesünderes Haar.",
+        "date": "20. Oktober 2024"
       }
     ]
   },
   "Partnership": {
     "tag": "Strategische Partnerschaft",
-    "title": "Ihre Stadt neu denken.",
-    "description": "Wir möchten mit Ihnen zusammenarbeiten, um heute etwas Neues anzutreiben.",
+    "title": "Gemeinsam Schönheit schaffen",
+    "description": "Wir möchten mit Ihnen zusammenarbeiten, um noch heute etwas Schönes zu schaffen.",
     "partnerships": [
       {
-        "title": "Zusammenarbeiten mit Städten",
-        "subtitle": "Wir sind vollständig verpflichtet, mit Regierungen auf allen Ebenen zusammenzuarbeiten, um das Stadtleben für alle besser zu machen.",
-        "imageAlt": "Partnerschaftsbild 1",
-        "iconAlt": "Gebäude-Büro-Symbol"
+        "title": "Unternehmenspartnerschaften",
+        "subtitle": "Wir setzen uns voll und ganz dafür ein, mit Unternehmen zusammenzuarbeiten, um Wellness-Programme für ihre Mitarbeiter anzubieten.",
+        "imageAlt": "Bild Unternehmenspartnerschaft",
+        "iconAlt": "Gebäude Büro Icon"
       },
       {
-        "title": "Partnerschaft mit uns",
-        "subtitle": "Wo immer wir tätig sind, streben wir danach, unsere Aktivitäten durch Zusammenarbeit mit lokalen Gemeinschaften zu erweitern.",
-        "imageAlt": "Partnerschaftsbild 2",
-        "iconAlt": "Benutzergruppen-Symbol"
+        "title": "Beauty-Marken",
+        "subtitle": "Wo auch immer wir tätig sind, arbeiten wir mit führenden Beauty-Marken zusammen, um Ihnen die besten Produkte zu bieten.",
+        "imageAlt": "Bild Markenpartnerschaft",
+        "iconAlt": "Beauty-Marken Icon"
       },
       {
-        "title": "Beam Sicherheitsakademie",
-        "subtitle": "Wir arbeiten hart daran, sicherzustellen, dass jeder Beam-Nutzer auf die Fahrumgebung achtet und geteilte Stadträume verantwortungsvoll nutzt.",
-        "imageAlt": "Partnerschaftsbild 3",
-        "iconAlt": "Schild-Check-Symbol"
+        "title": "Bildungspartnerschaften",
+        "subtitle": "Wir arbeiten mit Beauty-Schulen und Trainingsinstituten zusammen, um die Berufsbildung in unserer Branche voranzutreiben.",
+        "imageAlt": "Bild Bildungspartnerschaft",
+        "iconAlt": "Bildung Icon"
       }
     ],
     "buttons": {
-      "prev": "Vorherige",
-      "next": "Nächste"
+      "prev": "Zurück",
+      "next": "Weiter"
     }
   },
   "GarageLocation": {
-    "tag": "Beam Garage-Standort",
-    "countries": [
-      {
-        "country": "Türkei",
-        "cities": ["Ankara", "Antalya", "Mugla"]
-      },
-      {
-        "country": "Indonesien",
-        "cities": [
-          "Bali",
-          "Bekasi",
-          "Bogor",
-          "Cikarang",
-          "Depok",
-          "Tanggerang",
-          "Tanggerang Selatan"
-        ]
-      },
-      {
-        "country": "Malaysia",
-        "cities": [
-          "Johor",
-          "Kedah",
-          "Kuala Lumpur",
-          "Kuala Trengganu",
-          "Kuantan",
-          "Selangor",
-          "Melaka",
-          "Negeri Sembilan",
-          "Perak",
-          "Pahang",
-          "Penang",
-          "Sabah",
-          "Sarawak"
-        ]
-      },
-      {
-        "country": "Südkorea",
-        "cities": [
-          "Ansan",
-          "Asan",
-          "Buc-Bupyeong",
-          "Busan",
-          "Changwon",
-          "Cheonan",
-          "Cheongju",
-          "Chuncheon",
-          "Daegu",
-          "Daejeon",
-          "Incheon",
-          "Seoul"
-        ]
-      },
-      {
-        "country": "Japan",
-        "cities": ["Naha", "Osaka", "Minami Uonuma"]
-      },
-      {
-        "country": "Thailand",
-        "cities": [
-          "Bangkok",
-          "Chiangmai",
-          "Chonburi",
-          "Pathum Thani",
-          "Depok",
-          "Phuket"
-        ]
-      },
-      {
-        "country": "Australien",
-        "cities": [
-          "Adelaide",
-          "Albury",
-          "Bendigo",
-          "Broome",
-          "Burnburry",
-          "Cairns",
-          "Darwin",
-          "Esperance",
-          "Foster-Tuncurry",
-          "Geraldton",
-          "Harvey Bay",
-          "Hobart",
-          "Ipswich",
-          "Kogarah",
-          "Launceston"
-        ]
-      },
-      {
-        "country": "Neuseeland",
-        "cities": [
-          "Napier",
-          "Porirua",
-          "Queenstown",
-          "Taupō",
-          "Tauranga",
-          "Whangārei"
-        ]
-      }
-    ]
+    "tag": "DeepCut Standorte",
+    "germany": {
+      "country": "Deutschland",
+      "city0": "Berlin",
+      "city1": "München",
+      "city2": "Hamburg",
+      "city3": "Köln",
+      "city4": "Frankfurt",
+      "city5": "Stuttgart",
+      "city6": "Düsseldorf"
+    },
+    "austria": {
+      "country": "Österreich",
+      "city0": "Wien",
+      "city1": "Salzburg",
+      "city2": "Innsbruck"
+    },
+    "switzerland": {
+      "country": "Schweiz",
+      "city0": "Zürich",
+      "city1": "Basel",
+      "city2": "Bern",
+      "city3": "Genf"
+    },
+    "france": {
+      "country": "Frankreich",
+      "city0": "Paris",
+      "city1": "Lyon",
+      "city2": "Marseille",
+      "city3": "Nizza"
+    }
   },
   "VehicleSafety": {
-    "tag": "Fahrzeugsicherheit",
-    "title1": "Sicherheit",
-    "desc1": "Für uns ist Sicherheit nicht nur eine Frage der Fahrzeuge, sondern auch der Fahrer, Fußgänger und Gemeinden, durch die wir fahren. Unsere Technologie gewährleistet maximale Sicherheit für alle.",
-    "title2": "CO₂-Fußabdruck",
-    "desc2": "In Asien-Pazifik ist Beam der einzige Climate Neutral-zertifizierte Elektromobilitätsbetreiber. Wir arbeiten kontinuierlich daran, unseren CO₂-Fußabdruck für eine grünere Zukunft zu reduzieren.",
-    "title3": "Lokale Unternehmen fördern",
-    "desc3": "Unsere #BeamBooster-Plattform nutzt Technologie und Standortdaten, um Nutzer mit lokalen Unternehmen zu verbinden und deren Umsatz zu steigern.",
-    "title4": "Arbeitsmöglichkeiten",
-    "desc4": "Unser Beam Marshals-Programm schafft Arbeitsmöglichkeiten in lokalen Gemeinden und bietet zusätzliches Einkommen und Unterstützung für die regionale Wirtschaft.",
-    "title5": "Daten für Stadtplanung",
-    "desc5": "Wir glauben, dass Daten der Schlüssel zu besserer Stadtplanung sind. Unsere Daten helfen Regierungen, effizientere Infrastruktur zu entwerfen."
+    "tag": "Qualität & Sicherheit",
+    "title1": "Hygienestandards",
+    "desc1": "Für uns bedeutet Sicherheit höchste Hygienestandards. Alle Werkzeuge werden nach jedem Kunden sterilisiert und wir befolgen strenge Hygieneprotokolle.",
+    "title2": "Qualitätsprodukte",
+    "desc2": "Wir verwenden nur hochwertige, getestete Produkte von führenden Marken. Die Gesundheit und Sicherheit Ihrer Haare haben für uns höchste Priorität.",
+    "title3": "Experten-Beratung",
+    "desc3": "Unsere geschickten Stylisten bieten persönliche Beratungen, um sicherzustellen, dass Sie den perfekten Look erhalten, der zu Ihrem Stil und Lebensstil passt.",
+    "title4": "Kontinuierliche Schulung",
+    "desc4": "Unser Team aktualisiert regelmäßig seine Fähigkeiten mit den neuesten Trends und Techniken durch berufliche Entwicklungsprogramme.",
+    "title5": "Kundenzufriedenheit",
+    "desc5": "Wir glauben, dass Feedback der Schlüssel zu einem besseren Service ist. Ihr Input hilft uns, unser Salon-Erlebnis kontinuierlich zu verbessern."
   },
   "Footer": {
-    "BeamMobility": "Deep cut",
+    "BeamMobility": "DeepCut Salon",
     "Copyright": "Copyright 2025 ©",
-    "CopyrightCompany": "Deep cut Holdings Pte. Ltd.",
+    "CopyrightCompany": "DeepCut Holdings GmbH",
     "Links": {
-      "Kota": "Städte",
+      "Kota": "Standorte",
       "Mitra": "Partner",
-      "Pengendara": "Fahrer",
+      "Pengendara": "Services",
       "Perusahaan": "Unternehmen",
-      "KotaYangBeroperasi": "Betriebsstädte",
+      "KotaYangBeroperasi": "Unsere Standorte",
       "BermitraDenganKami": "Partner werden",
-      "PerjalananGrup": "Gruppenfahrten",
-      "BeamBooster": "#BeamBooster",
-      "PesanKendaraanBeam": "Beam-Fahrzeug buchen",
-      "BerkendaraDenganKami": "Mit uns fahren",
+      "PerjalananGrup": "Gruppen-Services",
+      "BeamBooster": "Beauty Boost",
+      "PesanKendaraanBeam": "Termin buchen",
+      "BerkendaraDenganKami": "Unser Team",
       "UnduhAplikasi": "App herunterladen",
       "Karir": "Karriere",
-      "KendaraanKami": "Unsere Fahrzeuge",
-      "PrioritasKami": "Unsere Prioritäten",
-      "Berita": "Nachrichten"
+      "KendaraanKami": "Unsere Services",
+      "PrioritasKami": "Unsere Werte",
+      "Berita": "News"
     }
   },
   "CityPage": {
     "Hero": {
-      "title": "Stadt",
-      "description": "Beam ist ein globaler Marktführer in der Mikromobilität und betreibt Elektrofahrräder, Scooter und Mopeds in über 60 Städten im asiatisch-pazifischen Raum.",
+      "title": "Standorte",
+      "description": "DeepCut ist Ihr Premium-Salon für Damen und Herren mit Standorten in großen Städten in ganz Europa.",
       "downloadButton": "App herunterladen"
     },
     "Help": {
-      "title": "Möchten Sie Beam in Ihrer Stadt?",
-      "description": "Sind Sie ein Kommunal- oder Stadtregierungsvertreter, der mehr darüber erfahren möchte, wie geteilte Mikromobilitätssysteme in Ihrer Stadt implementiert werden können?",
-      "bringBeamButton": "Beam in Ihre Stadt bringen"
+      "title": "Möchten Sie DeepCut in Ihrer Stadt?",
+      "description": "Sind Sie daran interessiert, einen DeepCut-Franchise in Ihrer Stadt zu eröffnen? Kontaktieren Sie uns, um mehr über unsere Franchise-Möglichkeiten zu erfahren.",
+      "bringBeamButton": "Franchise-Informationen"
     }
   },
   "DownloadPage": {
-    "title": "Starten Sie mit Beam",
-    "description": "Finden, entsperren und fahren Sie Beam in einer nahegelegenen Stadt. Starten Sie innerhalb von Minuten, einfach und schnell. Verfügbar für iOS und Android.",
+    "title": "Starten Sie mit DeepCut",
+    "description": "Buchen Sie Termine, entdecken Sie Trends und verwalten Sie Ihre Beauty-Routine. Verfügbar für iOS und Android.",
     "iosButton": "Für iOS herunterladen",
     "androidButton": "Für Android herunterladen"
   },
   "Benefit": {
     "tag": "Vorteile",
-    "title": "Unsere Vorteile",
-    "description": "Bei Beam sind wir vollständig verpflichtet, mit Organisationen aller Art und Größe zusammenzuarbeiten, um das städtische Leben für alle besser zu machen.",
+    "title": "DeepCut Vorteile",
+    "description": "Bei DeepCut sind wir voll und ganz darauf committed, mit Organisationen aller Art und Größe zusammenzuarbeiten, um Schönheit und Wohlbefinden für alle zu verbessern.",
     "items": {
-      "businessSolutions": "Geschäftslösungen",
-      "brandingAndAdvertising": "Branding und Werbung",
-      "higherEducationPartnership": "Partnerschaft mit Hochschulbildung"
+      "businessSolutions": "Business-Lösungen",
+      "brandingAndAdvertising": "Marketing & Events",
+      "higherEducationPartnership": "Bildungspartnerschaften"
     }
   },
   "Testimonial": {
-    "tag": "Testimonial von Partnern",
+    "tag": "Kundenstimmen",
     "quotes": [
       {
-        "quote": "#BeamBooster ist eine intelligente Initiative, die Beam-Elektro-Scooter nutzt, um mehr Menschen zu unseren Türen zu bringen. Wir sind begeistert, dabei zu sein.",
-        "author": "Helen Rutherford",
-        "position": "Kommissarin"
+        "quote": "DeepCut ist mein absoluter Lieblingssalon. Die Qualität und der Service sind einfach unschlagbar und ich gehe immer mit einem fantastischen Gefühl raus.",
+        "author": "Maria Weber",
+        "position": "Stammkundin"
       },
       {
-        "quote": "Dieses Programm hat geholfen, die täglichen Besucher in unserem Geschäft zu erhöhen. Die Beam-Scooter sind auffällig, und wir haben einen positiven Einfluss gesehen.",
-        "author": "Jane Smith",
-        "position": "Managerin von ABC Store"
+        "quote": "Das Team versteht genau, was ich möchte. Immer auf dem neuesten Stand der neuesten Trends und Techniken.",
+        "author": "Thomas Müller",
+        "position": "Firmenkunde"
       },
       {
-        "quote": "Wir waren sehr beeindruckt von der direkten Wirkung von #BeamBooster. Das ist eine brillante Innovation, die lokale Unternehmen wie unseres unterstützt.",
-        "author": "Michael Brown",
-        "position": "CEO von DEF Restaurant"
+        "quote": "Seit ich zu DeepCut gehe, bekomme ich ständig Komplimente für meine Haare. Absolute Empfehlung!",
+        "author": "Sarah Klein",
+        "position": "Neukundin"
       }
     ]
   },
   "QrCode": {
-    "title": "Sie können die Beam-App auch über den QR-Code unten herunterladen.",
+    "title": "Sie können die DeepCut App auch über den untenstehenden QR-Code herunterladen.",
     "android": {
       "title": "Android",
-      "description": "Genießen Sie nahtloses Reisen mit Beam. Finden, entsperren und fahren Sie Scooter in Ihrer Stadt mit unserer Android-App."
+      "description": "Buchen Sie Termine, entdecken Sie Trends und mehr mit der DeepCut Android-App."
     },
     "ios": {
       "title": "iOS",
-      "description": "Genießen Sie nahtloses Reisen mit Beam. Finden, entsperren und fahren Sie Scooter in Ihrer Stadt mit unserer iOS-App."
+      "description": "Das komplette DeepCut-Erlebnis in Ihrer iOS-App."
     }
   }
 }

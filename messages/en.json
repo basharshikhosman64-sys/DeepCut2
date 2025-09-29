@@ -1,11 +1,25 @@
 {
+  "GenderSelection": {
+    "male": {
+      "title": "Male"
+    },
+    "female": {
+      "title": "Female"
+    },
+    "other": {
+      "title": "Other"
+    }
+  },
   "Navbar": {
     "home": "Home",
+    "blog": "Our Work",
+    "booking": "Book an Appointment",
+    "contact": "Contact Us",
+    "partner": "Team",
+    "pricing": "Prices",
     "city": "Locations",
-    "partner": "Partners",
     "vehicle": "Services",
-    "company": "Company",
-    "contact": "Contact Us"
+    "company": "Company"
   },
   "ContactPage": {
     "Hero": {
@@ -542,7 +556,13 @@
   },
   "HomePage": {
     "Hero": {
+      "titleMale": "Your style, our expertise",
+      "titleOther": "Your style, our expertise",
+      "titleFemale": "Your Fassion, Lady, our Goal",
       "title": "Your style, our expertise",
+      "descriptionMale": "Transform your look with DeepCut - where tradition meets innovation.",
+      "descriptionFemale": "Transform your look with DeepCut - where tradition meets innovation.",
+      "descriptionOther": "Transform your look with DeepCut - where tradition meets innovation.",
       "description": "Transform your look with DeepCut - where tradition meets innovation.",
       "buttons": {
         "viewGarage": "Find Locations",
@@ -551,8 +571,17 @@
     },
     "Feature": {
       "tag": "Our Expertise",
+      "tagMale": "Our Expertise",
+      "tagFemale": "Our Expertise",
+      "tagOther": "Our Expertise",
       "title": "For Men & Women",
+      "titleMale": "For Men & Women",
+      "titleFemale": "For Men & Women",
+      "titleOther": "For Men & Women",
       "description": "Whether classic elegance or modern trends, our experienced stylists create the perfect look for you. Professional services for all hair types and lengths.",
+      "descriptionMale": "Whether classic elegance or modern trends, our experienced stylists create the perfect look for you. Professional services for all hair types and lengths.",
+      "descriptionFemale": "Whether classic elegance or modern trends, our experienced stylists create the perfect look for you. Professional services for all hair types and lengths.",
+      "descriptionOther": "Whether classic elegance or modern trends, our experienced stylists create the perfect look for you. Professional services for all hair types and lengths.",
       "button": "Learn more"
     },
     "Help": {
