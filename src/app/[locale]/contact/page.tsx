@@ -134,13 +134,14 @@ export default function ContactPage() {
                     className='w-full rounded-xl border-2 border-secondary-200 focus:border-accent focus:ring-2 focus:ring-accent/20 p-4'
                   >
                     <option value=''>{t('Form.selectOptions.default')}</option>
-                    {Object.entries(t.raw('Form.selectOptions')).map(
-                      ([key, value]) =>
-                        key === 'default' ? null : (
-                          <option key={key} value={key}>
-                            {value}
-                          </option>
-                        )
+                    {Object.entries(
+                      t.raw('Form.selectOptions') as Record<string, string>
+                    ).map(([key, value]) =>
+                      key === 'default' ? null : (
+                        <option key={key} value={key}>
+                          {value}
+                        </option>
+                      )
                     )}
                   </select>
                 </div>
