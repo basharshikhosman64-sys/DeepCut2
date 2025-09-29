@@ -1,7 +1,5 @@
 'use client';
 
-import { useGender } from '@/context/GenderContext';
-
 type HeroProps = {
   title: string;
   description: string;
@@ -15,8 +13,6 @@ export default function Hero({
   children,
   backgroundClass,
 }: HeroProps) {
-  const { gender } = useGender();
-
   // Use dynamic background if no specific class is provided
   const bgClass = backgroundClass || 'bg-hero-dynamic';
 

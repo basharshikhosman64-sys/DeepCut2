@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react';
 
 export const useTranslation = (locale: string = 'en') => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [translations, setTranslations] = useState<any>({});
 
   useEffect(() => {
